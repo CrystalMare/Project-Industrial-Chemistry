@@ -23,7 +23,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 /**
- * 
  * @author Chase
  *
  */
@@ -130,6 +129,7 @@ public class BlockPIC extends Block
 		if (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof IToolHammer)
 		{
 			this.dropBlockAsItem(world, x, y, z, new ItemStack(this));
+			dropInventory(world, x, y, z);
 			world.setBlock(x, y, z, net.minecraft.init.Blocks.air);
 			world.removeTileEntity(x, y, z);
 			return true;

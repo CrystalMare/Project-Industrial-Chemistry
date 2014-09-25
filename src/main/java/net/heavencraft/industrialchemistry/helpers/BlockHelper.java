@@ -7,7 +7,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 /**
  * 
  * @author Chase
- *
  */
 public class BlockHelper
 {
