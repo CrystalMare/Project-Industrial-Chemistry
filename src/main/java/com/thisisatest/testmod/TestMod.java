@@ -1,7 +1,6 @@
 package com.thisisatest.testmod;
 
-public class TestMod {
-
-    //Testy~
-
+public class TestMod
+{
+	
 }
