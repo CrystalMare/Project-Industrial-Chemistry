@@ -1,6 +1,6 @@
 package net.heavencraft.industrialchemistry.reference;
 
-public class Names
+public abstract class Names
 {
 	public static class Mod
 	{

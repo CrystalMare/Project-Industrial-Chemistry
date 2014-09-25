@@ -3,6 +3,12 @@ package net.heavencraft.industrialchemistry.helpers;
 import net.heavencraft.industrialchemistry.reference.Names;
 import net.minecraft.util.ResourceLocation;
 
+
+/**
+ * 
+ * @author Chase
+ *
+ */
 public class ResourceLocationHelper
 {
     public static ResourceLocation getResourceLocation(String modId, String path)
