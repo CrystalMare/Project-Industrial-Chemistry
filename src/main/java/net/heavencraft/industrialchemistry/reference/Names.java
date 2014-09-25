@@ -16,11 +16,16 @@ public abstract class Names
 	}
 	
 	
-	public static class NBT
+	public static final class NBT
 	{
 		public static String Direction = "direction";
 		public static String CustomName = "customname";
 		public static String Owner = "owner";
 		public static String Items = "items";
+	}
+	
+	public static final class Block 
+	{
+		public static String BLOCKTESTING = "blockTesting";
 	}
 }
