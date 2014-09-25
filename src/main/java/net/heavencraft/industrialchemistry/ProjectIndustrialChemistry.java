@@ -1,5 +1,6 @@
 package net.heavencraft.industrialchemistry;
 
+import net.heavencraft.industrialchemistry.init.PICBlocks;
 import net.heavencraft.industrialchemistry.proxy.IProxy;
 import net.heavencraft.industrialchemistry.reference.Names;
 import cpw.mods.fml.common.Mod;
@@ -19,6 +20,7 @@ public class ProjectIndustrialChemistry
 	@SidedProxy(clientSide = Names.Proxy.CLIENT_CLASS, serverSide = Names.Proxy.SERVER_CLASS)
 	public static IProxy proxy;
 	
+	
 	@EventHandler
 	public void onServerStarting(FMLServerStartingEvent event)
 	{
@@ -28,7 +30,7 @@ public class ProjectIndustrialChemistry
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		// Init Config
+		PICBlocks.init();
 		// Init PacketHandler
 		// Init Items
 		// Init Blocks
