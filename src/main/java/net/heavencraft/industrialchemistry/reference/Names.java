@@ -31,4 +31,9 @@ public abstract class Names
 		public static String BLOCKTESTING = "blockTesting";
 		public static String BlockOreMalachite = "blockOreMalachite";
 	}
+	
+	public static final class Item
+	{
+		public static String ItemCrushedMalachite = "itemCrushedMalachite";
+	}
 }

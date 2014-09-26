@@ -1,2 +1,6 @@
 container.pic.blockTesting=Testing Block
+
 tile.pic:TestBlock.name=Test Block
+tile.pic:blockOreMalachite.name=Malachite Ore
+
+item.itemCrushedMalachite.name=Crushed Malachite Ore

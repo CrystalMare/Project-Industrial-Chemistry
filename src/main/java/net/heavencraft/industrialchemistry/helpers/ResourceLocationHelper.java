@@ -31,4 +31,9 @@ public class ResourceLocationHelper
     {
     	return Names.Mod.ID + ":" + path;
     }
+    
+    public static String getItemLocation(String path)
+    {
+    	return Names.Mod.ID + ":" + path;
+    }
 }
