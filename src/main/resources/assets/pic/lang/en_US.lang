@@ -1,7 +1,9 @@
 container.pic.blockTesting=Testing Block
 
 tile.pic:TestBlock.name=Test Block
-tile.pic:blockOreMalachite.name=Malachite Ore
+
+
+tile.pic:oreMalachite.name=Malachite Ore
 
 item.crushedMalachite.name=Crushed Malachite Ore
 
@@ -9,7 +11,7 @@ item.chemicalPotassiumNitrate.name=Potassium Nitrate
 item.chemicalSulfurTrioxide.name=Sulfur Trioxide
 item.chemicalAmmoniumNitrate.name=Ammonium Nitrate
 item.chemicalLimestone.name=Limestone
-item.chemicalVanadium.nameOxide=Vanadium Oxide
+item.chemicalVanadiumOxide.name=Vanadium Oxide
 item.chemicalSulfur.name=Sulfur
-item.chemicalSaltpeter.mame=Saltpeter
+item.chemicalSaltpeter.name=Saltpeter
 

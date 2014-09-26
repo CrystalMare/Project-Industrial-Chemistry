@@ -7,7 +7,7 @@ public class BlockOreMalachite extends BlockOrePIC
 {
 	public BlockOreMalachite()
 	{
-		this.setBlockName(Names.Block.BlockOreMalachite);
+		this.setBlockName(Names.Block.OreMalachite);
 		this.setTexture(Textures.Block.MalachiteOre);
 	}
 }

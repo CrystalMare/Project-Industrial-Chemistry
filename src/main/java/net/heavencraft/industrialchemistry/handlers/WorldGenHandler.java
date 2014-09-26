@@ -28,7 +28,7 @@ public class WorldGenHandler implements IWorldGenerator
 	
 	private void generateSurface(World world, Random random, int x, int z)
 	{
-		this.addOreSpawn(PICBlocks.blockMalachiteOre, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
+		this.addOreSpawn(PICBlocks.oreMalachite, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
 	}
 	
 	private void generateNether(World world, Random random, int i, int j)

@@ -11,11 +11,11 @@ public class PICBlocks
 	//Declare a public static final BlockPIC here
 
 	public static final BlockPIC blockTesting = new BlockTesting();
-	public static final BlockPIC blockMalachiteOre = new BlockOreMalachite();
+	public static final BlockPIC oreMalachite = new BlockOreMalachite();
 	
 	public static void init()
 	{
 		GameRegistry.registerBlock(blockTesting, Names.Block.BLOCKTESTING);
-		GameRegistry.registerBlock(blockMalachiteOre, Names.Block.BlockOreMalachite);
+		GameRegistry.registerBlock(oreMalachite, Names.Block.OreMalachite);
 	}
 }

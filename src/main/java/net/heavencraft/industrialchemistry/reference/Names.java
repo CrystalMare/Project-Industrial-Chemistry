@@ -29,7 +29,7 @@ public abstract class Names
 	public static final class Block
 	{
 		public static String BLOCKTESTING = "blockTesting";
-		public static String BlockOreMalachite = "blockOreMalachite";
+		public static String OreMalachite = "oreMalachite";
 	}
 	
 	public static final class Item
