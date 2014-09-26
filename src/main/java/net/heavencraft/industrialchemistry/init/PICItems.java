@@ -20,14 +20,14 @@ public class PICItems
 	
 	public static void init()
 	{
-		GameRegistry.registerItem(crushedMalachiteOre, Names.Item.ItemCrushedMalachite);
+		GameRegistry.registerItem(crushedMalachiteOre, Names.Item.CrushedMalachite);
 		
-		GameRegistry.registerItem(chemicalPotassiumNitrate, Names.Item.ItemChemicalPotassiumNitrate);
-		GameRegistry.registerItem(chemicalSulfurTrioxide, Names.Item.ItemChemicalSulfurTrioxide);
-		GameRegistry.registerItem(chemicalAmmoniumNitrate, Names.Item.ItemChemicalAmmoniumNitrate);
-		GameRegistry.registerItem(chemicalLimestone, Names.Item.ItemChemicalLimestone);
-		GameRegistry.registerItem(chemicalVanadiumOxide, Names.Item.ItemChemicalVanadiumOxide);
-		GameRegistry.registerItem(chemicalSulfur, Names.Item.ItemChemicalSulfur);
-		GameRegistry.registerItem(chemicalSaltpeter, Names.Item.ItemChemicalSaltpeter);
+		GameRegistry.registerItem(chemicalPotassiumNitrate, Names.Item.ChemicalPotassiumNitrate);
+		GameRegistry.registerItem(chemicalSulfurTrioxide, Names.Item.ChemicalSulfurTrioxide);
+		GameRegistry.registerItem(chemicalAmmoniumNitrate, Names.Item.ChemicalAmmoniumNitrate);
+		GameRegistry.registerItem(chemicalLimestone, Names.Item.ChemicalLimestone);
+		GameRegistry.registerItem(chemicalVanadiumOxide, Names.Item.ChemicalVanadiumOxide);
+		GameRegistry.registerItem(chemicalSulfur, Names.Item.ChemicalSulfur);
+		GameRegistry.registerItem(chemicalSaltpeter, Names.Item.ChemicalSaltpeter);
 	}
 }

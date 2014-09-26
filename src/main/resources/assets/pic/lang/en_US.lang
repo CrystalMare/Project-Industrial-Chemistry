@@ -3,13 +3,13 @@ container.pic.blockTesting=Testing Block
 tile.pic:TestBlock.name=Test Block
 tile.pic:blockOreMalachite.name=Malachite Ore
 
-item.itemCrushedMalachite.name=Crushed Malachite Ore
+item.crushedMalachite.name=Crushed Malachite Ore
 
-item.itemChemicalPotassiumNitrate=Potassium Nitrate
-item.itemChemicalSulfurTrioxide=Sulfur Trioxide
-item.itemChemicalAmmoniumNitrate=Ammonium Nitrate
-item.itemChemicalLimestone=Limestone
-item.itemChemicalVanadiumOxide=Vanadium Oxide
-item.itemChemicalSulfur=Sulfur
-item.itemChemicalSaltpeter=Saltpeter
+item.chemicalPotassiumNitrate.name=Potassium Nitrate
+item.chemicalSulfurTrioxide.name=Sulfur Trioxide
+item.chemicalAmmoniumNitrate.name=Ammonium Nitrate
+item.chemicalLimestone.name=Limestone
+item.chemicalVanadium.nameOxide=Vanadium Oxide
+item.chemicalSulfur.name=Sulfur
+item.chemicalSaltpeter.mame=Saltpeter
 

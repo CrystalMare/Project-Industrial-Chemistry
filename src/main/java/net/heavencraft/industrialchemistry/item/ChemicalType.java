@@ -4,13 +4,13 @@ import net.heavencraft.industrialchemistry.reference.Names;
 
 public enum ChemicalType
 {
-	POTASSIUM_NITRATE	(Names.Item.ItemChemicalPotassiumNitrate),
-	SULFUR_TRIOXIDE		(Names.Item.ItemChemicalSulfurTrioxide),
-	AMMONIUM_NITRATE	(Names.Item.ItemChemicalPotassiumNitrate),
-	LIMESTONE			(Names.Item.ItemChemicalLimestone),
-	VANADIUM_OXIDE		(Names.Item.ItemChemicalVanadiumOxide),
-	SULFUR				(Names.Item.ItemChemicalSulfur),
-	SALTPETER			(Names.Item.ItemChemicalSaltpeter);
+	POTASSIUM_NITRATE	(Names.Item.ChemicalPotassiumNitrate),
+	SULFUR_TRIOXIDE		(Names.Item.ChemicalSulfurTrioxide),
+	AMMONIUM_NITRATE	(Names.Item.ChemicalPotassiumNitrate),
+	LIMESTONE			(Names.Item.ChemicalLimestone),
+	VANADIUM_OXIDE		(Names.Item.ChemicalVanadiumOxide),
+	SULFUR				(Names.Item.ChemicalSulfur),
+	SALTPETER			(Names.Item.ChemicalSaltpeter);
 	
 	private String name;
 	

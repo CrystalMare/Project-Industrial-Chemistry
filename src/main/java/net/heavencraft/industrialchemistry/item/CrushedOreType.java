@@ -5,7 +5,7 @@ import net.heavencraft.industrialchemistry.reference.Names;
 public enum CrushedOreType
 {
 	
-	MALACHITE(Names.Item.ItemCrushedMalachite);
+	MALACHITE(Names.Item.CrushedMalachite);
 	
 	private String name;
 	
