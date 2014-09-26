@@ -35,5 +35,13 @@ public abstract class Names
 	public static final class Item
 	{
 		public static String ItemCrushedMalachite = "itemCrushedMalachite";
+		
+		public static String ItemChemicalPotassiumNitrate = "itemChemicalPotassiumNitrate";
+		public static String ItemChemicalSulfurTrioxide = "itemChemicalSulfurTrioxide";
+		public static String ItemChemicalAmmoniumNitrate = "itemChemicalAmmoniumNitrate";
+		public static String ItemChemicalLimestone = "itemChemicalLimestone";
+		public static String ItemChemicalVanadiumOxide = "itemChemicalVanadiumOxide";
+		public static String ItemChemicalSulfur = "itemChemicalSulfur";
+		public static String ItemChemicalSaltpeter = "itemChemicalSaltpeter";
 	}
 }

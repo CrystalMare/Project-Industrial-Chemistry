@@ -4,3 +4,12 @@ tile.pic:TestBlock.name=Test Block
 tile.pic:blockOreMalachite.name=Malachite Ore
 
 item.itemCrushedMalachite.name=Crushed Malachite Ore
+
+item.itemChemicalPotassiumNitrate=Potassium Nitrate
+item.itemChemicalSulfurTrioxide=Sulfur Trioxide
+item.itemChemicalAmmoniumNitrate=Ammonium Nitrate
+item.itemChemicalLimestone=Limestone
+item.itemChemicalVanadiumOxide=Vanadium Oxide
+item.itemChemicalSulfur=Sulfur
+item.itemChemicalSaltpeter=Saltpeter
+
