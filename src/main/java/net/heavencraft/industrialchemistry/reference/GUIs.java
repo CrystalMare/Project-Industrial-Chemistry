@@ -4,7 +4,8 @@ public class GUIs
 {
 	public enum ID
 	{
-		TestingBlock;
+		TestingBlock,
+		MachineChemicalFurnace;
 		
 		public int getID()
 		{
