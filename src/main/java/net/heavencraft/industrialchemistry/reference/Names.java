@@ -28,8 +28,14 @@ public abstract class Names
 	
 	public static final class Block
 	{
+		public static final class Machine
+		{
+			public static String MachineChemicalFurnace = "machineChemicalFurnace";
+		}
+		
 		public static String BLOCKTESTING = "blockTesting";
 		public static String OreMalachite = "oreMalachite";
+		
 	}
 	
 	public static final class Item

@@ -53,6 +53,7 @@ public class ProjectIndustrialChemistry
 		//Register WorldGen
 		GameRegistry.registerWorldGenerator(new WorldGenHandler(), 1);
 		// Register Tile Entities
+		proxy.registerTileEntities();
 		// Init Custom Rendering and Textures
 		// Register EventHandlers
 		// Init CraftingHandler

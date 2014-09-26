@@ -15,15 +15,23 @@ public class Textures
 		public static final ResourceLocation Slot = ResourceLocationHelper.getGuiLocation("Slot.png");
 	}
 	
-	
 	public static final class Block
 	{
-		public static final String MalachiteOre = ResourceLocationHelper.getBlockLocation("malachiteOre");
+		public static final class Machine
+		{
+			//Fan Top
+			public static final String Fan = ResourceLocationHelper.getBlockLocation("fan");
+			
+			//Chemical Furnace
+			public static final String ChemicalFurnaceFront = ResourceLocationHelper.getBlockLocation("chemicalFurnace_front");
+			public static final String ChemicalFurnaceSide = ResourceLocationHelper.getBlockLocation("chemicalFurnace_side");
+		}
 		
+		public static final String MalachiteOre = ResourceLocationHelper.getBlockLocation("malachiteOre");
 		public static final String TestBlock = ResourceLocationHelper.getBlockLocation("testBlock");
 	}
 	
-	public static final class Item 
+	public static final class Item
 	{
 		public static final String CrushedMalachite = ResourceLocationHelper.getItemLocation("crushedMalachite");
 	}
