@@ -2,6 +2,7 @@ package net.heavencraft.industrialchemistry.block;
 
 import net.heavencraft.industrialchemistry.ProjectIndustrialChemistry;
 import net.heavencraft.industrialchemistry.reference.GUIs;
+import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.TETestingBlock;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +14,7 @@ public class BlockTesting extends BlockPIC implements ITileEntityProvider
 	public BlockTesting()
 	{
 		this.setBlockName("TestBlock");
+		this.setTexture(Textures.Block.TestBlock);
 		this.setGUIID(GUIs.ID.TestingBlock);
 	}
 
