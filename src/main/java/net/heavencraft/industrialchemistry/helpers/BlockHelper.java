@@ -1,8 +1,10 @@
 package net.heavencraft.industrialchemistry.helpers;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.oredict.OreDictionary;
 
 /**
  * 
@@ -58,5 +60,10 @@ public class BlockHelper
 		}
 		int l = MathHelper.floor_double((entityLivingBase.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 		return l == 0 ? ForgeDirection.NORTH : (l == 1 ? ForgeDirection.EAST : (l == 2 ? ForgeDirection.SOUTH : (l == 3 ? ForgeDirection.WEST : ForgeDirection.DOWN)));
+	}
+	
+	public void registerToOreDictionary(String string, Block block)
+	{
+		OreDictionary.registerOre(string, block);
 	}
 }

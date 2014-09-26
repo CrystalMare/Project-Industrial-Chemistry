@@ -34,7 +34,7 @@ public class BlockPIC extends Block
 	
 	GUIs.ID guiID;
 	
-	public ResourceLocation textureLocation;
+	public String textureLocation;
 	
 	public BlockPIC()
 	{
@@ -62,7 +62,7 @@ public class BlockPIC extends Block
 		return this.guiID != null;
 	}
 	
-	public void setTexture(ResourceLocation location)
+	public void setTexture(String location)
 	{
 		this.textureLocation = location;
 	}
@@ -71,7 +71,14 @@ public class BlockPIC extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+		if (this.textureLocation != null && this.textureLocation != "")
+		{
+			blockIcon = iconRegister.registerIcon(this.textureLocation);
+		}
+		else
+		{
+			blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+		}
 	}
 	
 	protected String getUnwrappedUnlocalizedName(String unlocalizedName)
@@ -156,16 +163,16 @@ public class BlockPIC extends Block
 			return true;
 		}
 		return false;
-	}																			
+	}
 	
 	@Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float lookPosX, float lookPosY, float lookPosZ)
-    {
-		if(this.hasGUIID() && !player.isSneaking())
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float lookPosX, float lookPosY, float lookPosZ)
+	{
+		if (this.hasGUIID() && !player.isSneaking())
 		{
 			player.openGui(ProjectIndustrialChemistry.instance, this.getGUIID().getID(), world, x, y, z);
 			return true;
 		}
 		return false;
-    }
+	}
 }

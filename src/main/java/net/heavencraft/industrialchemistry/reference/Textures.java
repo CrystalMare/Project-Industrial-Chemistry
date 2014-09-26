@@ -14,4 +14,10 @@ public class Textures
 		public static final ResourceLocation LiquidBarOverlay = ResourceLocationHelper.getGuiLocation("LiquidBarOverlay.png");
 		public static final ResourceLocation Slot = ResourceLocationHelper.getGuiLocation("Slot.png");
 	}
+	
+	
+	public static final class Block
+	{
+		public static final String MalachiteOre = ResourceLocationHelper.getBlockLocation("malachiteOre");
+	}
 }

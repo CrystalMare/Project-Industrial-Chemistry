@@ -27,9 +27,8 @@ public class ResourceLocationHelper
     	return getResourceLocation(GuisLocation + path);
     }
     
-    public static ResourceLocation getBlockLocation(String path)
+    public static String getBlockLocation(String path)
     {
-    	String blockLocation = "";
-    	return getResourceLocation(blockLocation + path);
+    	return Names.Mod.ID + ":" + path;
     }
 }
