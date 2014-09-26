@@ -2,8 +2,11 @@ package net.heavencraft.industrialchemistry.block;
 
 import java.util.Random;
 
+import net.heavencraft.industrialchemistry.ProjectIndustrialChemistry;
 import net.heavencraft.industrialchemistry.creativetab.CreativeTab;
 import net.heavencraft.industrialchemistry.helpers.BlockHelper;
+import net.heavencraft.industrialchemistry.reference.GUIs;
+import net.heavencraft.industrialchemistry.reference.GUIs.ID;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -24,10 +27,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * @author Chase
- *
+ * 
  */
 public class BlockPIC extends Block
 {
+	
+	GUIs.ID guiID;
+	
 	public ResourceLocation textureLocation;
 	
 	public BlockPIC()
@@ -39,6 +45,21 @@ public class BlockPIC extends Block
 	{
 		super(material);
 		this.setCreativeTab(CreativeTab.PIC_TAB);
+	}
+	
+	public ID getGUIID()
+	{
+		return guiID;
+	}
+	
+	protected void setGUIID(ID id)
+	{
+		this.guiID = id;
+	}
+	
+	public boolean hasGUIID()
+	{
+		return this.guiID != null;
 	}
 	
 	public void setTexture(ResourceLocation location)
@@ -136,4 +157,15 @@ public class BlockPIC extends Block
 		}
 		return false;
 	}
+	
+	@Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float lookPosX, float lookPosY, float lookPosZ)
+    {
+		if(this.hasGUIID() && !player.isSneaking())
+		{
+			player.openGui(ProjectIndustrialChemistry.instance, this.getGUIID().getID(), world, x, y, z);
+			return true;
+		}
+		return false;
+    }
 }
