@@ -26,7 +26,7 @@ public class PICItems
 		GameRegistry.registerItem(chemicalSulfurTrioxide, Names.Item.ItemChemicalSulfurTrioxide);
 		GameRegistry.registerItem(chemicalAmmoniumNitrate, Names.Item.ItemChemicalAmmoniumNitrate);
 		GameRegistry.registerItem(chemicalLimestone, Names.Item.ItemChemicalLimestone);
-		GameRegistry.registerItem(chemicalVanadiumOxide, Names.Item.ItemChemicalLimestone);
+		GameRegistry.registerItem(chemicalVanadiumOxide, Names.Item.ItemChemicalVanadiumOxide);
 		GameRegistry.registerItem(chemicalSulfur, Names.Item.ItemChemicalSulfur);
 		GameRegistry.registerItem(chemicalSaltpeter, Names.Item.ItemChemicalSaltpeter);
 	}
