@@ -15,6 +15,7 @@ public abstract class TEBlockPIC extends TileEntity
 	
 	public TEBlockPIC()
 	{
+		name = "";
         orientation = ForgeDirection.SOUTH;
         customName = "";
         owner = "";
