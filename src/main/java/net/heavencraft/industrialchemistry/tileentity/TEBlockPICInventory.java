@@ -136,7 +136,7 @@ public abstract class TEBlockPICInventory extends TEBlockPIC implements IInvento
 		super.readFromNBT(nbtTagCompound);
 		
 		// Read in the ItemStacks in the inventory from NBT
-		NBTTagList tagList = nbtTagCompound.getTagList(Names.NBT.Items, 10);
+		NBTTagList tagList = nbtTagCompound.getTagList(Names.NBT.TileEntity.Items, 10);
 		inventory = new ItemStack[this.getSizeInventory()];
 		for (int i = 0; i < tagList.tagCount(); ++i)
 		{
@@ -166,6 +166,6 @@ public abstract class TEBlockPICInventory extends TEBlockPIC implements IInvento
 				tagList.appendTag(tagCompound);
 			}
 		}
-		nbtTagCompound.setTag(Names.NBT.Items, tagList);
+		nbtTagCompound.setTag(Names.NBT.TileEntity.Items, tagList);
 	}
 }

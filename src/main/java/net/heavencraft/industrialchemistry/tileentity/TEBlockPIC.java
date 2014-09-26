@@ -72,19 +72,19 @@ public abstract class TEBlockPIC extends TileEntity
     {
         super.readFromNBT(nbtTagCompound);
 
-        if (nbtTagCompound.hasKey(Names.NBT.Direction))
+        if (nbtTagCompound.hasKey(Names.NBT.TileEntity.Direction))
         {
-            this.orientation = ForgeDirection.getOrientation(nbtTagCompound.getByte(Names.NBT.Direction));
+            this.orientation = ForgeDirection.getOrientation(nbtTagCompound.getByte(Names.NBT.TileEntity.Direction));
         }
 
-        if (nbtTagCompound.hasKey(Names.NBT.CustomName))
+        if (nbtTagCompound.hasKey(Names.NBT.TileEntity.CustomName))
         {
-            this.customName = nbtTagCompound.getString(Names.NBT.CustomName);
+            this.customName = nbtTagCompound.getString(Names.NBT.TileEntity.CustomName);
         }
 
-        if (nbtTagCompound.hasKey(Names.NBT.Owner))
+        if (nbtTagCompound.hasKey(Names.NBT.TileEntity.Owner))
         {
-            this.owner = nbtTagCompound.getString(Names.NBT.Owner);
+            this.owner = nbtTagCompound.getString(Names.NBT.TileEntity.Owner);
         }
     }
     
@@ -93,16 +93,16 @@ public abstract class TEBlockPIC extends TileEntity
     {
         super.writeToNBT(nbtTagCompound);
 
-        nbtTagCompound.setByte(Names.NBT.Direction, (byte) orientation.ordinal());
+        nbtTagCompound.setByte(Names.NBT.TileEntity.Direction, (byte) orientation.ordinal());
 
         if (this.hasCustomName())
         {
-            nbtTagCompound.setString(Names.NBT.CustomName, customName);
+            nbtTagCompound.setString(Names.NBT.TileEntity.CustomName, customName);
         }
 
         if (this.hasOwner())
         {
-            nbtTagCompound.setString(Names.NBT.Owner, owner);
+            nbtTagCompound.setString(Names.NBT.TileEntity.Owner, owner);
         }
     }
     

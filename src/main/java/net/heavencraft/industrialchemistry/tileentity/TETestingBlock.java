@@ -12,18 +12,7 @@ public class TETestingBlock extends TEBlockPIC
 	@Override
 	public void updateEntity()
 	{
-		TileEntity tile = this.worldObj.getTileEntity(this.xCoord, this.yCoord + 1, this.zCoord);
-		if (tile instanceof IFluidHandler)
-		{
-			FluidTankInfo[] info = ((IFluidHandler) tile).getTankInfo(ForgeDirection.UP);
-			if (info != null)
-			{
-				for (FluidTankInfo tankInfo : info)
-				{
-					System.out.println(tankInfo.toString());
-				}
-			}
-		}
+
 	}
 	
 	@Override

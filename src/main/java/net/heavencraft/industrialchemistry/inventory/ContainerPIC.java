@@ -18,6 +18,11 @@ public class ContainerPIC extends Container
 		return true;
 	}
 	
+	public void drawInv(InventoryPlayer player)
+	{
+		this.drawInv(player, 0, 0);
+	}
+	
 	public void drawInv(InventoryPlayer inventory, int xOffset, int yOffset)
 	{
 		for (int row = 0; row < InventoryRowsPlayer; ++row)
