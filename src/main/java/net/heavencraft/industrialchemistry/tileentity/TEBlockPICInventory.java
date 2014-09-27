@@ -110,17 +110,18 @@ public abstract class TEBlockPICInventory extends TEBlockPIC implements IInvento
 	public void openInventory()
 	{
 		++numUsingPlayers;
-        //worldObj.addBlockEvent(xCoord, yCoord, zCoord, PICBlocks.blockLiquidIO, 1, numUsingPlayers);    
+		// worldObj.addBlockEvent(xCoord, yCoord, zCoord,
+		// PICBlocks.blockLiquidIO, 1, numUsingPlayers);
 		
 	}
 	
 	@Override
 	public void closeInventory()
 	{
-
-        --numUsingPlayers;
-        //worldObj.addBlockEvent(xCoord, yCoord, zCoord, PICBlocks.blockLiquidIO, 1, numUsingPlayers);
-    
+		
+		--numUsingPlayers;
+		// worldObj.addBlockEvent(xCoord, yCoord, zCoord,
+		// PICBlocks.blockLiquidIO, 1, numUsingPlayers);
 		
 	}
 	

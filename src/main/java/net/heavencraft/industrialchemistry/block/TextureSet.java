@@ -17,7 +17,6 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 	private final MachineState state;
 	private final TextureSet parrent;
 	private HashMap<MachineState, TextureSet> children;
-	private static final String missingTexture = "textureIsMissing";
 	
 	
 	/**

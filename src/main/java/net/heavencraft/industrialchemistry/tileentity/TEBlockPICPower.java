@@ -3,6 +3,7 @@ package net.heavencraft.industrialchemistry.tileentity;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.heavencraft.industrialchemistry.reference.Names;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
 import cofh.api.energy.EnergyStorage;
@@ -115,16 +116,21 @@ public abstract class TEBlockPICPower extends TEBlockPICInventory implements IEn
 	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt)
-	{		
+	{
 		super.readFromNBT(nbt);
 		storage.readFromNBT(nbt);
+		if (nbt.hasKey(Names.NBT.TileEntity.State))
+		{
+			this.state = MachineState.values()[nbt.getInteger(Names.NBT.TileEntity.State)];
+		}
 	}
 	
 	@Override
 	public void writeToNBT(NBTTagCompound nbt)
-	{		
+	{
 		super.writeToNBT(nbt);
 		storage.writeToNBT(nbt);
+		if (this.state != null) nbt.setInteger(Names.NBT.TileEntity.State, this.state.getID());
 	}
 	
 }

@@ -23,6 +23,8 @@ public abstract class Names
 			public static String CustomName = "customname";
 			public static String Owner = "owner";
 			public static String Items = "items";
+			
+			public static String State = "state";
 		}
 	}
 	

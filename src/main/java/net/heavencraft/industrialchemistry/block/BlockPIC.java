@@ -18,6 +18,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -107,8 +108,9 @@ public class BlockPIC extends Block
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLivingBase, ItemStack itemStack)
 	{
-		System.out.println("Block Placed: front = " + Integer.toString(BlockHelper.determineOrientation(x, y, z, entityLivingBase).ordinal()));
-		ForgeDirection direction = BlockHelper.determineOrientation(x, y, z, entityLivingBase);
+		//System.out.println("Block Placed: front = " + Integer.toString(BlockHelper.determineOrientation(x, y, z, entityLivingBase).ordinal()));
+		ForgeDirection direction = BlockHelper.getFacingForHeadingEntity(entityLivingBase);
+		//System.out.println("Block Placed New: front = " + Integer.toString(direction.ordinal()));
 		int meta = world.getBlockMetadata(x, y, z);
 		world.setBlockMetadataWithNotify(x, y, z, BlockHelper.setOrientation(meta, direction), 2);
 	}
