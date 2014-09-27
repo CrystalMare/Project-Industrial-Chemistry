@@ -1,4 +1,4 @@
-package net.heavencraft.industrialchemistry.block;
+package net.heavencraft.industrialchemistry.block.machine;
 
 import java.util.EnumSet;
 import java.util.HashMap;

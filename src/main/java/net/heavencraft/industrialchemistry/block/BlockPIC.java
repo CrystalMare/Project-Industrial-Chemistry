@@ -108,9 +108,13 @@ public class BlockPIC extends Block
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLivingBase, ItemStack itemStack)
 	{
+<<<<<<< HEAD
 		//System.out.println("Block Placed: front = " + Integer.toString(BlockHelper.determineOrientation(x, y, z, entityLivingBase).ordinal()));
 		ForgeDirection direction = BlockHelper.getFacingForHeadingEntity(entityLivingBase);
 		//System.out.println("Block Placed New: front = " + Integer.toString(direction.ordinal()));
+=======
+		ForgeDirection direction = BlockHelper.determineOrientation(x, y, z, entityLivingBase);
+>>>>>>> 9fa3de214754871621a005736713c8d9dabcca5a
 		int meta = world.getBlockMetadata(x, y, z);
 		world.setBlockMetadataWithNotify(x, y, z, BlockHelper.setOrientation(meta, direction), 2);
 	}
