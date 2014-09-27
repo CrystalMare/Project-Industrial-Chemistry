@@ -49,7 +49,7 @@ public abstract class BlockMachinePIC extends BlockPIC implements ITileEntityPro
 				return this.getIcon(ForgeDirection.SOUTH.ordinal(), meta);
 			}
 		}
-		if (side == front.getOpposite().ordinal())
+		else if (side == front.getOpposite().ordinal())
 		{
 			if (this.backIcons[state.getID()] != null)
 			{
@@ -60,7 +60,7 @@ public abstract class BlockMachinePIC extends BlockPIC implements ITileEntityPro
 				return this.getIcon(ForgeDirection.NORTH.ordinal(), meta);
 			}
 		}
-		if (side == ForgeDirection.UP.ordinal())
+		else if (side == ForgeDirection.UP.ordinal())
 		{
 			if (this.topIcons[state.getID()] != null)
 			{
@@ -71,7 +71,7 @@ public abstract class BlockMachinePIC extends BlockPIC implements ITileEntityPro
 				return this.getIcon(ForgeDirection.UP.ordinal(), meta);
 			}
 		}
-		if (side == ForgeDirection.DOWN.ordinal())
+		else if (side == ForgeDirection.DOWN.ordinal())
 		{
 			if (this.bottomIcons[state.getID()] != null)
 			{
@@ -82,7 +82,7 @@ public abstract class BlockMachinePIC extends BlockPIC implements ITileEntityPro
 				return this.getIcon(ForgeDirection.DOWN.ordinal(), meta);
 			}
 		}
-		if (this.sideIcons[state.getID()] != null)
+		else if (this.sideIcons[state.getID()] != null)
 		{
 			return this.sideIcons[state.getID()];
 		}
