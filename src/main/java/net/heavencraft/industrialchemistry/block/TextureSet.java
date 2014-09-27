@@ -115,14 +115,46 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 	 * @param state
 	 * @return
 	 */
-	public IIcon getTexure(ForgeDirection side, MachineState state)
+	public IIcon getTexture(ForgeDirection side, MachineState state)
 	{
 		if (state != this.state && parrent == null)
 		{
 			children.get(state).getTexture(side);
 		}
 		return get(side);
+		
 	}
 	
 	
+	/**
+	 * Gets texture for side based on front side
+	 * @param front
+	 * @param side
+	 * @param state
+	 * @return
+	 */
+	public IIcon getTextureForFacing(ForgeDirection front, ForgeDirection side, MachineState state)
+	{
+		//Front
+		if (side == front)
+			return getTexture(ForgeDirection.SOUTH, state);
+		//Back
+		else if (side == front.getOpposite())
+			return getTexture(ForgeDirection.NORTH, state);
+		//Right
+		else if (side == front.getRotation(ForgeDirection.DOWN))
+			return getTexture(ForgeDirection.EAST, state);
+		//Left
+		else if (side == front.getRotation(ForgeDirection.UP))
+			return getTexture(ForgeDirection.WEST, state);
+		//Up
+		else if (side == ForgeDirection.UP)
+			return getTexture(ForgeDirection.UP, state);
+		//Down
+		else if (side == ForgeDirection.DOWN)
+			return getTexture(ForgeDirection.DOWN, state);
+		
+		else return null;
+
+	}	
 }

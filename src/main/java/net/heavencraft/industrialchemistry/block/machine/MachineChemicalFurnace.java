@@ -2,6 +2,7 @@ package net.heavencraft.industrialchemistry.block.machine;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.heavencraft.industrialchemistry.block.TextureSet;
 import net.heavencraft.industrialchemistry.reference.Names.Block.Machine;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.MachineState;
@@ -16,30 +17,22 @@ public class MachineChemicalFurnace extends BlockMachinePIC
 	public MachineChemicalFurnace()
 	{
 		this.setBlockName(Machine.MachineChemicalFurnace);
-	}
-	
-	
+	}	
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		for (MachineState state : MachineState.values())
-		{
-			if (state == MachineState.ON) 
-			{
-				frontIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceFrontOn);
-			}
-			else if (state == MachineState.OFF)
-			{
-				frontIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceFrontOff);
-				sideIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceSide);
-				backIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceSide);
-				topIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceTop);
-				bottomIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceSide);
-			}		
-			
-		}
+		textures = new TextureSet(iconRegister, MachineState.OFF, null,
+				Textures.Block.Machine.ChemicalFurnaceFrontOff,
+				Textures.Block.Machine.ChemicalFurnaceSide,
+				Textures.Block.Machine.ChemicalFurnaceSide,
+				Textures.Block.Machine.ChemicalFurnaceSide,
+				Textures.Block.Machine.ChemicalFurnaceTop,
+				Textures.Block.Machine.ChemicalFurnaceSide);
+		textures.setChild(new TextureSet(iconRegister, MachineState.ON, textures,
+				Textures.Block.Machine.ChemicalFurnaceFrontOn, 
+				null, null, null, null, null));
 	}
 
 
