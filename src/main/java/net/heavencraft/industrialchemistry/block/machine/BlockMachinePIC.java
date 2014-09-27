@@ -4,7 +4,6 @@ import java.util.Map.Entry;
 
 import cofh.api.tileentity.ISidedTexture;
 import net.heavencraft.industrialchemistry.block.BlockPIC;
-import net.heavencraft.industrialchemistry.block.TextureSet;
 import net.heavencraft.industrialchemistry.helpers.BlockHelper;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.MachineState;
