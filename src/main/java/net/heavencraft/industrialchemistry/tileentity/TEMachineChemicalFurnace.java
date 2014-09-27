@@ -11,7 +11,7 @@ public class TEMachineChemicalFurnace extends TEBlockPICPower
 	@Override
     public void updateEntity()
     {
-	    this.setMachineState(MachineState.On);
+		
     }
 	
 }

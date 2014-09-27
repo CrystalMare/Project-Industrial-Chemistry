@@ -18,7 +18,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public abstract class BlockMachinePIC extends BlockPIC implements ITileEntityProvider, ISidedTexture
+public abstract class BlockMachinePIC extends BlockPIC implements ITileEntityProvider
 {
 	IIcon[] frontIcons = new IIcon[3];
 	IIcon[] topIcons = new IIcon[3];
@@ -26,80 +26,70 @@ public abstract class BlockMachinePIC extends BlockPIC implements ITileEntityPro
 	IIcon[] backIcons = new IIcon[3];
 	IIcon[] bottomIcons = new IIcon[3];
 	
-	public BlockMachinePIC()
-	{
-		
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		
-	}
-	
 	@Override
 	public IIcon getIcon(IBlockAccess blockAccess, int x, int y, int z, int side)
 	{
 		TileEntity tileEntity = blockAccess.getTileEntity(x, y, z);
 		int meta = blockAccess.getBlockMetadata(x, y, z);
-		ForgeDirection facingDir = BlockHelper.getOrientation(meta);
-		if (tileEntity instanceof TEBlockPICPower)
+	
+		if (!(tileEntity instanceof TEBlockPICPower)) return null;
+		
+		MachineState state = ((TEBlockPICPower)tileEntity).getState();
+		ForgeDirection front = BlockHelper.getOrientation(meta);
+		
+		
+		if (side == front.ordinal())
 		{
-			if (side == facingDir.ordinal())
+			if (this.frontIcons[state.getID()] != null)
 			{
-				if (this.frontIcons[((TEBlockPICPower) tileEntity).getState().getID()] != null)
-				{
-					return this.frontIcons[((TEBlockPICPower) tileEntity).getState().getID()];
-				}
-				else
-				{
-					return this.getIcon(ForgeDirection.SOUTH.ordinal(), meta);
-				}
-			}
-			if (side == facingDir.getOpposite().ordinal())
-			{
-				if (this.backIcons[((TEBlockPICPower) tileEntity).getState().getID()] != null)
-				{
-					return this.backIcons[((TEBlockPICPower) tileEntity).getState().getID()];
-				}
-				else
-				{
-					return this.getIcon(ForgeDirection.NORTH.ordinal(), meta);
-				}
-			}
-			if (side == ForgeDirection.UP.ordinal())
-			{
-				if (this.topIcons[((TEBlockPICPower) tileEntity).getState().getID()] != null)
-				{
-					return this.topIcons[((TEBlockPICPower) tileEntity).getState().getID()];
-				}
-				else
-				{
-					return this.getIcon(ForgeDirection.UP.ordinal(), meta);
-				}
-			}
-			if (side == ForgeDirection.DOWN.ordinal())
-			{
-				if (this.bottomIcons[((TEBlockPICPower) tileEntity).getState().getID()] != null)
-				{
-					return this.bottomIcons[((TEBlockPICPower) tileEntity).getState().getID()];
-				}
-				else
-				{
-					return this.getIcon(ForgeDirection.DOWN.ordinal(), meta);
-				}
-			}
-			if (this.sideIcons[((TEBlockPICPower) tileEntity).getState().getID()] != null)
-			{
-				return this.sideIcons[((TEBlockPICPower) tileEntity).getState().getID()];
+				return this.frontIcons[state.getID()];
 			}
 			else
 			{
-				return this.getIcon(ForgeDirection.UNKNOWN.ordinal(), meta);
+				return this.getIcon(ForgeDirection.SOUTH.ordinal(), meta);
 			}
 		}
-		return null;
+		if (side == front.getOpposite().ordinal())
+		{
+			if (this.backIcons[state.getID()] != null)
+			{
+				return this.backIcons[state.getID()];
+			}
+			else
+			{
+				return this.getIcon(ForgeDirection.NORTH.ordinal(), meta);
+			}
+		}
+		if (side == ForgeDirection.UP.ordinal())
+		{
+			if (this.topIcons[state.getID()] != null)
+			{
+				return this.topIcons[state.getID()];
+			}
+			else
+			{
+				return this.getIcon(ForgeDirection.UP.ordinal(), meta);
+			}
+		}
+		if (side == ForgeDirection.DOWN.ordinal())
+		{
+			if (this.bottomIcons[state.getID()] != null)
+			{
+				return this.bottomIcons[state.getID()];
+			}
+			else
+			{
+				return this.getIcon(ForgeDirection.DOWN.ordinal(), meta);
+			}
+		}
+		if (this.sideIcons[state.getID()] != null)
+		{
+			return this.sideIcons[state.getID()];
+		}
+		else
+		{
+			return this.getIcon(ForgeDirection.UNKNOWN.ordinal(), meta);
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -107,24 +97,23 @@ public abstract class BlockMachinePIC extends BlockPIC implements ITileEntityPro
 	{
 		if (side == ForgeDirection.SOUTH.ordinal())
 		{
-			return this.frontIcons[MachineState.Off.getID()];
+			return this.frontIcons[MachineState.OFF.getID()];
 		}
-		if (side == ForgeDirection.NORTH.ordinal())
+		else if (side == ForgeDirection.NORTH.ordinal())
 		{
-			return this.backIcons[MachineState.Off.getID()];
+			return this.backIcons[MachineState.OFF.getID()];
 		}
-		if (side == ForgeDirection.UP.ordinal())
+		else if (side == ForgeDirection.UP.ordinal())
 		{
-			return this.topIcons[MachineState.Off.getID()];
+			return this.topIcons[MachineState.OFF.getID()];
 		}
-		if (side == ForgeDirection.DOWN.ordinal())
+		else if (side == ForgeDirection.DOWN.ordinal())
 		{
-			return this.bottomIcons[MachineState.Off.getID()];
+			return this.bottomIcons[MachineState.OFF.getID()];
 		}
-		if (side == ForgeDirection.UNKNOWN.ordinal())
+		else
 		{
-			return this.sideIcons[MachineState.Off.getID()];
+			return this.sideIcons[MachineState.OFF.getID()];
 		}
-		return this.sideIcons[MachineState.Off.getID()];
 	}
 }

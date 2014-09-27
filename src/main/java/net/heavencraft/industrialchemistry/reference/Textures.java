@@ -19,11 +19,11 @@ public class Textures
 	{
 		public static final class Machine
 		{
-			//Fan Top
-			public static final String Fan = ResourceLocationHelper.getBlockLocation("fan");
-			
+
 			//Chemical Furnace
-			public static final String ChemicalFurnaceFront = ResourceLocationHelper.getBlockLocation("chemicalFurnace_front");
+			public static final String ChemicalFurnaceFrontOff = ResourceLocationHelper.getBlockLocation("chemicalFurnace_front_off");
+			public static final String ChemicalFurnaceFrontOn = ResourceLocationHelper.getBlockLocation("chemicalFurnace_front_on");
+			public static final String ChemicalFurnaceTop = ResourceLocationHelper.getBlockLocation("chemicalFurnace_top"); //Fan
 			public static final String ChemicalFurnaceSide = ResourceLocationHelper.getBlockLocation("chemicalFurnace_side");
 		}
 		

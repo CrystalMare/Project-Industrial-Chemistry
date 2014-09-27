@@ -19,17 +19,26 @@ public class MachineChemicalFurnace extends BlockMachinePIC
 	}
 	
 	
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		for (MachineState state : MachineState.values())
 		{
-			frontIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceFront.concat(state.getTextureSuffix()));
-			topIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.Fan.concat(state.getTextureSuffix()));
-			sideIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceSide.concat(state.getTextureSuffix()));
-			backIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceSide.concat(state.getTextureSuffix()));
-			bottomIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceSide.concat(state.getTextureSuffix()));
+			if (state == MachineState.ON) 
+			{
+				frontIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceFrontOn);
+			}
+			else if (state == MachineState.OFF)
+			{
+				frontIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceFrontOff);
+				sideIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceSide);
+				backIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceSide);
+				topIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceTop);
+				bottomIcons[state.getID()] = iconRegister.registerIcon(Textures.Block.Machine.ChemicalFurnaceSide);
+			}		
+			
 		}
 	}
 

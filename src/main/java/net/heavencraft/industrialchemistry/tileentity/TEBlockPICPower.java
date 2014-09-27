@@ -13,7 +13,7 @@ public abstract class TEBlockPICPower extends TEBlockPICInventory implements IEn
 	private List<ForgeDirection> recieveSides = new ArrayList<ForgeDirection>();
 	private List<ForgeDirection> extractSides = new ArrayList<ForgeDirection>();
 	protected EnergyStorage storage = new EnergyStorage(1000);
-	protected MachineState state = MachineState.Off;
+	protected MachineState state = MachineState.OFF;
 	
 	public TEBlockPICPower()
 	{
