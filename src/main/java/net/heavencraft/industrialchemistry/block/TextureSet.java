@@ -66,6 +66,7 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 			parrent.setChild(this);
 		}
 		
+		/*
 		//Missing textures get replaced with 'texture errors'
 		if (parrent == null && this.size() != 6)
 		{
@@ -76,6 +77,7 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 					put(side, iconRegister.registerIcon(missingTexture));
 			}
 		}
+		*/
 
 	}
 	
@@ -119,9 +121,12 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 	{
 		if (state != this.state && parrent == null)
 		{
-			children.get(state).getTexture(side);
+			if (children.get(state).getTexture(side) == null)
+				return getTexture(side);
+			else 
+				return children.get(state).getTexture(side);
 		}
-		return get(side);
+		return getTexture(side);
 		
 	}
 	
