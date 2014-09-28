@@ -1,4 +1,5 @@
 container.pic.blockTesting=Testing Block
+container.pic.machineChemicalFurnace=Chemical Furnace
 
 tile.pic:TestBlock.name=Test Block
 

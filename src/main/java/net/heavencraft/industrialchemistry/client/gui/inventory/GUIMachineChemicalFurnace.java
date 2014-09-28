@@ -24,7 +24,8 @@ public class GUIMachineChemicalFurnace extends GUIPIC
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
 		
-		this.drawTitle(machineChemicalFurnaceTE.getName());
+		//this.drawTitle(machineChemicalFurnaceTE.getName());
+		drawTitle(machineChemicalFurnaceTE.getName());
 	}
 	
 	@Override

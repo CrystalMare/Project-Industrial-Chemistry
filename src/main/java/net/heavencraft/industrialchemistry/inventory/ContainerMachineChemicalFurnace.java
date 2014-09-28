@@ -15,6 +15,6 @@ public class ContainerMachineChemicalFurnace extends ContainerPIC
 	public ContainerMachineChemicalFurnace(InventoryPlayer player, TEMachineChemicalFurnace tile)
 	{
 		this.machineChemicalFurnaceTE = tile;
-		this.drawInv(player, offset.getX(), offset.getY());
+		this.drawInv(player, offset.getX(), offset.getY() + 20);
 	}
 }

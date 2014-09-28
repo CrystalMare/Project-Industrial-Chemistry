@@ -1,11 +1,14 @@
 package net.heavencraft.industrialchemistry.tileentity;
 
+import net.heavencraft.industrialchemistry.reference.Names;
+
 public class TEMachineChemicalFurnace extends TEBlockPICPower
 {
 	
 	public TEMachineChemicalFurnace()
 	{
-		this.createInventory(2);
+		createInventory(2);
+		setName(Names.Block.Machine.MachineChemicalFurnace);
 	}
 	
 	@Override
