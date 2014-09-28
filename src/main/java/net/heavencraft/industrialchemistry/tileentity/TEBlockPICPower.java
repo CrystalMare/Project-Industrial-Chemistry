@@ -21,6 +21,19 @@ public abstract class TEBlockPICPower extends TEBlockPICInventory implements IEn
 		
 	}
 	
+	public void extractAllSides()
+	{
+		
+	}
+	
+	public void recieveAllSides()
+	{
+		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
+		{
+			recieveSides.add(dir);
+		}
+	}
+	
 	public void setMachineState(MachineState state)
 	{
 		this.state = state;
@@ -81,6 +94,11 @@ public abstract class TEBlockPICPower extends TEBlockPICInventory implements IEn
 		return 0;
 	}
 	
+	public int useEnergy(int amount)
+	{
+		return storage.extractEnergy(amount, true);
+	}
+	
 	@Override
 	public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate)
 	{
@@ -93,6 +111,12 @@ public abstract class TEBlockPICPower extends TEBlockPICInventory implements IEn
 		}
 		return 0;
 	}
+	
+	public int getInternalEnergy()
+	{
+		return storage.getEnergyStored();
+	}
+	
 	
 	@Override
 	public int getEnergyStored(ForgeDirection from)

@@ -1,24 +1,142 @@
 package net.heavencraft.industrialchemistry.tileentity;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
+import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipePIC;
+import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
+import net.minecraft.item.ItemStack;
+
 public class TEMachineChemicalFurnace extends TEBlockPICPower
 {
 	
+	private int rfPerTick = 10;
+	private int timeLeftToProcess = 0;
+	
 	public TEMachineChemicalFurnace()
 	{
-		this.createInventory(2);
+		createInventory(2);
+		recieveAllSides();
+	}
+	
+	public boolean isProcessing()
+	{
+		return this.timeLeftToProcess > 0;
+	}
+	
+	private boolean canProccess()
+	{
+		if (inventory[0] == null)
+		{
+			return false;
+		}
+		else
+		{
+			ItemStack inputStack = inventory[0];
+			ItemStack outputStack = inventory[1];
+			MachineRecipeSimple recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), inputStack);
+			if (recipe.getOutput() == null) return false;
+			if (outputStack == null) return true;
+			ItemStack resultStack = recipe.getSimpleOutput(getClass());
+			if (!outputStack.isItemEqual(resultStack)) return false;
+			int result = outputStack.stackSize + resultStack.stackSize;
+			return result <= getInventoryStackLimit() && result <= outputStack.getMaxStackSize();
+		}
 	}
 	
 	@Override
 	public void updateEntity()
 	{
-		if(this.getWorldObj().getBlockPowerInput(this.xCoord, this.yCoord, this.zCoord) > 0)
+		boolean save = false;
+		if (!this.worldObj.isRemote)
 		{
-			this.setMachineState(MachineState.ON);
+			if (getWorldObj().getBlockPowerInput(xCoord, yCoord, zCoord) > 0)
+			{
+				setMachineState(MachineState.ON);
+			}
+			else
+			{
+				setMachineState(MachineState.OFF);
+			}
+			
+			if (getInternalEnergy() > 0)
+			{
+				useEnergy(rfPerTick);
+			}
+			else
+			{
+				state = MachineState.OFF;
+			}
+			
+			if (state == MachineState.ON)
+			{
+				ItemStack stackInput = inventory[0];
+				if (stackInput != null)
+				{
+					MachineRecipePIC recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
+					if (recipe != null && isProcessing() && canProccess())
+					{
+						if (this.timeLeftToProcess <= 1)
+						{
+							this.timeLeftToProcess = 0;
+							this.smeltItem();
+							save = true;
+						}
+						else
+						{
+							--timeLeftToProcess;
+						}
+					}
+					else
+					{
+						this.timeLeftToProcess = recipe.getProccessTime();
+					}
+				}
+			}
 		}
-		else
+		if (save)
 		{
-			this.setMachineState(MachineState.OFF);
+			this.markDirty();
 		}
 	}
+	
+	public void smeltItem()
+	{
+		if (this.canProccess())
+		{
+			ItemStack stackInput = inventory[0];
+			ItemStack stackOutput = inventory[1];
+			MachineRecipeSimple recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
+			ItemStack resultStack = recipe.getSimpleOutput(getClass());
+			if (stackOutput == null)
+			{
+				setInventorySlotContents(1, resultStack.copy());
+			}
+			else if (stackOutput.getItem() == resultStack.getItem())
+			{
+				setInventorySlotContents(1, new ItemStack(resultStack.getItem(), stackOutput.stackSize));
+			}
+			
+			--stackInput.stackSize;
+			
+			if (stackInput.stackSize <= 0)
+			{
+				setInventorySlotContents(0, null);
+			}
+		}
+	}
+	
+	
+    @SideOnly(Side.CLIENT)
+    public int getBurnTimeRemainingScaled(int scale)
+    {
+		ItemStack stackInput = inventory[0];
+		if(stackInput != null)
+		{
+			MachineRecipeSimple recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
+	        return timeLeftToProcess * scale / recipe.getProccessTime();
+		}
+		return 0;
+    }
 	
 }
