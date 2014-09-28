@@ -41,7 +41,8 @@ public class ContainerPIC extends Container
 	
 	public void addSlot(IInventory stack, int slotIndex, int x, int y)
 	{
-		this.addSlotToContainer(new Slot(stack, slotIndex, x, y));
+		Slot slot = this.addSlotToContainer(new Slot(stack, slotIndex, x, y));
+		System.out.print(slot.toString());
 	}
 	
 	@Override

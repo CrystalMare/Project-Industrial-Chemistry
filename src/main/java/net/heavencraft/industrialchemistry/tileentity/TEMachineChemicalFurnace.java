@@ -8,8 +8,7 @@ import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSim
 import net.minecraft.item.ItemStack;
 
 public class TEMachineChemicalFurnace extends TEBlockPICPower
-{
-	
+{	
 	private int rfPerTick = 10;
 	private int timeLeftToProcess = 0;
 	
