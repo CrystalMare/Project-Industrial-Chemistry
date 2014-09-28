@@ -1,6 +1,7 @@
 package net.heavencraft.industrialchemistry;
 
 import net.heavencraft.industrialchemistry.handlers.GUIHandler;
+import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.WorldGenHandler;
 import net.heavencraft.industrialchemistry.init.PICBlocks;
 import net.heavencraft.industrialchemistry.init.PICItems;
@@ -58,6 +59,7 @@ public class ProjectIndustrialChemistry
 		// Register EventHandlers
 		// Init CraftingHandler
 		// Init RecipeHandler
+		RecipeHandler.init();
 		// Register FuelHandler
 	}
 }

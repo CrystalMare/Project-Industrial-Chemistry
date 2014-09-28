@@ -5,6 +5,10 @@ import java.util.List;
 
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipePIC;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
+import net.heavencraft.industrialchemistry.tileentity.TEBlockPICPower;
+import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class RecipeHandler
@@ -13,21 +17,21 @@ public class RecipeHandler
 	
 	public static void init()
 	{
-		
+		addMachineSimpleRecipe(new ItemStack(Blocks.stone), new ItemStack(Items.diamond, 40), 100);
 	}
 	
 	public static void addMachineSimpleRecipe(ItemStack itemIn, ItemStack itemOut, int ticksTime)
 	{
-		
+		machineRecipeList.add(new MachineRecipeSimple(TEMachineChemicalFurnace.class, itemIn, itemOut, ticksTime));
 	}
 	
-	public static ItemStack getSimpleMachineRecipeResult(ItemStack itemIn)
+	public static MachineRecipeSimple getSimpleMachineRecipe(Class<? extends TEBlockPICPower> machine, ItemStack itemIn)
 	{
-		for(MachineRecipePIC recipe : machineRecipeList)
+		for (MachineRecipePIC recipe : machineRecipeList)
 		{
-			if(recipe instanceof MachineRecipeSimple)
+			if (recipe instanceof MachineRecipeSimple && ((MachineRecipeSimple) recipe).getSimpleInput(machine).isItemEqual(itemIn))
 			{
-				return recipe.getItemsOut()[0];	
+				return (MachineRecipeSimple) recipe;
 			}
 		}
 		return null;
