@@ -2,6 +2,7 @@ package net.heavencraft.industrialchemistry.block.machine;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.heavencraft.industrialchemistry.reference.GUIs;
 import net.heavencraft.industrialchemistry.reference.Names.Block.Machine;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.MachineState;
@@ -16,6 +17,7 @@ public class MachineChemicalFurnace extends BlockMachinePIC
 	public MachineChemicalFurnace()
 	{
 		this.setBlockName(Machine.MachineChemicalFurnace);
+		this.setGUIID(GUIs.ID.MachineChemicalFurnace);
 	}	
 	
 	@Override

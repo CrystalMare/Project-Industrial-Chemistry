@@ -21,4 +21,13 @@ public class GUIMachineChemicalFurnace extends GUIPIC
 		this.drawTitle(machineChemicalFurnaceTE.getName());
 	}
 	
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
+	{
+	    super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
+	    drawSlot(0, 0);
+	    drawSlot(20, 20);
+	    
+	}
+	
 }
