@@ -31,7 +31,7 @@ public abstract class GUIPIC extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.getTextureManager().bindTexture(Textures.GUI.BaseGui);
+		this.mc.getTextureManager().bindTexture(Textures.GUI.BaseGui.BaseGuiResource);
 		int startX = (width - xSize) / 2;
 		int startY = (height - ySize) / 2;
 		this.drawTexturedModalRect(startX, startY, 0, 0, xSize, ySize);

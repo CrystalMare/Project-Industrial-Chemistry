@@ -1,5 +1,8 @@
 package net.heavencraft.industrialchemistry.reference;
 
+import org.lwjgl.util.Point;
+import org.lwjgl.util.Rectangle;
+
 import net.heavencraft.industrialchemistry.helpers.ResourceLocationHelper;
 import net.minecraft.util.ResourceLocation;
 
@@ -9,10 +12,27 @@ public class Textures
 	
 	public static final class GUI
 	{
-		public static final ResourceLocation BaseGui = ResourceLocationHelper.getGuiLocation("BaseGui.png");
+		public static final class BaseGui
+		{
+			public static final ResourceLocation BaseGuiResource = ResourceLocationHelper.getGuiLocation("BaseGui.png");
+			public static final Rectangle Gui = new Rectangle(0, 0, 176, 166);
+		}
 		public static final ResourceLocation LiquidBar = ResourceLocationHelper.getGuiLocation("LiquidBar.png");
 		public static final ResourceLocation LiquidBarOverlay = ResourceLocationHelper.getGuiLocation("LiquidBarOverlay.png");
 		public static final ResourceLocation Slot = ResourceLocationHelper.getGuiLocation("Slot.png");
+		
+		//Chemical Furnace
+		public static final class ChemicalFurnace
+		{
+			public static final ResourceLocation GuiResource = ResourceLocationHelper.getGuiLocation("ChemicalFurnaceGUI.png");
+			public static final Rectangle Gui = new Rectangle(0, 0, 176, 204);
+			public static final Point InventoryOffset = new Point(0, 19);
+			public static final Rectangle HeatWave = new Rectangle(176, 0,50, 23);
+			public static final Rectangle Gauge = new Rectangle(176, 23, 16, 49);
+		
+		}
+		
+		
 	}
 	
 	public static final class Block
