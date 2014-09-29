@@ -59,9 +59,4 @@ public class Textures
 		public static final String MalachiteOre = ResourceLocationHelper.getBlockLocation("malachiteOre");
 		public static final String TestBlock = ResourceLocationHelper.getBlockLocation("testBlock");
 	}
-	
-	public static final class Item
-	{
-		public static final String CrushedMalachite = ResourceLocationHelper.getItemLocation("crushedMalachite");
-	}
 }

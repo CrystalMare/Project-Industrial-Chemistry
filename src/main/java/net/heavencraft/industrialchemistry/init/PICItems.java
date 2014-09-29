@@ -18,6 +18,7 @@ public class PICItems
 	public static final ItemPIC chemicalVanadiumOxide = ChemicalType.VANADIUM_OXIDE.createNewInstance();
 	public static final ItemPIC chemicalSulfur = ChemicalType.SULFUR.createNewInstance();
 	public static final ItemPIC chemicalSaltpeter = ChemicalType.SALTPETER.createNewInstance();
+	public static final ItemPIC chemicalCopperOxide = ChemicalType.COPPER_OXIDE.createNewInstance();
 	
 	public static void init()
 	{
@@ -31,5 +32,6 @@ public class PICItems
 		GameRegistry.registerItem(chemicalVanadiumOxide, Names.Item.ChemicalVanadiumOxide);
 		GameRegistry.registerItem(chemicalSulfur, Names.Item.ChemicalSulfur);
 		GameRegistry.registerItem(chemicalSaltpeter, Names.Item.ChemicalSaltpeter);
+		GameRegistry.registerItem(chemicalCopperOxide, Names.Item.ChemicalCopperOxide);
 	}
 }

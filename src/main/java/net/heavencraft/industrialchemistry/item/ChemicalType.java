@@ -10,7 +10,8 @@ public enum ChemicalType
 	LIMESTONE			(Names.Item.ChemicalLimestone, "CaCO3"),
 	VANADIUM_OXIDE		(Names.Item.ChemicalVanadiumOxide, "V2O5"),
 	SULFUR				(Names.Item.ChemicalSulfur, "S"),
-	SALTPETER			(Names.Item.ChemicalSaltpeter, "KNO3");
+	SALTPETER			(Names.Item.ChemicalSaltpeter, "KNO3"),
+	COPPER_OXIDE		(Names.Item.ChemicalCopperOxide, "CuO");
 	
 	private String name;
 	private String formula;

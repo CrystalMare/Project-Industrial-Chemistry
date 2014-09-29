@@ -54,6 +54,8 @@ public abstract class Names
 		public static final String ChemicalVanadiumOxide = "chemicalVanadiumOxide";
 		public static final String ChemicalSulfur = "chemicalSulfur";
 		public static final String ChemicalSaltpeter = "chemicalSaltpeter";
+		
+		public static final String ChemicalCopperOxide = "chemicalCopperOxide";
 	}
 	
 	public static final class Fluids
