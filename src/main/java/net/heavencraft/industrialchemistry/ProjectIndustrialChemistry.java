@@ -3,8 +3,8 @@ package net.heavencraft.industrialchemistry;
 import net.heavencraft.industrialchemistry.handlers.GuiHandler;
 import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.WorldGenHandler;
-import net.heavencraft.industrialchemistry.init.Blocks;
-import net.heavencraft.industrialchemistry.init.Items;
+import net.heavencraft.industrialchemistry.init.IndustrialChemistryBlocks;
+import net.heavencraft.industrialchemistry.init.IndustrialChemistryItems;
 import net.heavencraft.industrialchemistry.network.PacketHandler;
 import net.heavencraft.industrialchemistry.proxy.IProxy;
 import net.heavencraft.industrialchemistry.reference.Names;
@@ -41,9 +41,9 @@ public class ProjectIndustrialChemistry
 		// Init PacketHandler
 		PacketHandler.init();
 		// Init Items
-		Items.init();
+		IndustrialChemistryItems.init();
 		// Init Blocks
-		Blocks.init();
+		IndustrialChemistryBlocks.init();
 		
 		
 	}

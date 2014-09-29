@@ -1,6 +1,6 @@
 package net.heavencraft.industrialchemistry.tileentity;
 
-import net.heavencraft.industrialchemistry.init.Blocks;
+import net.heavencraft.industrialchemistry.init.IndustrialChemistryBlocks;
 import net.heavencraft.industrialchemistry.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;

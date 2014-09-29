@@ -3,7 +3,7 @@ package net.heavencraft.industrialchemistry.tileentity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
-import net.heavencraft.industrialchemistry.init.Blocks;
+import net.heavencraft.industrialchemistry.init.IndustrialChemistryBlocks;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipe;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
 import net.minecraft.init.Items;

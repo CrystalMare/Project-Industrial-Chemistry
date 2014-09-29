@@ -5,7 +5,7 @@ import net.heavencraft.industrialchemistry.item.*;
 import net.heavencraft.industrialchemistry.reference.Names;
 
 
-public class Items
+public class IndustrialChemistryItems
 {
 	
 	public static final BaseItem crushedMalachite = CrushedOreType.MALACHITE.createNewInstance();

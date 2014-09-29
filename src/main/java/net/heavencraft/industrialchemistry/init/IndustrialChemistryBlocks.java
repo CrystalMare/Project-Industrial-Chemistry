@@ -8,7 +8,7 @@ import net.heavencraft.industrialchemistry.reference.Names;
 import net.heavencraft.industrialchemistry.reference.Names.Block.Machine;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class Blocks
+public class IndustrialChemistryBlocks
 {
 	//Declare a public static final BlockPIC here
 

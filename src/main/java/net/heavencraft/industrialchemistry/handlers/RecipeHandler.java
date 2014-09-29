@@ -3,6 +3,7 @@ package net.heavencraft.industrialchemistry.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.heavencraft.industrialchemistry.init.IndustrialChemistryItems;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipe;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
 import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
@@ -17,7 +18,8 @@ public class RecipeHandler
 	
 	public static void init()
 	{
-		addMachineSimpleRecipe(new ItemStack(Blocks.stone), new ItemStack(Items.diamond, 40), 100);
+		addMachineSimpleRecipe(new ItemStack(IndustrialChemistryItems.crushedMalachite), new ItemStack(IndustrialChemistryItems.chemicalCopperOxide, 2), 100);
+		addMachineSimpleRecipe(new ItemStack(IndustrialChemistryItems.crushedAzurite), new ItemStack(IndustrialChemistryItems.chemicalCopperOxide, 3), 100);
 	}
 	
 	public static void addMachineSimpleRecipe(ItemStack itemIn, ItemStack itemOut, int ticksTime)

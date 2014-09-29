@@ -4,7 +4,7 @@ import net.heavencraft.industrialchemistry.reference.Names;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
-public class Fluids
+public class IndustrialChemistryFluids
 {
 	public static Fluid Oxygen = new Fluid(Names.Fluids.Oxygen);
 	
