@@ -1,6 +1,6 @@
 package net.heavencraft.industrialchemistry.tileentity;
 
-import net.heavencraft.industrialchemistry.init.PICBlocks;
+import net.heavencraft.industrialchemistry.init.Blocks;
 import net.heavencraft.industrialchemistry.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
-public abstract class TEBlockPICInventory extends TEBlockPIC implements IInventory
+public abstract class BaseTEBlockInventory extends BaseTEBlock implements IInventory
 {
 	
 	protected ItemStack[] inventory;

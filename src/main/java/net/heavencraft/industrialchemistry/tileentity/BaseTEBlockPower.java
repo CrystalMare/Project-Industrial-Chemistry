@@ -9,14 +9,14 @@ import net.minecraftforge.common.util.ForgeDirection;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyHandler;
 
-public abstract class TEBlockPICPower extends TEBlockPICInventory implements IEnergyHandler
+public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements IEnergyHandler
 {
 	private List<ForgeDirection> recieveSides = new ArrayList<ForgeDirection>();
 	private List<ForgeDirection> extractSides = new ArrayList<ForgeDirection>();
 	protected EnergyStorage storage = new EnergyStorage(1000);
 	protected MachineState state = MachineState.OFF;
 	
-	public TEBlockPICPower()
+	public BaseTEBlockPower()
 	{
 		
 	}

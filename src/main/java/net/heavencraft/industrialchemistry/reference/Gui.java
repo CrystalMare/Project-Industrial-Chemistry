@@ -1,6 +1,6 @@
 package net.heavencraft.industrialchemistry.reference;
 
-public class GUIs
+public class Gui
 {
 	public enum ID
 	{

@@ -1,6 +1,6 @@
 package net.heavencraft.industrialchemistry.init;
 
-import net.heavencraft.industrialchemistry.block.BlockPIC;
+import net.heavencraft.industrialchemistry.block.BaseBlock;
 import net.heavencraft.industrialchemistry.block.BlockTesting;
 import net.heavencraft.industrialchemistry.block.machine.MachineChemicalFurnace;
 import net.heavencraft.industrialchemistry.block.ores.BlockOreMalachite;
@@ -8,16 +8,16 @@ import net.heavencraft.industrialchemistry.reference.Names;
 import net.heavencraft.industrialchemistry.reference.Names.Block.Machine;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class PICBlocks
+public class Blocks
 {
 	//Declare a public static final BlockPIC here
 
-	public static final BlockPIC blockTesting = new BlockTesting();
-	public static final BlockPIC oreMalachite = new BlockOreMalachite();
+	public static final BaseBlock blockTesting = new BlockTesting();
+	public static final BaseBlock oreMalachite = new BlockOreMalachite();
 	
 	
 	//Machines
-	public static final BlockPIC machineChemicalFurnace = new MachineChemicalFurnace();
+	public static final BaseBlock machineChemicalFurnace = new MachineChemicalFurnace();
 	
 	public static void init()
 	{

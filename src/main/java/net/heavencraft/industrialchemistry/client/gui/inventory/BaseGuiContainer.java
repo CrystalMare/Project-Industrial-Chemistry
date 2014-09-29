@@ -19,10 +19,10 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
-public abstract class GuiPIC extends GuiContainer
+public abstract class BaseGuiContainer extends GuiContainer
 {
 	
-	public GuiPIC(Container container)
+	public BaseGuiContainer(Container container)
 	{
 		super(container);
 	}

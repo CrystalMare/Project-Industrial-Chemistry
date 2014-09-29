@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 
-public class ContainerTesting extends ContainerPIC
+public class ContainerTesting extends BaseContainer
 {
 	private TETestingBlock testingTE;
 	

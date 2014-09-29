@@ -4,7 +4,7 @@ import net.heavencraft.industrialchemistry.creativetab.CreativeTab;
 import net.heavencraft.industrialchemistry.reference.Names;
 import net.heavencraft.industrialchemistry.reference.Textures;
 
-public class BlockOreMalachite extends BlockOrePIC
+public class BlockOreMalachite extends BaseBlockOre
 {
 	public BlockOreMalachite()
 	{

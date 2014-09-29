@@ -1,24 +1,24 @@
 package net.heavencraft.industrialchemistry.network.packet;
 
 import io.netty.buffer.ByteBuf;
-import net.heavencraft.industrialchemistry.tileentity.TEBlockPIC;
+import net.heavencraft.industrialchemistry.tileentity.BaseTEBlock;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 
-public class PacketTileEntityPIC implements IMessage, IMessageHandler<PacketTileEntityPIC, IMessage>
+public class BaseTileEntity implements IMessage, IMessageHandler<BaseTileEntity, IMessage>
 {
 	
 	public int x, y, z;
 	//TODO Implement orientation
 	public int orientation;
 	
-	public PacketTileEntityPIC()
+	public BaseTileEntity()
 	{
 		
 	}
 	
-	public PacketTileEntityPIC(TEBlockPIC tile)
+	public BaseTileEntity(BaseTEBlock tile)
 	{
         this.x = tile.xCoord;
         this.y = tile.yCoord;
@@ -43,7 +43,7 @@ public class PacketTileEntityPIC implements IMessage, IMessageHandler<PacketTile
     }
 
 	@Override
-    public IMessage onMessage(PacketTileEntityPIC message, MessageContext ctx)
+    public IMessage onMessage(BaseTileEntity message, MessageContext ctx)
     {
 	    return null;
     }

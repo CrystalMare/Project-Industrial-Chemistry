@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-public class ItemPIC extends Item
+public class BaseItem extends Item
 {
 	
 	private String textureLocation;
@@ -29,7 +29,7 @@ public class ItemPIC extends Item
 		return String.format("item.%s%s", Textures.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
 	}
 	
-	public ItemPIC setItemName(String name)
+	public BaseItem setItemName(String name)
 	{
 		this.setUnlocalizedName(name);
 		return this;

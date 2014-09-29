@@ -5,20 +5,20 @@ import net.heavencraft.industrialchemistry.item.*;
 import net.heavencraft.industrialchemistry.reference.Names;
 
 
-public class PICItems
+public class Items
 {
 	
-	public static final ItemPIC crushedMalachite = CrushedOreType.MALACHITE.createNewInstance();
-	public static final ItemPIC crushedAzurite = CrushedOreType.AZURITE.createNewInstance();
+	public static final BaseItem crushedMalachite = CrushedOreType.MALACHITE.createNewInstance();
+	public static final BaseItem crushedAzurite = CrushedOreType.AZURITE.createNewInstance();
 	
-	public static final ItemPIC chemicalPotassiumNitrate = ChemicalType.POTASSIUM_NITRATE.createNewInstance();
-	public static final ItemPIC chemicalSulfurTrioxide = ChemicalType.SULFUR_TRIOXIDE.createNewInstance();
-	public static final ItemPIC chemicalAmmoniumNitrate = ChemicalType.AMMONIUM_NITRATE.createNewInstance();
-	public static final ItemPIC chemicalLimestone = ChemicalType.LIMESTONE.createNewInstance();
-	public static final ItemPIC chemicalVanadiumOxide = ChemicalType.VANADIUM_OXIDE.createNewInstance();
-	public static final ItemPIC chemicalSulfur = ChemicalType.SULFUR.createNewInstance();
-	public static final ItemPIC chemicalSaltpeter = ChemicalType.SALTPETER.createNewInstance();
-	public static final ItemPIC chemicalCopperOxide = ChemicalType.COPPER_OXIDE.createNewInstance();
+	public static final BaseItem chemicalPotassiumNitrate = ChemicalType.POTASSIUM_NITRATE.createNewInstance();
+	public static final BaseItem chemicalSulfurTrioxide = ChemicalType.SULFUR_TRIOXIDE.createNewInstance();
+	public static final BaseItem chemicalAmmoniumNitrate = ChemicalType.AMMONIUM_NITRATE.createNewInstance();
+	public static final BaseItem chemicalLimestone = ChemicalType.LIMESTONE.createNewInstance();
+	public static final BaseItem chemicalVanadiumOxide = ChemicalType.VANADIUM_OXIDE.createNewInstance();
+	public static final BaseItem chemicalSulfur = ChemicalType.SULFUR.createNewInstance();
+	public static final BaseItem chemicalSaltpeter = ChemicalType.SALTPETER.createNewInstance();
+	public static final BaseItem chemicalCopperOxide = ChemicalType.COPPER_OXIDE.createNewInstance();
 	
 	public static void init()
 	{

@@ -7,7 +7,7 @@ import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
-public class TEBlockLiquid extends TEBlockPICInventory
+public class TEBlockLiquid extends BaseTEBlockInventory
 {
 	IFluidTank tank;
 	

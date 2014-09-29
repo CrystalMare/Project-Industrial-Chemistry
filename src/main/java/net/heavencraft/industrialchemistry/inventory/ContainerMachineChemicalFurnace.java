@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 
 import org.lwjgl.util.Point;
 
-public class ContainerMachineChemicalFurnace extends ContainerPIC
+public class ContainerMachineChemicalFurnace extends BaseContainer
 {
 	private static Point offset = Textures.GUI.ChemicalFurnace.InventoryOffset;
 	private static Point inputSlot = Textures.GUI.ChemicalFurnace.InputSlot;

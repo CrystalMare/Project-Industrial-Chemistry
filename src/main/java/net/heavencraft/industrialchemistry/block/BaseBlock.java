@@ -5,8 +5,8 @@ import java.util.Random;
 import net.heavencraft.industrialchemistry.ProjectIndustrialChemistry;
 import net.heavencraft.industrialchemistry.creativetab.CreativeTab;
 import net.heavencraft.industrialchemistry.helpers.BlockHelper;
-import net.heavencraft.industrialchemistry.reference.GUIs;
-import net.heavencraft.industrialchemistry.reference.GUIs.ID;
+import net.heavencraft.industrialchemistry.reference.Gui;
+import net.heavencraft.industrialchemistry.reference.Gui.ID;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -30,19 +30,19 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author Chase
  * 
  */
-public class BlockPIC extends Block
+public class BaseBlock extends Block
 {
 	
-	GUIs.ID guiID;
+	Gui.ID guiID;
 	
 	public String textureLocation;
 	
-	public BlockPIC()
+	public BaseBlock()
 	{
 		this(Material.rock);
 	}
 	
-	public BlockPIC(Material material)
+	public BaseBlock(Material material)
 	{
 		super(material);
 		this.setCreativeTab(CreativeTab.PIC_TAB);

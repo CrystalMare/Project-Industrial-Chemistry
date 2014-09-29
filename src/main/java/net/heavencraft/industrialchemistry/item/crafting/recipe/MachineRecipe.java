@@ -1,16 +1,16 @@
 package net.heavencraft.industrialchemistry.item.crafting.recipe;
 
-import net.heavencraft.industrialchemistry.tileentity.TEBlockPICPower;
+import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-public abstract class MachineRecipePIC
+public abstract class MachineRecipe
 {
 	/**
 	 * time in Ticks from proccessing
 	 */
 	int proccessTime;
-	Class<? extends TEBlockPICPower>  TileEntity;
+	Class<? extends BaseTEBlockPower>  TileEntity;
 	
 	ItemStack[] itemsIn;
 	ItemStack[] itemsOut;
@@ -18,12 +18,12 @@ public abstract class MachineRecipePIC
 	FluidStack[] fluidsIn;
 	FluidStack[] fluidOut;
 	
-	public MachineRecipePIC()
+	public MachineRecipe()
 	{
 		
 	}
 	
-	public MachineRecipePIC(Class<? extends TEBlockPICPower> machine, int ProccessTime)
+	public MachineRecipe(Class<? extends BaseTEBlockPower> machine, int ProccessTime)
 	{
 		this.TileEntity = machine;
 		proccessTime = ProccessTime;

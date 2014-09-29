@@ -5,7 +5,7 @@ import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-public class ItemCrushedOre extends ItemPIC
+public class ItemCrushedOre extends BaseItem
 {
 	
 	private CrushedOreType type;

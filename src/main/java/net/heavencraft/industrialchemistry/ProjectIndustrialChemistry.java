@@ -1,10 +1,10 @@
 package net.heavencraft.industrialchemistry;
 
-import net.heavencraft.industrialchemistry.handlers.GUIHandler;
+import net.heavencraft.industrialchemistry.handlers.GuiHandler;
 import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.WorldGenHandler;
-import net.heavencraft.industrialchemistry.init.PICBlocks;
-import net.heavencraft.industrialchemistry.init.PICItems;
+import net.heavencraft.industrialchemistry.init.Blocks;
+import net.heavencraft.industrialchemistry.init.Items;
 import net.heavencraft.industrialchemistry.network.PacketHandler;
 import net.heavencraft.industrialchemistry.proxy.IProxy;
 import net.heavencraft.industrialchemistry.reference.Names;
@@ -41,9 +41,9 @@ public class ProjectIndustrialChemistry
 		// Init PacketHandler
 		PacketHandler.init();
 		// Init Items
-		PICItems.init();
+		Items.init();
 		// Init Blocks
-		PICBlocks.init();
+		Blocks.init();
 		
 		
 	}
@@ -52,7 +52,7 @@ public class ProjectIndustrialChemistry
 	public void init(FMLInitializationEvent event)
 	{
 		// Register Gui Handler
-		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GUIHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		//Register WorldGen
 		GameRegistry.registerWorldGenerator(new WorldGenHandler(), 1);
 		// Register Tile Entities

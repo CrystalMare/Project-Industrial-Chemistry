@@ -2,6 +2,7 @@ container.pic.blockTesting=Testing Block
 container.pic.machineChemicalFurnace=Chemical Furnace
 
 tile.pic:TestBlock.name=Test Block
+tile.pic:machineChemicalFurnace.name=Chemical Furnace
 
 
 tile.pic:oreMalachite.name=Malachite Ore
@@ -16,5 +17,5 @@ item.chemicalLimestone.name=Limestone
 item.chemicalVanadiumOxide.name=Vanadium Oxide
 item.chemicalSulfur.name=Sulfur
 item.chemicalSaltpeter.name=Saltpeter
-item.chemicalCopperOxide.name= Copper Oxide
+item.chemicalCopperOxide.name=Copper Oxide
 

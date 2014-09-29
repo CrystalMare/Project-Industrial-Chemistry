@@ -4,7 +4,7 @@ import net.heavencraft.industrialchemistry.inventory.ContainerTesting;
 import net.heavencraft.industrialchemistry.tileentity.TETestingBlock;
 import net.minecraft.entity.player.InventoryPlayer;
 
-public class GUITesting extends GuiPIC
+public class GUITesting extends BaseGuiContainer
 {
 	private TETestingBlock testingTE;
 	

@@ -1,6 +1,6 @@
 package net.heavencraft.industrialchemistry.network.packet;
 
-import net.heavencraft.industrialchemistry.tileentity.TEBlockPICPower;
+import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
 import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.Teleporter;

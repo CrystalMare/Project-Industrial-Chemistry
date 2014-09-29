@@ -9,7 +9,7 @@ import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 
-public class GUIMachineChemicalFurnace extends GuiPIC
+public class GUIMachineChemicalFurnace extends BaseGuiContainer
 {
 	TEMachineChemicalFurnace machineChemicalFurnaceTE;
 	

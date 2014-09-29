@@ -3,13 +3,13 @@ package net.heavencraft.industrialchemistry.tileentity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
-import net.heavencraft.industrialchemistry.init.PICBlocks;
-import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipePIC;
+import net.heavencraft.industrialchemistry.init.Blocks;
+import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipe;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-public class TEMachineChemicalFurnace extends TEBlockPICPower
+public class TEMachineChemicalFurnace extends BaseTEBlockPower
 {
 	private int rfPerTick = 10;
 	private int timeLeftToProcess = 0;
@@ -74,7 +74,7 @@ public class TEMachineChemicalFurnace extends TEBlockPICPower
 				ItemStack stackInput = inventory[0];
 				if (stackInput != null)
 				{
-					MachineRecipePIC recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
+					MachineRecipe recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
 					if (recipe != null)
 					{
 						if (isProcessing() && canProccess())

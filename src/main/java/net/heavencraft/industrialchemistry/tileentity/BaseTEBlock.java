@@ -5,7 +5,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public abstract class TEBlockPIC extends TileEntity
+public abstract class BaseTEBlock extends TileEntity
 {
     public ForgeDirection orientation;
     public String name;
@@ -13,7 +13,7 @@ public abstract class TEBlockPIC extends TileEntity
     public String owner;
 	
 	
-	public TEBlockPIC()
+	public BaseTEBlock()
 	{
 		name = "";
         orientation = ForgeDirection.SOUTH;

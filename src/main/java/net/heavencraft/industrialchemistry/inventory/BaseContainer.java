@@ -9,7 +9,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public abstract class ContainerPIC extends Container
+public abstract class BaseContainer extends Container
 {
 	public int InventoryRowsPlayer = 3;
 	public int InventoryColumnsPlayer = 9;
