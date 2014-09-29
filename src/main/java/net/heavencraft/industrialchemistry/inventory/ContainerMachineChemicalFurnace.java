@@ -5,7 +5,9 @@ import org.lwjgl.util.Point;
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
 
 public class ContainerMachineChemicalFurnace extends ContainerPIC
 {
@@ -25,4 +27,10 @@ public class ContainerMachineChemicalFurnace extends ContainerPIC
 		addSlot(tile, 1, outputSlot.getX(), outputSlot.getY());
 		System.out.println("Container open on " + FMLCommonHandler.instance().getEffectiveSide());
 	}
+
+	@Override
+    public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex)
+    {
+	    return null;
+    }
 }

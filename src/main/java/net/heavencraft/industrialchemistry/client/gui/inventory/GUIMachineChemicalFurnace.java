@@ -28,7 +28,6 @@ public class GUIMachineChemicalFurnace extends GuiPIC
 		this.ySize = Textures.GUI.ChemicalFurnace.Gui.getHeight();
         this.guiLeft = (this.width - xSize) / 2;
         this.guiTop = (this.height - ySize) / 2;
-        
 	}
 	
 	@Override

@@ -49,6 +49,12 @@ public class Textures
 			public static final String ChemicalFurnaceSide = ResourceLocationHelper.getBlockLocation("chemicalFurnace_side");
 		}
 		
+		public static final class Fluids
+		{
+			public static final String OxygenStill = "oxygenStill";
+			public static final String OxygenFlowing = "oxygenFlowing";
+		}
+		
 		public static final String MalachiteOre = ResourceLocationHelper.getBlockLocation("malachiteOre");
 		public static final String TestBlock = ResourceLocationHelper.getBlockLocation("testBlock");
 	}

@@ -1,5 +1,7 @@
 package net.heavencraft.industrialchemistry.inventory;
 
+import org.lwjgl.input.Keyboard;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -7,7 +9,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class ContainerPIC extends Container
+public abstract class ContainerPIC extends Container
 {
 	public int InventoryRowsPlayer = 3;
 	public int InventoryColumnsPlayer = 9;
@@ -20,7 +22,7 @@ public class ContainerPIC extends Container
 	
 	public void drawInv(InventoryPlayer player)
 	{
-		this.drawInv(player, 0, 0);
+		drawInv(player, 0, 0);
 	}
 	
 	public void drawInv(InventoryPlayer inventory, int xOffset, int yOffset)
@@ -29,28 +31,23 @@ public class ContainerPIC extends Container
 		{
 			for (int column = 0; column < InventoryColumnsPlayer; ++column)
 			{
-				this.addSlotToContainer(new Slot(inventory, column + row * 9 + 9, 8 + xOffset + column * 18, 84 + yOffset + row * 18));
+				addSlotToContainer(new Slot(inventory, column + row * 9 + 9, 8 + xOffset + column * 18, 84 + yOffset + row * 18));
 			}
 		}
 		
 		for (int slot = 0; slot < InventoryColumnsPlayer; ++slot)
 		{
-			this.addSlotToContainer(new Slot(inventory, slot, 8 + slot * 18 + xOffset, 142 + yOffset));
+			addSlotToContainer(new Slot(inventory, slot, 8 + slot * 18 + xOffset, 142 + yOffset));
 		}
 	}
 	
 	public void addSlot(IInventory stack, int slotIndex, int x, int y)
 	{
-		Slot slot = this.addSlotToContainer(new Slot(stack, slotIndex, x, y));
-		System.out.print(slot.toString());
+		addSlotToContainer(new Slot(stack, slotIndex, x, y));
 	}
 	
 	@Override
-    public ItemStack transferStackInSlot(EntityPlayer player, int p_82846_2_)
-    {
-        Slot slot = (Slot)this.inventorySlots.get(p_82846_2_);
-        return slot != null ? slot.getStack() : null;
-    }
+    public abstract ItemStack transferStackInSlot(EntityPlayer player, int slotIndex);
 	
 	protected boolean mergeItemStack(ItemStack itemStack, int slotMin, int slotMax, boolean ascending)
 	{

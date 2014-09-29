@@ -52,4 +52,9 @@ public abstract class Names
 		public static String ChemicalSulfur = "chemicalSulfur";
 		public static String ChemicalSaltpeter = "chemicalSaltpeter";
 	}
+	
+	public static final class Fluids
+	{
+		public static final String Oxygen = "oxygen";
+	}
 }

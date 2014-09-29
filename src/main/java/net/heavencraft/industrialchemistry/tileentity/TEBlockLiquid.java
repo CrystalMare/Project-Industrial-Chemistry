@@ -12,10 +12,9 @@ public class TEBlockLiquid extends TEBlockPICInventory
 	IFluidTank tank;
 	
 	@Override
-    public void updateEntity()
-    {
-	    
-    }
-
+	public void updateEntity()
+	{
+		
+	}
 	
 }

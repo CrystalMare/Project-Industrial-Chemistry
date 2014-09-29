@@ -3,12 +3,14 @@ package net.heavencraft.industrialchemistry.tileentity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
+import net.heavencraft.industrialchemistry.init.PICBlocks;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipePIC;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class TEMachineChemicalFurnace extends TEBlockPICPower
-{	
+{
 	private int rfPerTick = 10;
 	private int timeLeftToProcess = 0;
 	
@@ -73,22 +75,25 @@ public class TEMachineChemicalFurnace extends TEBlockPICPower
 				if (stackInput != null)
 				{
 					MachineRecipePIC recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
-					if (recipe != null && isProcessing() && canProccess())
+					if (recipe != null)
 					{
-						if (this.timeLeftToProcess <= 1)
+						if (isProcessing() && canProccess())
 						{
-							this.timeLeftToProcess = 0;
-							this.smeltItem();
-							save = true;
+							if (this.timeLeftToProcess <= 1)
+							{
+								this.timeLeftToProcess = 0;
+								this.smeltItem();
+								save = true;
+							}
+							else
+							{
+								--timeLeftToProcess;
+							}
 						}
 						else
 						{
-							--timeLeftToProcess;
+							this.timeLeftToProcess = recipe.getProccessTime();
 						}
-					}
-					else
-					{
-						this.timeLeftToProcess = recipe.getProccessTime();
 					}
 				}
 			}
@@ -125,17 +130,16 @@ public class TEMachineChemicalFurnace extends TEBlockPICPower
 		}
 	}
 	
-	
-    @SideOnly(Side.CLIENT)
-    public int getBurnTimeRemainingScaled(int scale)
-    {
+	@SideOnly(Side.CLIENT)
+	public int getBurnTimeRemainingScaled(int scale)
+	{
 		ItemStack stackInput = inventory[0];
-		if(stackInput != null)
+		if (stackInput != null)
 		{
 			MachineRecipeSimple recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
-	        return timeLeftToProcess * scale / recipe.getProccessTime();
+			return timeLeftToProcess * scale / recipe.getProccessTime();
 		}
 		return 0;
-    }
-	
+	}
+		
 }

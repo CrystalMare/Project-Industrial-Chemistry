@@ -1,5 +1,6 @@
 package net.heavencraft.industrialchemistry.tileentity;
 
+import net.heavencraft.industrialchemistry.init.PICBlocks;
 import net.heavencraft.industrialchemistry.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -11,7 +12,7 @@ public abstract class TEBlockPICInventory extends TEBlockPIC implements IInvento
 {
 	
 	protected ItemStack[] inventory;
-	private int numUsingPlayers;
+	protected int numUsingPlayers;
 	
 	public void createInventory(int size)
 	{
@@ -79,7 +80,6 @@ public abstract class TEBlockPICInventory extends TEBlockPIC implements IInvento
 		}
 		
 		this.markDirty();
-		
 	}
 	
 	@Override
@@ -104,25 +104,6 @@ public abstract class TEBlockPICInventory extends TEBlockPIC implements IInvento
 	public boolean isUseableByPlayer(EntityPlayer p_70300_1_)
 	{
 		return true;
-	}
-	
-	@Override
-	public void openInventory()
-	{
-		++numUsingPlayers;
-		// worldObj.addBlockEvent(xCoord, yCoord, zCoord,
-		// PICBlocks.blockLiquidIO, 1, numUsingPlayers);
-		
-	}
-	
-	@Override
-	public void closeInventory()
-	{
-		
-		--numUsingPlayers;
-		// worldObj.addBlockEvent(xCoord, yCoord, zCoord,
-		// PICBlocks.blockLiquidIO, 1, numUsingPlayers);
-		
 	}
 	
 	@Override
@@ -169,4 +150,29 @@ public abstract class TEBlockPICInventory extends TEBlockPIC implements IInvento
 		}
 		nbtTagCompound.setTag(Names.NBT.TileEntity.Items, tagList);
 	}
+	
+	@Override
+	public boolean receiveClientEvent(int eventID, int numUsingPlayers)
+	{
+		if (eventID == 1)
+		{
+			this.numUsingPlayers = numUsingPlayers;
+			return true;
+		}
+		else
+		{
+			return super.receiveClientEvent(eventID, numUsingPlayers);
+		}
+	}
+	
+	@Override
+	public void openInventory()
+	{
+	}
+	
+	@Override
+	public void closeInventory()
+	{
+	}
+	
 }
