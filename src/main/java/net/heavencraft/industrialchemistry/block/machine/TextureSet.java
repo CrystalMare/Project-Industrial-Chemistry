@@ -15,17 +15,17 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class TextureSet extends HashMap<ForgeDirection, IIcon>
 {
 	private final MachineState state;
-	private final TextureSet parrent;
+	private final TextureSet parent;
 	private HashMap<MachineState, TextureSet> children;
 	
 	
 	/**
 	 * Constructs a new TextureSet for a Machine
-	 * If parrent is null, then all textures must be set.
-	 * If you register a parrent
+	 * If parent is null, then all textures must be set.
+	 * If you register a parent
 	 * @param iconRegister IIconRegister to register blocktextures
 	 * @param state The state this texture set will provide for
-	 * @param parrent The parrent (default) texture set
+	 * @param parent The parent (default) texture set
 	 * @param front The front of the machine
 	 * @param back The back of the machine
 	 * @param left The left of the machine
@@ -33,61 +33,37 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 	 * @param top The top of the machine
 	 * @param bottom The bottom of the machine
 	 */
-	public TextureSet(IIconRegister iconRegister, MachineState state, TextureSet parrent, 
+	public TextureSet(IIconRegister iconRegister, MachineState state, TextureSet parent, 
 			String front, String back, String left, String right, String top, String bottom)
 	{
 		this.state = state;
-		this.parrent = parrent;
+		this.parent = parent;
 		children = new HashMap<MachineState, TextureSet>();
 		
-		//Front
 		if (front != null)
 			put(ForgeDirection.SOUTH, iconRegister.registerIcon(front));
-		//Back
 		if (back != null)
 			put(ForgeDirection.NORTH, iconRegister.registerIcon(back));
-		//Top
 		if (top != null)
 			put(ForgeDirection.UP, iconRegister.registerIcon(top));
-		//Bottom
 		if (bottom != null)
 			put(ForgeDirection.DOWN, iconRegister.registerIcon(bottom));
-		//Left
 		if (left != null)
 			put(ForgeDirection.WEST, iconRegister.registerIcon(left));
-		//Right
 		if (right != null)
 			put(ForgeDirection.EAST, iconRegister.registerIcon(right));
 		
-		//Sets parrents children
-		if (parrent != null)
-		{
-			parrent.setChild(this);
-		}
-		
-		/*
-		//Missing textures get replaced with 'texture errors'
-		if (parrent == null && this.size() != 6)
-		{
-			System.err.println("MISSING TEXTURES");
-			for(ForgeDirection side : ForgeDirection.VALID_DIRECTIONS)
-			{
-				if (getTexture(side) == null)
-					put(side, iconRegister.registerIcon(missingTexture));
-			}
-		}
-		*/
-
+		if (parent != null) parent.setChild(this);
 	}
 	
 	
 	/**
-	 * Sets a parrent's child
+	 * Sets a parent's child
 	 * @param child
 	 */
 	public void setChild(TextureSet child)
 	{
-		if (parrent != null) return;
+		if (parent != null) return;
 		
 		children.put(child.getState(), child);
 	}
@@ -118,7 +94,7 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 	 */
 	public IIcon getTexture(ForgeDirection side, MachineState state)
 	{
-		if (state != this.state && parrent == null)
+		if (state != this.state && parent == null)
 		{
 			if (children.get(state).getTexture(side) == null)
 				return getTexture(side);
