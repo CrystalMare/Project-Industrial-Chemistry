@@ -2,7 +2,7 @@ package net.heavencraft.industrialchemistry.tileentity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
+import net.heavencraft.industrialchemistry.handlers.OldRecipeHandler;
 import net.heavencraft.industrialchemistry.init.IndustrialChemistryBlocks;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipe;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
@@ -35,7 +35,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		{
 			ItemStack inputStack = inventory[0];
 			ItemStack outputStack = inventory[1];
-			MachineRecipeSimple recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), inputStack);
+			MachineRecipeSimple recipe = OldRecipeHandler.getSimpleMachineRecipe(getClass(), inputStack);
 			if (recipe.getOutput() == null) return false;
 			if (outputStack == null) return true;
 			ItemStack resultStack = recipe.getSimpleOutput(getClass());
@@ -74,7 +74,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 				ItemStack stackInput = inventory[0];
 				if (stackInput != null)
 				{
-					MachineRecipe recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
+					MachineRecipe recipe = OldRecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
 					if (recipe != null)
 					{
 						if (isProcessing() && canProccess())
@@ -114,7 +114,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		{
 			ItemStack stackInput = inventory[0];
 			ItemStack stackOutput = inventory[1];
-			MachineRecipeSimple recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
+			MachineRecipeSimple recipe = OldRecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
 			ItemStack resultStack = recipe.getSimpleOutput(getClass());
 			if (stackOutput == null)
 			{
@@ -150,7 +150,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		ItemStack stackInput = inventory[0];
 		if (stackInput != null && timeLeftToProcess != 0)
 		{
-			MachineRecipeSimple recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
+			MachineRecipeSimple recipe = OldRecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
 			return (double)(recipe.getProccessTime() - timeLeftToProcess) / recipe.getProccessTime();
 		}
 		return 0;
