@@ -50,13 +50,14 @@ public class GUIMachineChemicalFurnace extends GuiPIC
 	
 	public void drawArrow()
 	{
-		double scale = machineChemicalFurnaceTE.getProgress();
+		double progress = machineChemicalFurnaceTE.getProgress();
 		mc.getTextureManager().bindTexture(Textures.GUI.ChemicalFurnace.GuiResource);
-		Rectangle gui = Textures.GUI.ChemicalFurnace.Gui;
-		int startX = (width - gui.getWidth()) / 2;
-		int startY = (height - gui.getHeight()) / 2;
 		Rectangle arrow = Textures.GUI.ChemicalFurnace.ProgressArrow;
-		this.drawTexturedModalRect(startX, (int) (startY  * scale), arrow.getX(),(int) (arrow.getY()), arrow.getWidth(), (int) (arrow.getHeight()));
+		Rectangle gui = Textures.GUI.ChemicalFurnace.Gui;
+		int offset = (int) (progress * arrow.getHeight());
+		int startX = guiLeft + 81;
+		int startY = guiTop + 33 + arrow.getHeight() - offset;
+		this.drawTexturedModalRect(startX, startY, arrow.getX(), arrow.getY() + arrow.getHeight() - offset, arrow.getWidth(), offset);
 	}
 	
 }
