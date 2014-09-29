@@ -96,6 +96,10 @@ public class TEMachineChemicalFurnace extends TEBlockPICPower
 						}
 					}
 				}
+				else
+				{
+					timeLeftToProcess = 0;
+				}
 			}
 		}
 		if (save)
@@ -130,14 +134,24 @@ public class TEMachineChemicalFurnace extends TEBlockPICPower
 		}
 	}
 	
+	public int getTimeLeftToProcess()
+	{
+		return timeLeftToProcess;
+	}
+	
+	public void setTimeLeftToProcess(int value)
+	{
+		timeLeftToProcess = value;
+	}
+	
 	@SideOnly(Side.CLIENT)
-	public int getBurnTimeRemainingScaled(int scale)
+	public double getProgress()
 	{
 		ItemStack stackInput = inventory[0];
-		if (stackInput != null)
+		if (stackInput != null && timeLeftToProcess != 0)
 		{
 			MachineRecipeSimple recipe = RecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
-			return timeLeftToProcess * scale / recipe.getProccessTime();
+			return (double)(recipe.getProccessTime() - timeLeftToProcess) / recipe.getProccessTime();
 		}
 		return 0;
 	}

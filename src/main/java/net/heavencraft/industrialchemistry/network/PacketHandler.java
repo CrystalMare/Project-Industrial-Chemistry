@@ -1,5 +1,6 @@
 package net.heavencraft.industrialchemistry.network;
 
+import net.heavencraft.industrialchemistry.network.packet.PacketChemicalFurnace;
 import net.heavencraft.industrialchemistry.network.packet.PacketTileEntityPIC;
 import net.heavencraft.industrialchemistry.reference.Names;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -18,6 +19,6 @@ public class PacketHandler
     public static void init()
     {
        //Register Packets Here!
-    	INSTANCE.registerMessage(PacketTileEntityPIC.class, PacketTileEntityPIC.class, 0, Side.CLIENT);
+    	INSTANCE.registerMessage(PacketChemicalFurnace.class, PacketChemicalFurnace.class, 0, Side.CLIENT);
     }
 }

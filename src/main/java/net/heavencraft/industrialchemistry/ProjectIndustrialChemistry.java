@@ -5,6 +5,7 @@ import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.WorldGenHandler;
 import net.heavencraft.industrialchemistry.init.PICBlocks;
 import net.heavencraft.industrialchemistry.init.PICItems;
+import net.heavencraft.industrialchemistry.network.PacketHandler;
 import net.heavencraft.industrialchemistry.proxy.IProxy;
 import net.heavencraft.industrialchemistry.reference.Names;
 import cpw.mods.fml.common.Mod;
@@ -38,6 +39,7 @@ public class ProjectIndustrialChemistry
 	{
 		// Init Config
 		// Init PacketHandler
+		PacketHandler.init();
 		// Init Items
 		PICItems.init();
 		// Init Blocks

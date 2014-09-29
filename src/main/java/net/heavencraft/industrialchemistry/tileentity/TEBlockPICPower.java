@@ -117,6 +117,11 @@ public abstract class TEBlockPICPower extends TEBlockPICInventory implements IEn
 		return storage.getEnergyStored();
 	}
 	
+	public void setInternalEnergy(int value)
+	{
+		storage.setEnergyStored(value);
+	}
+	
 	
 	@Override
 	public int getEnergyStored(ForgeDirection from)

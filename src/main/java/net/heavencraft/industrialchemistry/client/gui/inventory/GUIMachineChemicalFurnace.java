@@ -12,13 +12,13 @@ import net.minecraft.inventory.Container;
 public class GUIMachineChemicalFurnace extends GuiPIC
 {
 	TEMachineChemicalFurnace machineChemicalFurnaceTE;
-
+	
 	public GUIMachineChemicalFurnace(InventoryPlayer player, TEMachineChemicalFurnace tile)
-    {
-	    super(new ContainerMachineChemicalFurnace(player, tile));
-	    this.machineChemicalFurnaceTE = tile;
-	    
-    }
+	{
+		super(new ContainerMachineChemicalFurnace(player, tile));
+		this.machineChemicalFurnaceTE = tile;
+		
+	}
 	
 	@Override
 	public void initGui()
@@ -26,16 +26,14 @@ public class GUIMachineChemicalFurnace extends GuiPIC
 		this.mc.thePlayer.openContainer = this.inventorySlots;
 		this.xSize = Textures.GUI.ChemicalFurnace.Gui.getWidth();
 		this.ySize = Textures.GUI.ChemicalFurnace.Gui.getHeight();
-        this.guiLeft = (this.width - xSize) / 2;
-        this.guiTop = (this.height - ySize) / 2;
+		this.guiLeft = (this.width - xSize) / 2;
+		this.guiTop = (this.height - ySize) / 2;
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		
-		//this.drawTitle(machineChemicalFurnaceTE.getName());
-		drawTitle(machineChemicalFurnaceTE.getName());
+		drawTitle(String.valueOf(machineChemicalFurnaceTE.getProgress()));
 	}
 	
 	@Override
@@ -43,10 +41,22 @@ public class GUIMachineChemicalFurnace extends GuiPIC
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		mc.getTextureManager().bindTexture(Textures.GUI.ChemicalFurnace.GuiResource);
-		Rectangle window = Textures.GUI.ChemicalFurnace.Gui;
-		int startX = (width - window.getWidth()) / 2;
-		int startY = (height - window.getHeight()) / 2;
-		this.drawTexturedModalRect(startX, startY, window.getX(), window.getY(), window.getWidth(), window.getHeight());
+		Rectangle gui = Textures.GUI.ChemicalFurnace.Gui;
+		int startX = (width - gui.getWidth()) / 2;
+		int startY = (height - gui.getHeight()) / 2;
+		this.drawTexturedModalRect(startX, startY, gui.getX(), gui.getY(), gui.getWidth(), gui.getHeight());
+		drawArrow();
+	}
+	
+	public void drawArrow()
+	{
+		double scale = machineChemicalFurnaceTE.getProgress();
+		mc.getTextureManager().bindTexture(Textures.GUI.ChemicalFurnace.GuiResource);
+		Rectangle gui = Textures.GUI.ChemicalFurnace.Gui;
+		int startX = (width - gui.getWidth()) / 2;
+		int startY = (height - gui.getHeight()) / 2;
+		Rectangle arrow = Textures.GUI.ChemicalFurnace.ProgressArrow;
+		this.drawTexturedModalRect(startX, (int) (startY  * scale), arrow.getX(),(int) (arrow.getY()), arrow.getWidth(), (int) (arrow.getHeight()));
 	}
 	
 }
