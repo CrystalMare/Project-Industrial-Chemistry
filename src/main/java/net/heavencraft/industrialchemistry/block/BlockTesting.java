@@ -1,11 +1,9 @@
 package net.heavencraft.industrialchemistry.block;
 
-import net.heavencraft.industrialchemistry.ProjectIndustrialChemistry;
 import net.heavencraft.industrialchemistry.reference.Gui;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.TETestingBlock;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 

@@ -8,10 +8,6 @@ import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipe;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
 import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
 import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class OldRecipeHandler

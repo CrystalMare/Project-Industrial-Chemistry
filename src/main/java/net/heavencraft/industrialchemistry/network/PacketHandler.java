@@ -1,7 +1,6 @@
 package net.heavencraft.industrialchemistry.network;
 
 import net.heavencraft.industrialchemistry.network.packet.PacketChemicalFurnace;
-import net.heavencraft.industrialchemistry.network.packet.BaseTileEntity;
 import net.heavencraft.industrialchemistry.reference.Names;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;

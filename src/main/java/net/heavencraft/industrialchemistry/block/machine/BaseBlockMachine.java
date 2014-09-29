@@ -1,15 +1,10 @@
 package net.heavencraft.industrialchemistry.block.machine;
 
-import java.util.Map.Entry;
-
-import cofh.api.tileentity.ISidedTexture;
 import net.heavencraft.industrialchemistry.block.BaseBlock;
 import net.heavencraft.industrialchemistry.helpers.BlockHelper;
-import net.heavencraft.industrialchemistry.reference.Textures;
-import net.heavencraft.industrialchemistry.tileentity.MachineState;
 import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
+import net.heavencraft.industrialchemistry.tileentity.MachineState;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;

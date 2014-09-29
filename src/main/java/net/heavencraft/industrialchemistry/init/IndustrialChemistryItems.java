@@ -1,8 +1,10 @@
 package net.heavencraft.industrialchemistry.init;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.heavencraft.industrialchemistry.item.*;
+import net.heavencraft.industrialchemistry.item.BaseItem;
+import net.heavencraft.industrialchemistry.item.ChemicalType;
+import net.heavencraft.industrialchemistry.item.CrushedOreType;
 import net.heavencraft.industrialchemistry.reference.Names;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 
 public class IndustrialChemistryItems

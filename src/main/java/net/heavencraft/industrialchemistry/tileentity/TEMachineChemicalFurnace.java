@@ -1,13 +1,11 @@
 package net.heavencraft.industrialchemistry.tileentity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.heavencraft.industrialchemistry.handlers.OldRecipeHandler;
-import net.heavencraft.industrialchemistry.init.IndustrialChemistryBlocks;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipe;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class TEMachineChemicalFurnace extends BaseTEBlockPower
 {
@@ -122,7 +120,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 			}
 			else if (stackOutput.getItem() == resultStack.getItem())
 			{
-				setInventorySlotContents(1, new ItemStack(resultStack.getItem(), stackOutput.stackSize));
+				setInventorySlotContents(1, new ItemStack(resultStack.getItem(), resultStack.stackSize + stackOutput.stackSize));
 			}
 			
 			--stackInput.stackSize;

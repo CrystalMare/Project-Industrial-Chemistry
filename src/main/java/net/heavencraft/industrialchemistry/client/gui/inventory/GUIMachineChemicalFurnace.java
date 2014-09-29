@@ -1,13 +1,12 @@
 package net.heavencraft.industrialchemistry.client.gui.inventory;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.Rectangle;
-
 import net.heavencraft.industrialchemistry.inventory.ContainerMachineChemicalFurnace;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
+
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.Rectangle;
 
 public class GUIMachineChemicalFurnace extends BaseGuiContainer
 {

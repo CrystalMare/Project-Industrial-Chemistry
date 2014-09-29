@@ -1,6 +1,5 @@
 package net.heavencraft.industrialchemistry.block.machine;
 
-import java.util.EnumSet;
 import java.util.HashMap;
 
 import net.heavencraft.industrialchemistry.tileentity.MachineState;

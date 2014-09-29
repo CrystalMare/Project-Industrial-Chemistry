@@ -5,7 +5,6 @@ import net.heavencraft.industrialchemistry.block.BlockTesting;
 import net.heavencraft.industrialchemistry.block.machine.MachineChemicalFurnace;
 import net.heavencraft.industrialchemistry.block.ores.BlockOreMalachite;
 import net.heavencraft.industrialchemistry.reference.Names;
-import net.heavencraft.industrialchemistry.reference.Names.Block.Machine;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class IndustrialChemistryBlocks

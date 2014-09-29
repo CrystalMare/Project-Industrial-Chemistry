@@ -1,10 +1,8 @@
 package net.heavencraft.industrialchemistry.network.packet;
 
-import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
+import io.netty.buffer.ByteBuf;
 import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.Teleporter;
-import io.netty.buffer.ByteBuf;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;

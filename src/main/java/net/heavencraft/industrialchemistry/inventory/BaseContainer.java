@@ -1,7 +1,5 @@
 package net.heavencraft.industrialchemistry.inventory;
 
-import org.lwjgl.input.Keyboard;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
