@@ -177,8 +177,11 @@ public class BlockPIC extends Block
 	{
 		if (this.hasGUIID() && !player.isSneaking())
 		{
-			player.openGui(ProjectIndustrialChemistry.instance, this.getGUIID().getID(), world, x, y, z);
-			return true;
+			if (!world.isRemote)
+			{
+				player.openGui(ProjectIndustrialChemistry.instance, this.getGUIID().getID(), world, x, y, z);
+				return true;
+			}
 		}
 		return false;
 	}

@@ -16,6 +16,7 @@ public class GUIHandler implements IGuiHandler
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
 	{
+		
 		if (ID == GUIs.ID.TestingBlock.getID())
 		{
 			TETestingBlock tile = (TETestingBlock) world.getTileEntity(x, y, z);

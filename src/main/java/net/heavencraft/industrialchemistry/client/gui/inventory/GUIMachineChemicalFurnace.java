@@ -21,6 +21,17 @@ public class GUIMachineChemicalFurnace extends GUIPIC
     }
 	
 	@Override
+	public void initGui()
+	{
+		this.mc.thePlayer.openContainer = this.inventorySlots;
+		this.xSize = Textures.GUI.ChemicalFurnace.Gui.getWidth();
+		this.ySize = Textures.GUI.ChemicalFurnace.Gui.getHeight();
+        this.guiLeft = (this.width - xSize) / 2;
+        this.guiTop = (this.height - ySize) / 2;
+        
+	}
+	
+	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
 		
