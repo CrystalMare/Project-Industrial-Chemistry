@@ -2,14 +2,20 @@ package net.heavencraft.industrialchemistry.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.heavencraft.industrialchemistry.creativetab.CreativeTab;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class BaseItem extends Item
 {
+	public BaseItem()
+	{
+		this.setCreativeTab(CreativeTab.PIC_TAB);
+	}
 	
 	private String textureLocation;
 	
