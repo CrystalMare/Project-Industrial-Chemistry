@@ -8,7 +8,8 @@ import net.heavencraft.industrialchemistry.reference.Names;
 public class PICItems
 {
 	
-	public static final ItemPIC crushedMalachiteOre = CrushedOreType.MALACHITE.createNewInstance();
+	public static final ItemPIC crushedMalachite = CrushedOreType.MALACHITE.createNewInstance();
+	public static final ItemPIC crushedAzurite = CrushedOreType.AZURITE.createNewInstance();
 	
 	public static final ItemPIC chemicalPotassiumNitrate = ChemicalType.POTASSIUM_NITRATE.createNewInstance();
 	public static final ItemPIC chemicalSulfurTrioxide = ChemicalType.SULFUR_TRIOXIDE.createNewInstance();
@@ -20,7 +21,8 @@ public class PICItems
 	
 	public static void init()
 	{
-		GameRegistry.registerItem(crushedMalachiteOre, Names.Item.CrushedMalachite);
+		GameRegistry.registerItem(crushedMalachite, Names.Item.CrushedMalachite);
+		GameRegistry.registerItem(crushedAzurite, Names.Item.CrushedAzurite);
 		
 		GameRegistry.registerItem(chemicalPotassiumNitrate, Names.Item.ChemicalPotassiumNitrate);
 		GameRegistry.registerItem(chemicalSulfurTrioxide, Names.Item.ChemicalSulfurTrioxide);

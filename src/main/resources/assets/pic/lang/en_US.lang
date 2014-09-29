@@ -6,7 +6,8 @@ tile.pic:TestBlock.name=Test Block
 
 tile.pic:oreMalachite.name=Malachite Ore
 
-item.crushedMalachite.name=Crushed Malachite Ore
+item.crushedMalachite.name=Crushed Malachite
+item.crushedAzurite.name=Crushed Azurite
 
 item.chemicalPotassiumNitrate.name=Potassium Nitrate
 item.chemicalSulfurTrioxide.name=Sulfur Trioxide

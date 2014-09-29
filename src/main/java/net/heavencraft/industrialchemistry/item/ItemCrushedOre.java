@@ -14,10 +14,11 @@ public class ItemCrushedOre extends ItemPIC
 	{
 		this.type = type;	
 	}
+	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
-		list.add("Cu2CO3");
+		list.add(type.getFormula());
 	}
 
 }

@@ -19,12 +19,12 @@ public abstract class Names
 	{
 		public static final class TileEntity
 		{
-			public static String Direction = "direction";
-			public static String CustomName = "customname";
-			public static String Owner = "owner";
-			public static String Items = "items";
+			public static final String Direction = "direction";
+			public static final String CustomName = "customname";
+			public static final String Owner = "owner";
+			public static final String Items = "items";
 			
-			public static String State = "state";
+			public static final String State = "state";
 		}
 	}
 	
@@ -35,22 +35,25 @@ public abstract class Names
 			public static String MachineChemicalFurnace = "machineChemicalFurnace";
 		}
 		
-		public static String BLOCKTESTING = "blockTesting";
-		public static String OreMalachite = "oreMalachite";
+		public static final String BLOCKTESTING = "blockTesting";
+		public static final String OreMalachite = "oreMalachite";
 		
 	}
 	
 	public static final class Item
 	{
-		public static String CrushedMalachite = "crushedMalachite";
 		
-		public static String ChemicalPotassiumNitrate = "chemicalPotassiumNitrate";
-		public static String ChemicalSulfurTrioxide = "chemicalSulfurTrioxide";
-		public static String ChemicalAmmoniumNitrate = "chemicalAmmoniumNitrate";
-		public static String ChemicalLimestone = "chemicalLimestone";
-		public static String ChemicalVanadiumOxide = "chemicalVanadiumOxide";
-		public static String ChemicalSulfur = "chemicalSulfur";
-		public static String ChemicalSaltpeter = "chemicalSaltpeter";
+
+		public static final String CrushedMalachite = "crushedMalachite";
+		public static final String CrushedAzurite = "crushedAzurite";
+		
+		public static final String ChemicalPotassiumNitrate = "chemicalPotassiumNitrate";
+		public static final String ChemicalSulfurTrioxide = "chemicalSulfurTrioxide";
+		public static final String ChemicalAmmoniumNitrate = "chemicalAmmoniumNitrate";
+		public static final String ChemicalLimestone = "chemicalLimestone";
+		public static final String ChemicalVanadiumOxide = "chemicalVanadiumOxide";
+		public static final String ChemicalSulfur = "chemicalSulfur";
+		public static final String ChemicalSaltpeter = "chemicalSaltpeter";
 	}
 	
 	public static final class Fluids

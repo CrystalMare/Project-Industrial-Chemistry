@@ -4,23 +4,30 @@ import net.heavencraft.industrialchemistry.reference.Names;
 
 public enum ChemicalType
 {
-	POTASSIUM_NITRATE	(Names.Item.ChemicalPotassiumNitrate),
-	SULFUR_TRIOXIDE		(Names.Item.ChemicalSulfurTrioxide),
-	AMMONIUM_NITRATE	(Names.Item.ChemicalPotassiumNitrate),
-	LIMESTONE			(Names.Item.ChemicalLimestone),
-	VANADIUM_OXIDE		(Names.Item.ChemicalVanadiumOxide),
-	SULFUR				(Names.Item.ChemicalSulfur),
-	SALTPETER			(Names.Item.ChemicalSaltpeter);
+	POTASSIUM_NITRATE	(Names.Item.ChemicalPotassiumNitrate, "KNO3"),
+	SULFUR_TRIOXIDE		(Names.Item.ChemicalSulfurTrioxide, "SO3"),
+	AMMONIUM_NITRATE	(Names.Item.ChemicalPotassiumNitrate, "(NH4)(NO3)"),
+	LIMESTONE			(Names.Item.ChemicalLimestone, "CaCO3"),
+	VANADIUM_OXIDE		(Names.Item.ChemicalVanadiumOxide, "V2O5"),
+	SULFUR				(Names.Item.ChemicalSulfur, "S"),
+	SALTPETER			(Names.Item.ChemicalSaltpeter, "KNO3");
 	
 	private String name;
+	private String formula;
 	
-	ChemicalType(String name)
+	ChemicalType(String name, String formula)
 	{
 		this.name = name;
+		this.formula = formula;
 	}
 	
 	public ItemChemical createNewInstance()
 	{
 		return (ItemChemical) new ItemChemical(this).setItemName(name);
+	}
+	
+	public String getFormula()
+	{
+		return formula;
 	}
 }
