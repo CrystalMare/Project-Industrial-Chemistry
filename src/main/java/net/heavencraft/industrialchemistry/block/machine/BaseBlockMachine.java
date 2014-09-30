@@ -5,6 +5,7 @@ import net.heavencraft.industrialchemistry.helpers.BlockHelper;
 import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
 import net.heavencraft.industrialchemistry.tileentity.MachineState;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -14,6 +15,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class BaseBlockMachine extends BaseBlock implements ITileEntityProvider
 {
+	public BaseBlockMachine()
+	{
+		this(Material.iron);
+	}
+	
+	public BaseBlockMachine(Material material)
+    {
+		super(material);
+		this.setHardness(0.5F);
+    }
+
 	protected TextureSet textures;
 	
 	@Override

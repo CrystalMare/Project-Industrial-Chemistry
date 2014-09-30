@@ -15,6 +15,7 @@ public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements I
 	private List<ForgeDirection> extractSides = new ArrayList<ForgeDirection>();
 	protected EnergyStorage storage = new EnergyStorage(1000);
 	protected MachineState state = MachineState.OFF;
+	int rfPerTick = 10;
 	
 	public BaseTEBlockPower()
 	{
@@ -94,9 +95,9 @@ public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements I
 		return 0;
 	}
 	
-	public int useEnergy(int amount)
+	public int useEnergy()
 	{
-		return storage.extractEnergy(amount, true);
+		return storage.extractEnergy(rfPerTick, true);
 	}
 	
 	@Override

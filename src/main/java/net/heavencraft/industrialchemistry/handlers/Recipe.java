@@ -1,10 +1,8 @@
 package net.heavencraft.industrialchemistry.handlers;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
 import net.minecraft.item.ItemStack;

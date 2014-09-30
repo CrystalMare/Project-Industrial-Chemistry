@@ -16,10 +16,18 @@ public class PacketHandler
 {
     public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Names.Mod.ID.toLowerCase());
 
+    public static int discriminator = 0;
+    
     public static void init()
     {
        //Register Packets Here!
-    	INSTANCE.registerMessage(PacketChemicalFurnace.class, PacketChemicalFurnace.class, 0, Side.CLIENT);
-    	INSTANCE.registerMessage(PacketGrinder.class, PacketGrinder.class, 0, Side.CLIENT);
+    	INSTANCE.registerMessage(PacketChemicalFurnace.class, PacketChemicalFurnace.class, nextDisc(), Side.CLIENT);
+    	INSTANCE.registerMessage(PacketGrinder.class, PacketGrinder.class, nextDisc(), Side.CLIENT);
+    }
+    
+    
+    public static int nextDisc()
+    {
+    	return discriminator++;
     }
 }

@@ -2,8 +2,6 @@ package net.heavencraft.industrialchemistry.tileentity;
 
 import net.heavencraft.industrialchemistry.handlers.NewRecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.Recipe;
-import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipe;
-import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
 import net.heavencraft.industrialchemistry.util.CollectionUtils;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
@@ -11,8 +9,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class TEMachineChemicalFurnace extends BaseTEBlockPower
 {
-	private int rfPerTick = 10;
+	private static final float heatingCoeff = (float) 0.1;
+	private static final float keepCoeff = (float) 0.01;
+	
 	private int timeLeftToProcess = 0;
+	private int energyUsage = 0;
+	private float internalTemp = 0;
+	private float limitTemp = 1000;
+	public int tick = 0;
 	
 	public TEMachineChemicalFurnace()
 	{
@@ -62,10 +66,10 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		}
 		
 		if (!this.worldObj.isRemote)
-		{			
+		{
 			if (getInternalEnergy() > 0)
 			{
-				useEnergy(rfPerTick);
+				energyUsage = useEnergy();
 			}
 			else
 			{
@@ -142,9 +146,41 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		return timeLeftToProcess;
 	}
 	
+	@Override
+	public int useEnergy()
+	{
+		float rfHeating = 0;
+		limitTemp = 2000;
+		if (isHeating())
+		{
+			rfHeating = heatingCoeff * internalTemp;
+			internalTemp += (float) 1 / 3;
+			System.out.println(++tick);
+		}
+		float rfKeep = keepCoeff * internalTemp;
+		float rfItem = 0;
+		if (isProcessing())
+		{
+			rfItem = 10;
+		}
+		
+		if(isHeating() && isProcessing())
+		{
+			internalTemp -= (float) 1 / 6;
+		}
+		
+		int total = Math.round(rfHeating + rfKeep + rfItem);
+		return storage.extractEnergy(total, false);
+	}
+	
 	public void setTimeLeftToProcess(int value)
 	{
 		timeLeftToProcess = value;
+	}
+	
+	public boolean isHeating()
+	{
+		return internalTemp <= limitTemp && state == MachineState.ON;
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -154,9 +190,29 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		if (stackInput != null && timeLeftToProcess != 0)
 		{
 			Recipe recipe = NewRecipeHandler.getRecipe(getClass(), stackInput);
-			return (float)(recipe.getProcessTime() - timeLeftToProcess) / recipe.getProcessTime();
+			return (float) (recipe.getProcessTime() - timeLeftToProcess) / recipe.getProcessTime();
 		}
 		return 0f;
 	}
-		
+
+	public int getEnergyUsage()
+    {
+	    return energyUsage;
+    }
+
+	public void setEnergyUsage(int value)
+    {
+		energyUsage = value;
+    }
+
+	public int getTemp()
+    {
+	    return (int)internalTemp;
+    }
+
+	public void setTemp(int value)
+    {
+	    internalTemp = value;
+    }
+	
 }

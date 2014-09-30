@@ -17,6 +17,8 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 	int internalEnergy;
 	int timeLeftToProccess;
 	int state;
+	int energyUsage;
+	int temp;
 	
 	public PacketChemicalFurnace()
 	{
@@ -30,6 +32,8 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		internalEnergy = tile.getInternalEnergy();
 		timeLeftToProccess = tile.getTimeLeftToProcess();
 		state = tile.getMachineState().getID();
+		energyUsage = tile.getEnergyUsage();
+		temp = tile.getTemp();
 	}
 	
 	@Override
@@ -41,6 +45,8 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		internalEnergy = buf.readInt();
 		timeLeftToProccess = buf.readInt();
 		state = buf.readInt();
+		energyUsage = buf.readInt();
+		temp = buf.readInt();
 	}
 	
 	@Override
@@ -52,6 +58,8 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		buf.writeInt(internalEnergy);
 		buf.writeInt(timeLeftToProccess);
 		buf.writeInt(state);
+		buf.writeInt(energyUsage);
+		buf.writeInt(temp);
 	}
 	
 	@Override
@@ -60,14 +68,16 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		if (FMLClientHandler.instance().getClient().theWorld.isRemote)
 		{
 			TileEntity tile = FMLClientHandler.instance().getClient().theWorld.getTileEntity(message.x, message.y, message.z);
-			if(tile instanceof TEMachineChemicalFurnace)
+			if (tile instanceof TEMachineChemicalFurnace)
 			{
 				TEMachineChemicalFurnace chemFurnace = (TEMachineChemicalFurnace) tile;
 				chemFurnace.setInternalEnergy(message.internalEnergy);
 				chemFurnace.setTimeLeftToProcess(message.timeLeftToProccess);
 				chemFurnace.setMachineState(MachineState.values()[message.state]);
-			}				
-		}		
+				chemFurnace.setEnergyUsage(message.energyUsage);
+				chemFurnace.setTemp(message.temp);
+			}
+		}
 		return null;
 	}
 }

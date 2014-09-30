@@ -17,10 +17,12 @@ public class ContainerMachineChemicalFurnace extends BaseContainer
 	
 	private static Point offset = Textures.GUI.ChemicalFurnace.InventoryOffset;
 	private static Point inputSlot = Textures.GUI.ChemicalFurnace.InputSlot;
-	private static Point outputSlot = Textures.GUI.ChemicalFurnace.OutputSlot;	
+	private static Point outputSlot = Textures.GUI.ChemicalFurnace.OutputSlot;
 	
 	private int lastInteralEnergy = 0;
 	private int lastTimeLeftToProgress = 0;
+	private int lastEnergyUsage = 0;
+	private int lastTemp = 0;
 	
 	public ContainerMachineChemicalFurnace(InventoryPlayer player, TEMachineChemicalFurnace tile)
 	{
@@ -42,24 +44,34 @@ public class ContainerMachineChemicalFurnace extends BaseContainer
 	{
 		super.detectAndSendChanges();
 		boolean send = false;
-		if(machineChemicalFurnaceTE != null)
+		if (machineChemicalFurnaceTE != null)
 		{
-			if(lastInteralEnergy != machineChemicalFurnaceTE.getInternalEnergy())
+			if (lastInteralEnergy != machineChemicalFurnaceTE.getInternalEnergy())
 			{
 				lastInteralEnergy = machineChemicalFurnaceTE.getInternalEnergy();
 				send = true;
 			}
-			if(lastTimeLeftToProgress != machineChemicalFurnaceTE.getTimeLeftToProcess())
+			if (lastTimeLeftToProgress != machineChemicalFurnaceTE.getTimeLeftToProcess())
 			{
 				lastTimeLeftToProgress = machineChemicalFurnaceTE.getTimeLeftToProcess();
 				send = true;
 			}
+			if (lastEnergyUsage != machineChemicalFurnaceTE.getEnergyUsage())
+			{
+				lastEnergyUsage = machineChemicalFurnaceTE.getEnergyUsage();
+				send = true;
+			}
+			if (lastTemp != machineChemicalFurnaceTE.getTemp())
+			{
+				lastTemp = machineChemicalFurnaceTE.getTemp();
+				send = true;
+			}
 		}
 		
-		if(send)
+		if (send)
 		{
 			for (int i = 0; i < this.crafters.size(); ++i)
-			{				
+			{
 				if (this.crafters.get(i) instanceof EntityPlayerMP)
 				{
 					PacketHandler.INSTANCE.sendTo(new PacketChemicalFurnace(machineChemicalFurnaceTE), (EntityPlayerMP) this.crafters.get(i));

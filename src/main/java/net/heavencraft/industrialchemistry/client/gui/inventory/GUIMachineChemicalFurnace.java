@@ -1,5 +1,7 @@
 package net.heavencraft.industrialchemistry.client.gui.inventory;
 
+import java.awt.Color;
+
 import net.heavencraft.industrialchemistry.inventory.ContainerMachineChemicalFurnace;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
@@ -8,11 +10,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.Rectangle;
 
-public class GUIMachineChemicalFurnace extends BaseGuiContainer
+public class GuiMachineChemicalFurnace extends BaseGuiContainer
 {
 	TEMachineChemicalFurnace machineChemicalFurnaceTE;
 	
-	public GUIMachineChemicalFurnace(InventoryPlayer player, TEMachineChemicalFurnace tile)
+	public GuiMachineChemicalFurnace(InventoryPlayer player, TEMachineChemicalFurnace tile)
 	{
 		super(new ContainerMachineChemicalFurnace(player, tile));
 		this.machineChemicalFurnaceTE = tile;
@@ -32,7 +34,10 @@ public class GUIMachineChemicalFurnace extends BaseGuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		drawTitle(String.valueOf(machineChemicalFurnaceTE.getProgress()));
+		drawTitle(machineChemicalFurnaceTE.getName());
+		fontRendererObj.drawString("Temp: " + machineChemicalFurnaceTE.getTemp(),8 , 24, Color.darkGray.getRGB());
+		fontRendererObj.drawString("RF/t: " + machineChemicalFurnaceTE.getEnergyUsage(),8 , 40, Color.darkGray.getRGB());
+		
 	}
 	
 	@Override

@@ -4,11 +4,11 @@ import net.heavencraft.industrialchemistry.inventory.ContainerTesting;
 import net.heavencraft.industrialchemistry.tileentity.TETestingBlock;
 import net.minecraft.entity.player.InventoryPlayer;
 
-public class GUITesting extends BaseGuiContainer
+public class GuiTesting extends BaseGuiContainer
 {
 	private TETestingBlock testingTE;
 	
-	public GUITesting(InventoryPlayer player, TETestingBlock tile)
+	public GuiTesting(InventoryPlayer player, TETestingBlock tile)
 	{
 		super(new ContainerTesting(player, tile));
 		this.testingTE = tile;

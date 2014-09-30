@@ -9,12 +9,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class TEMachineGrinder extends BaseTEBlockPower
 {
-	private int rfPerTick = 10;
 	private int timeLeftToProcess = 0;
 	
 	public TEMachineGrinder()
 	{
 		createInventory(2);
+		this.rfPerTick = 10;
 		recieveAllSides();
 	}
 	
@@ -61,7 +61,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 		{
 			if (getInternalEnergy() > 0)
 			{
-				useEnergy(rfPerTick);
+				useEnergy();
 			}
 			else
 			{
@@ -132,6 +132,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 			}
 		}
 	}
+
 	
 	public int getTimeLeftToProcess()
 	{

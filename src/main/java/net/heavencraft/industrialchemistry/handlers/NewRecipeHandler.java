@@ -6,10 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
 import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
 import net.heavencraft.industrialchemistry.util.CollectionUtils;
-import net.minecraft.item.ItemStack;
 
 public class NewRecipeHandler
 {
