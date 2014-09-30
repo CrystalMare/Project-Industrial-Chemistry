@@ -8,8 +8,10 @@ public class BlockOreMalachite extends BaseBlockOre
 {
 	public BlockOreMalachite()
 	{
-		this.setBlockName(Names.Block.OreMalachite);
-		this.setTexture(Textures.Block.MalachiteOre);
-		this.setCreativeTab(CreativeTab.PIC_TAB);
+		setBlockName(Names.Block.OreMalachite);
+		setTexture(Textures.Block.MalachiteOre);
+		setCreativeTab(CreativeTab.PIC_TAB);
+		setHardness(3.0F);
+		setResistance(5.0F);
 	}
 }
