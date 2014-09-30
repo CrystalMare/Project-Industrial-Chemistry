@@ -1,8 +1,10 @@
 package net.heavencraft.industrialchemistry.tileentity;
 
-import net.heavencraft.industrialchemistry.handlers.OldRecipeHandler;
+import net.heavencraft.industrialchemistry.handlers.NewRecipeHandler;
+import net.heavencraft.industrialchemistry.handlers.Recipe;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipe;
 import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
+import net.heavencraft.industrialchemistry.util.CollectionUtils;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -33,10 +35,12 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		{
 			ItemStack inputStack = inventory[0];
 			ItemStack outputStack = inventory[1];
-			MachineRecipeSimple recipe = OldRecipeHandler.getSimpleMachineRecipe(getClass(), inputStack);
-			if (recipe.getOutput() == null) return false;
+			
+			Recipe recipe = NewRecipeHandler.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
+			if (recipe == null) return false;
 			if (outputStack == null) return true;
-			ItemStack resultStack = recipe.getSimpleOutput(getClass());
+			
+			ItemStack resultStack = recipe.getSimpleOutput().get(0).getComponentAsItemStack();
 			if (!outputStack.isItemEqual(resultStack)) return false;
 			int result = outputStack.stackSize + resultStack.stackSize;
 			return result <= getInventoryStackLimit() && result <= outputStack.getMaxStackSize();
@@ -73,7 +77,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 				ItemStack stackInput = inventory[0];
 				if (stackInput != null)
 				{
-					MachineRecipe recipe = OldRecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
+					Recipe recipe = NewRecipeHandler.getRecipe(getClass(), stackInput);
 					if (recipe != null)
 					{
 						if (isProcessing() && canProccess())
@@ -91,7 +95,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 						}
 						else
 						{
-							this.timeLeftToProcess = recipe.getProccessTime();
+							this.timeLeftToProcess = recipe.getProcessTime();
 						}
 					}
 				}
@@ -113,8 +117,8 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		{
 			ItemStack stackInput = inventory[0];
 			ItemStack stackOutput = inventory[1];
-			MachineRecipeSimple recipe = OldRecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
-			ItemStack resultStack = recipe.getSimpleOutput(getClass());
+			Recipe recipe = NewRecipeHandler.getRecipe(getClass(), stackInput);
+			ItemStack resultStack = recipe.getSimpleOutput(getClass(), stackInput).get(0).getComponentAsItemStack();
 			if (stackOutput == null)
 			{
 				setInventorySlotContents(1, resultStack.copy());
@@ -144,15 +148,15 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public double getProgress()
+	public float getProgress()
 	{
 		ItemStack stackInput = inventory[0];
 		if (stackInput != null && timeLeftToProcess != 0)
 		{
-			MachineRecipeSimple recipe = OldRecipeHandler.getSimpleMachineRecipe(getClass(), stackInput);
-			return (double)(recipe.getProccessTime() - timeLeftToProcess) / recipe.getProccessTime();
+			Recipe recipe = NewRecipeHandler.getRecipe(getClass(), stackInput);
+			return (float)(recipe.getProcessTime() - timeLeftToProcess) / recipe.getProcessTime();
 		}
-		return 0;
+		return 0f;
 	}
 		
 }
