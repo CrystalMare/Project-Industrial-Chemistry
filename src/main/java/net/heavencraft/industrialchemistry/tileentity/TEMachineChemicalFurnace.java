@@ -16,7 +16,6 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 	private int energyUsage = 0;
 	private float internalTemp = 0;
 	private float limitTemp = 1000;
-	public int tick = 0;
 	
 	public TEMachineChemicalFurnace()
 	{
@@ -155,7 +154,6 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		{
 			rfHeating = heatingCoeff * internalTemp;
 			internalTemp += (float) 1 / 3;
-			System.out.println(++tick);
 		}
 		float rfKeep = keepCoeff * internalTemp;
 		float rfItem = 0;
