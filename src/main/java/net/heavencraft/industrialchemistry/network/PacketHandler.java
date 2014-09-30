@@ -1,6 +1,7 @@
 package net.heavencraft.industrialchemistry.network;
 
 import net.heavencraft.industrialchemistry.network.packet.PacketChemicalFurnace;
+import net.heavencraft.industrialchemistry.network.packet.PacketGrinder;
 import net.heavencraft.industrialchemistry.reference.Names;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
@@ -19,5 +20,6 @@ public class PacketHandler
     {
        //Register Packets Here!
     	INSTANCE.registerMessage(PacketChemicalFurnace.class, PacketChemicalFurnace.class, 0, Side.CLIENT);
+    	INSTANCE.registerMessage(PacketGrinder.class, PacketGrinder.class, 0, Side.CLIENT);
     }
 }

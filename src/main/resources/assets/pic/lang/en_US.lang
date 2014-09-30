@@ -3,6 +3,7 @@ container.pic.machineChemicalFurnace=Chemical Furnace
 
 tile.pic:TestBlock.name=Test Block
 tile.pic:machineChemicalFurnace.name=Chemical Furnace
+tile.pic:machineGrinder.name=Grinder
 
 
 tile.pic:oreMalachite.name=Malachite Ore

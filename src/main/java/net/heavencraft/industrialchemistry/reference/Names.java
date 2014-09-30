@@ -33,6 +33,7 @@ public abstract class Names
 		public static final class Machine
 		{
 			public static String MachineChemicalFurnace = "machineChemicalFurnace";
+			public static String MachineGrinder = "machineGrinder";
 		}
 		
 		public static final String BLOCKTESTING = "blockTesting";

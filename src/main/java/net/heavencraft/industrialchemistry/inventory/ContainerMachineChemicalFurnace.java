@@ -13,11 +13,11 @@ import org.lwjgl.util.Point;
 
 public class ContainerMachineChemicalFurnace extends BaseContainer
 {
+	private TEMachineChemicalFurnace machineChemicalFurnaceTE;
+	
 	private static Point offset = Textures.GUI.ChemicalFurnace.InventoryOffset;
 	private static Point inputSlot = Textures.GUI.ChemicalFurnace.InputSlot;
-	private static Point outputSlot = Textures.GUI.ChemicalFurnace.OutputSlot;
-	
-	TEMachineChemicalFurnace machineChemicalFurnaceTE;
+	private static Point outputSlot = Textures.GUI.ChemicalFurnace.OutputSlot;	
 	
 	private int lastInteralEnergy = 0;
 	private int lastTimeLeftToProgress = 0;

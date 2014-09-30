@@ -2,10 +2,13 @@ package net.heavencraft.industrialchemistry.handlers;
 
 import net.heavencraft.industrialchemistry.client.gui.inventory.GUIMachineChemicalFurnace;
 import net.heavencraft.industrialchemistry.client.gui.inventory.GUITesting;
+import net.heavencraft.industrialchemistry.client.gui.inventory.GuiMachineGrinder;
 import net.heavencraft.industrialchemistry.inventory.ContainerMachineChemicalFurnace;
+import net.heavencraft.industrialchemistry.inventory.ContainerMachineGrinder;
 import net.heavencraft.industrialchemistry.inventory.ContainerTesting;
 import net.heavencraft.industrialchemistry.reference.Gui;
 import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
+import net.heavencraft.industrialchemistry.tileentity.TEMachineGrinder;
 import net.heavencraft.industrialchemistry.tileentity.TETestingBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -27,6 +30,11 @@ public class GuiHandler implements IGuiHandler
 			TEMachineChemicalFurnace tile = (TEMachineChemicalFurnace) world.getTileEntity(x, y, z);
 			return new ContainerMachineChemicalFurnace(player.inventory, tile);
 		}
+		if(ID == Gui.ID.MachineGrinder.getID())
+		{
+			TEMachineGrinder tile = (TEMachineGrinder) world.getTileEntity(x, y, z);
+			return new ContainerMachineGrinder(player.inventory, tile);
+		}
 		return null;
 	}
 	
@@ -42,6 +50,11 @@ public class GuiHandler implements IGuiHandler
 		{
 			TEMachineChemicalFurnace tile = (TEMachineChemicalFurnace) world.getTileEntity(x, y, z);
 			return new GUIMachineChemicalFurnace(player.inventory, tile);
+		}
+		if(ID == Gui.ID.MachineGrinder.getID())
+		{
+			TEMachineGrinder tile = (TEMachineGrinder) world.getTileEntity(x, y, z);
+			return new GuiMachineGrinder(player.inventory, tile);
 		}
 		return null;
 	}

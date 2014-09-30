@@ -2,6 +2,7 @@ package net.heavencraft.industrialchemistry.proxy;
 
 import net.heavencraft.industrialchemistry.reference.Names;
 import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
+import net.heavencraft.industrialchemistry.tileentity.TEMachineGrinder;
 import net.heavencraft.industrialchemistry.tileentity.TETestingBlock;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -13,6 +14,8 @@ public abstract class CommonProxy implements IProxy
 	{
 		GameRegistry.registerTileEntity(TEMachineChemicalFurnace.class, "tile" + Names.Block.Machine.MachineChemicalFurnace);
 		GameRegistry.registerTileEntity(TETestingBlock.class, "tile" + Names.Block.BLOCKTESTING);
+		GameRegistry.registerTileEntity(TEMachineGrinder.class, "tile" + Names.Block.Machine.MachineGrinder);
+
 	}
 	
 	@Override

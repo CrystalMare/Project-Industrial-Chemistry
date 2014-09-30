@@ -5,7 +5,8 @@ public class Gui
 	public enum ID
 	{
 		TestingBlock,
-		MachineChemicalFurnace;
+		MachineChemicalFurnace,
+		MachineGrinder;
 		
 		public int getID()
 		{
