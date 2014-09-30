@@ -39,7 +39,7 @@ public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements I
 		this.state = state;
 	}
 	
-	public MachineState getState()
+	public MachineState getMachineState()
 	{
 		return this.state;
 	}

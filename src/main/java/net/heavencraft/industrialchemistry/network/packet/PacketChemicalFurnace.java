@@ -1,6 +1,7 @@
 package net.heavencraft.industrialchemistry.network.packet;
 
 import io.netty.buffer.ByteBuf;
+import net.heavencraft.industrialchemistry.tileentity.MachineState;
 import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
 import net.minecraft.tileentity.TileEntity;
 import cpw.mods.fml.client.FMLClientHandler;
@@ -15,10 +16,11 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 	int z;
 	int internalEnergy;
 	int timeLeftToProccess;
+	int state;
 	
 	public PacketChemicalFurnace()
 	{
-	}	
+	}
 	
 	public PacketChemicalFurnace(TEMachineChemicalFurnace tile)
 	{
@@ -27,6 +29,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		z = tile.zCoord;
 		internalEnergy = tile.getInternalEnergy();
 		timeLeftToProccess = tile.getTimeLeftToProcess();
+		state = tile.getMachineState().getID();
 	}
 	
 	@Override
@@ -37,6 +40,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		z = buf.readInt();
 		internalEnergy = buf.readInt();
 		timeLeftToProccess = buf.readInt();
+		state = buf.readInt();
 	}
 	
 	@Override
@@ -47,6 +51,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		buf.writeInt(z);
 		buf.writeInt(internalEnergy);
 		buf.writeInt(timeLeftToProccess);
+		buf.writeInt(state);
 	}
 	
 	@Override
@@ -60,6 +65,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 				TEMachineChemicalFurnace chemFurnace = (TEMachineChemicalFurnace) tile;
 				chemFurnace.setInternalEnergy(message.internalEnergy);
 				chemFurnace.setTimeLeftToProcess(message.timeLeftToProccess);
+				chemFurnace.setMachineState(MachineState.values()[message.state]);
 			}				
 		}		
 		return null;

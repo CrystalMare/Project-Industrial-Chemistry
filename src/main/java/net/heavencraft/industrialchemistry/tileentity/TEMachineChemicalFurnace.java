@@ -47,17 +47,18 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 	public void updateEntity()
 	{
 		boolean save = false;
-		if (!this.worldObj.isRemote)
+		
+		if (getWorldObj().getBlockPowerInput(xCoord, yCoord, zCoord) > 0)
 		{
-			if (getWorldObj().getBlockPowerInput(xCoord, yCoord, zCoord) > 0)
-			{
-				setMachineState(MachineState.ON);
-			}
-			else
-			{
-				setMachineState(MachineState.OFF);
-			}
-			
+			setMachineState(MachineState.ON);
+		}
+		else
+		{
+			setMachineState(MachineState.OFF);
+		}
+		
+		if (!this.worldObj.isRemote)
+		{			
 			if (getInternalEnergy() > 0)
 			{
 				useEnergy(rfPerTick);

@@ -24,10 +24,9 @@ public abstract class BaseBlockMachine extends BaseBlock implements ITileEntityP
 	
 		if (!(tileEntity instanceof BaseTEBlockPower)) return null;
 				
-		MachineState state = ((BaseTEBlockPower)tileEntity).getState();
+		MachineState state = ((BaseTEBlockPower)tileEntity).getMachineState();
 		ForgeDirection frontFace = BlockHelper.getOrientation(meta);
 		ForgeDirection face = ForgeDirection.getOrientation(side);
-		
 		return textures.getTextureForFacing(frontFace, face, state);
 	}
 	

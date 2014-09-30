@@ -32,7 +32,7 @@ public class MachineChemicalFurnace extends BaseBlockMachine
 				Textures.Block.Machine.ChemicalFurnaceSide);
 		textures.setChild(new TextureSet(iconRegister, MachineState.ON, textures,
 				Textures.Block.Machine.ChemicalFurnaceFrontOn, 
-				null, null, null, null, null));
+				null, null, null, Textures.Block.Machine.ChemicalFurnaceTopOn, null));
 	}
 
 

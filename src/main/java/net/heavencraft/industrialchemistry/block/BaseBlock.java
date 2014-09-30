@@ -29,8 +29,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  * 
  */
 public class BaseBlock extends Block
-{
-	
+{	
 	Gui.ID guiID;
 	
 	public String textureLocation;
