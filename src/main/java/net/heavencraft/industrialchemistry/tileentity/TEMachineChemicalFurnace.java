@@ -2,8 +2,10 @@ package net.heavencraft.industrialchemistry.tileentity;
 
 import net.heavencraft.industrialchemistry.handlers.NewRecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.Recipe;
+import net.heavencraft.industrialchemistry.reference.Names;
 import net.heavencraft.industrialchemistry.util.CollectionUtils;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -61,6 +63,10 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		}
 		else
 		{
+			if (internalTemp > 0)
+			{
+				internalTemp -= (float) 2 / 3;
+			}
 			setMachineState(MachineState.OFF);
 		}
 		
@@ -148,27 +154,31 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 	@Override
 	public int useEnergy()
 	{
-		float rfHeating = 0;
-		limitTemp = 2000;
-		if (isHeating())
+		if (state == MachineState.ON)
 		{
-			rfHeating = heatingCoeff * internalTemp;
-			internalTemp += (float) 1 / 3;
+			float rfHeating = 0;
+			limitTemp = 2000;
+			if (isHeating())
+			{
+				rfHeating = heatingCoeff * internalTemp;
+				internalTemp += (float) 1 / 3;
+			}
+			float rfKeep = keepCoeff * internalTemp;
+			float rfItem = 0;
+			if (isProcessing())
+			{
+				rfItem = 10;
+			}
+			
+			if (isHeating() && isProcessing())
+			{
+				internalTemp -= (float) 1 / 6;
+			}
+			
+			int total = Math.round(rfHeating + rfKeep + rfItem);
+			return storage.extractEnergy(total, false);
 		}
-		float rfKeep = keepCoeff * internalTemp;
-		float rfItem = 0;
-		if (isProcessing())
-		{
-			rfItem = 10;
-		}
-		
-		if(isHeating() && isProcessing())
-		{
-			internalTemp -= (float) 1 / 6;
-		}
-		
-		int total = Math.round(rfHeating + rfKeep + rfItem);
-		return storage.extractEnergy(total, false);
+		return 0;
 	}
 	
 	public void setTimeLeftToProcess(int value)
@@ -192,25 +202,44 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		}
 		return 0f;
 	}
-
+	
 	public int getEnergyUsage()
-    {
-	    return energyUsage;
-    }
-
+	{
+		return energyUsage;
+	}
+	
 	public void setEnergyUsage(int value)
-    {
+	{
 		energyUsage = value;
-    }
-
+	}
+	
 	public int getTemp()
-    {
-	    return (int)internalTemp;
-    }
-
+	{
+		return (int) internalTemp;
+	}
+	
 	public void setTemp(int value)
-    {
-	    internalTemp = value;
-    }
+	{
+		internalTemp = value;
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound nbt)
+	{
+		super.readFromNBT(nbt);
+		storage.readFromNBT(nbt);
+		if (nbt.hasKey(Names.NBT.TileEntity.Temp))
+		{
+			internalTemp = nbt.getFloat(Names.NBT.TileEntity.Temp);
+		}
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound nbt)
+	{
+		super.writeToNBT(nbt);
+		storage.writeToNBT(nbt);
+		if (this.internalTemp != 0) nbt.setFloat(Names.NBT.TileEntity.Temp, internalTemp);
+	}
 	
 }

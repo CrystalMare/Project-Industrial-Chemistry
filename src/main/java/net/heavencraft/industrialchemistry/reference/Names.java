@@ -25,6 +25,8 @@ public abstract class Names
 			public static final String Items = "items";
 			
 			public static final String State = "state";
+			
+			public static final String Temp = "temperature";
 		}
 	}
 	
