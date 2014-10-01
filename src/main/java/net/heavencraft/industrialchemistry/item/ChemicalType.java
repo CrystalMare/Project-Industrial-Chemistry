@@ -6,7 +6,7 @@ public enum ChemicalType
 {
 	POTASSIUM_NITRATE	(Names.Item.ChemicalPotassiumNitrate, "KNO3"),
 	SULFUR_TRIOXIDE		(Names.Item.ChemicalSulfurTrioxide, "SO3"),
-	AMMONIUM_NITRATE	(Names.Item.ChemicalPotassiumNitrate, "(NH4)(NO3)"),
+	AMMONIUM_NITRATE	(Names.Item.ChemicalAmmoniumNitrate, "(NH4)(NO3)"),
 	LIMESTONE			(Names.Item.ChemicalLimestone, "CaCO3"),
 	VANADIUM_OXIDE		(Names.Item.ChemicalVanadiumOxide, "V2O5"),
 	SULFUR				(Names.Item.ChemicalSulfur, "S"),
