@@ -24,15 +24,15 @@ public class MachineGrinder extends BaseBlockMachine
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new TextureSet(iconRegister, MachineState.OFF, null,
-				Textures.Block.Machine.ChemicalFurnaceFrontOff,
+				Textures.Block.Machine.GrinderFrontOff,
 				Textures.Block.Machine.ChemicalFurnaceSide,
 				Textures.Block.Machine.ChemicalFurnaceSide,
 				Textures.Block.Machine.ChemicalFurnaceSide,
-				Textures.Block.Machine.ChemicalFurnaceTop,
+				Textures.Block.Machine.ChemicalFurnaceSide,
 				Textures.Block.Machine.ChemicalFurnaceSide);
 		textures.setChild(new TextureSet(iconRegister, MachineState.ON, textures,
-				Textures.Block.Machine.ChemicalFurnaceFrontOn, 
-				null, null, null, Textures.Block.Machine.ChemicalFurnaceTopOn, null));
+				Textures.Block.Machine.GrinderFrontOn, 
+				null, null, null, null, null));
 	}
 
 	@Override

@@ -49,6 +49,10 @@ public class Textures
 			public static final String ChemicalFurnaceTop = ResourceLocationHelper.getBlockLocation("chemicalFurnace_top");
 			public static final String ChemicalFurnaceTopOn = ResourceLocationHelper.getBlockLocation("fan_on");// Fan
 			public static final String ChemicalFurnaceSide = ResourceLocationHelper.getBlockLocation("chemicalFurnace_side");
+			
+			// Grinder
+			public static final String GrinderFrontOff = ResourceLocationHelper.getBlockLocation("grinder_front_off");
+			public static final String GrinderFrontOn = ResourceLocationHelper.getBlockLocation("grinder_front_on");
 		}
 		
 		public static final class Fluids
