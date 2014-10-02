@@ -1,4 +1,4 @@
-package net.heavencraft.industrialchemistry.handlers;
+package net.heavencraft.industrialchemistry.crafting;
 
 import java.util.ArrayList;
 import java.util.HashMap;

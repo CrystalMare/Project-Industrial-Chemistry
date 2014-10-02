@@ -1,4 +1,4 @@
-package net.heavencraft.industrialchemistry.handlers;
+package net.heavencraft.industrialchemistry.crafting;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -13,7 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class RecipeHandler
+public class RecipeRegistry
 {
 	
 	private final static Set<Recipe> recipeList;

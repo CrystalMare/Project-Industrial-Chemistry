@@ -1,7 +1,7 @@
 package net.heavencraft.industrialchemistry.inventory;
 
-import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
-import net.heavencraft.industrialchemistry.handlers.Recipe;
+import net.heavencraft.industrialchemistry.crafting.Recipe;
+import net.heavencraft.industrialchemistry.crafting.RecipeRegistry;
 import net.heavencraft.industrialchemistry.network.PacketHandler;
 import net.heavencraft.industrialchemistry.network.packet.PacketChemicalFurnace;
 import net.heavencraft.industrialchemistry.reference.Textures;
@@ -40,7 +40,7 @@ public class ContainerMachineChemicalFurnace extends BaseContainer
 	{
 		ItemStack stackToTrans = getSlot(slotIndex).getStack();
 		ItemStack inputSlot = getSlot(0).getStack();
-		Recipe recipe = RecipeHandler.getRecipe(TEMachineChemicalFurnace.class, CollectionUtils.getList(new Object[] { stackToTrans }));
+		Recipe recipe = RecipeRegistry.getRecipe(TEMachineChemicalFurnace.class, CollectionUtils.getList(new Object[] { stackToTrans }));
 		if (slotIndex == 1)
 		{
 			for (int i = 0; i < 35; i++)

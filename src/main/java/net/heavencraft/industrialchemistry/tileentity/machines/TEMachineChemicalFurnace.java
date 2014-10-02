@@ -1,7 +1,7 @@
 package net.heavencraft.industrialchemistry.tileentity.machines;
 
-import net.heavencraft.industrialchemistry.handlers.Recipe;
-import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
+import net.heavencraft.industrialchemistry.crafting.Recipe;
+import net.heavencraft.industrialchemistry.crafting.RecipeRegistry;
 import net.heavencraft.industrialchemistry.init.IndustrialChemistryItems;
 import net.heavencraft.industrialchemistry.item.ItemAsh;
 import net.heavencraft.industrialchemistry.reference.Names;
@@ -41,7 +41,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		ItemStack inputStack = inventory[0];
 		ItemStack outputStack = inventory[1];
 		
-		Recipe recipe = RecipeHandler.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
+		Recipe recipe = RecipeRegistry.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
 		if (recipe == null) return false;
 		if (outputStack == null) return true;
 		if (outputStack.getItem() instanceof ItemAsh) return true;
@@ -89,7 +89,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 				ItemStack stackInput = inventory[0];
 				if (stackInput != null)
 				{
-					Recipe recipe = RecipeHandler.getRecipe(getClass(), stackInput);
+					Recipe recipe = RecipeRegistry.getRecipe(getClass(), stackInput);
 					if (recipe != null)
 					{
 						if (recipe.hasOptionalSetting("mintemp"))
@@ -137,7 +137,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		{
 			ItemStack stackInput = inventory[0];
 			ItemStack stackOutput = inventory[1];
-			Recipe recipe = RecipeHandler.getRecipe(getClass(), stackInput);
+			Recipe recipe = RecipeRegistry.getRecipe(getClass(), stackInput);
 			ItemStack resultStack = recipe.getSimpleOutput(getClass(), stackInput).get(0).getComponentAsItemStack();
 			if (recipe.hasOptionalSetting("maxtemp"))
 			{
@@ -146,18 +146,18 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 				{
 					if (stackOutput == null)
 					{
-						setInventorySlotContents(1, new ItemStack(IndustrialChemistryItems.ash));
+						setInventorySlotContents(1, new ItemStack(IndustrialChemistryItems.itemAsh));
 					}
 					else if (stackOutput.getItem() instanceof ItemAsh)
 					{
-						setInventorySlotContents(1, new ItemStack(IndustrialChemistryItems.ash, 1 + stackOutput.stackSize));
+						setInventorySlotContents(1, new ItemStack(IndustrialChemistryItems.itemAsh, 1 + stackOutput.stackSize));
 					}
 					else
 					{
 						float spawnX = xCoord;
 						float spawnY = yCoord;
 						float spawnZ = zCoord;
-						EntityItem toolItem = new EntityItem(getWorldObj(), spawnX, spawnY, spawnZ, new ItemStack(IndustrialChemistryItems.ash));
+						EntityItem toolItem = new EntityItem(getWorldObj(), spawnX, spawnY, spawnZ, new ItemStack(IndustrialChemistryItems.itemAsh));
 						float mult = 0.05F;
 						toolItem.motionX = (0.5F + getWorldObj().rand.nextFloat()) * mult;
 						toolItem.motionY = (4 + getWorldObj().rand.nextFloat()) * mult;
@@ -260,7 +260,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		ItemStack stackInput = inventory[0];
 		if (stackInput != null && timeLeftToProcess != 0)
 		{
-			Recipe recipe = RecipeHandler.getRecipe(getClass(), stackInput);
+			Recipe recipe = RecipeRegistry.getRecipe(getClass(), stackInput);
 			return (float) (recipe.getProcessTime() - timeLeftToProcess) / recipe.getProcessTime();
 		}
 		return 0f;

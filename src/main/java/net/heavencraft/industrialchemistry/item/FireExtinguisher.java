@@ -2,10 +2,10 @@ package net.heavencraft.industrialchemistry.item;
 
 import net.heavencraft.industrialchemistry.reference.Names;
 
-public class ItemAsh extends BaseItem
+public class FireExtinguisher extends BaseItem
 {
-	public ItemAsh()
+	public FireExtinguisher()
 	{
-		setItemName(Names.Item.Ash);
+		setItemName(Names.Item.FireExtinquisher);
 	}
 }

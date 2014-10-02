@@ -8,8 +8,8 @@ tile.pic:machineGrinder.name=Grinder
 
 tile.pic:oreMalachite.name=Malachite Ore
 
-item.crushedMalachite.name=Crushed Malachite
-item.crushedAzurite.name=Crushed Azurite
+item.chemicalMalachite.name=Crushed Malachite
+item.chemicalAzurite.name=Crushed Azurite
 
 item.chemicalPotassiumNitrate.name=Potassium Nitrate
 item.chemicalSulfurTrioxide.name=Sulfur Trioxide
@@ -19,4 +19,6 @@ item.chemicalVanadiumOxide.name=Vanadium Oxide
 item.chemicalSulfur.name=Sulfur
 item.chemicalSaltpeter.name=Saltpeter
 item.chemicalCopperOxide.name=Copper Oxide
+
+item.itemAsh.name=Ash
 

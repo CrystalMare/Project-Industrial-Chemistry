@@ -2,9 +2,9 @@ package net.heavencraft.industrialchemistry.tileentity;
 
 import java.util.List;
 
-import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
-import net.heavencraft.industrialchemistry.handlers.Recipe;
-import net.heavencraft.industrialchemistry.handlers.RecipeComponent;
+import net.heavencraft.industrialchemistry.crafting.Recipe;
+import net.heavencraft.industrialchemistry.crafting.RecipeComponent;
+import net.heavencraft.industrialchemistry.crafting.RecipeRegistry;
 import net.heavencraft.industrialchemistry.util.CollectionUtils;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
@@ -37,7 +37,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 			ItemStack inputStack = inventory[0];
 			ItemStack outputStack = inventory[1];
 			
-			Recipe recipe = RecipeHandler.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
+			Recipe recipe = RecipeRegistry.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
 			if (recipe == null) return false;
 			if (outputStack == null) return true;
 			
@@ -79,7 +79,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 				ItemStack stackInput = inventory[0];
 				if (stackInput != null)
 				{
-					Recipe recipe = RecipeHandler.getRecipe(getClass(), stackInput);
+					Recipe recipe = RecipeRegistry.getRecipe(getClass(), stackInput);
 					if (recipe != null)
 					{
 						if (isProcessing() && canProcess())
@@ -119,7 +119,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 		{
 			ItemStack stackInput = inventory[0];
 			ItemStack stackOutput = inventory[1];
-			Recipe recipe = RecipeHandler.getRecipe(getClass(), stackInput);
+			Recipe recipe = RecipeRegistry.getRecipe(getClass(), stackInput);
 			List<RecipeComponent> resultList = recipe.getSimpleOutput(getClass(), stackInput);
 			ItemStack resultStack = resultList.get(0).getComponentAsItemStack();
 			System.out.println("Gotten Azurite Drop?:" + resultList.get(1).getDrop());
@@ -158,7 +158,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 		ItemStack stackInput = inventory[0];
 		if (stackInput != null && timeLeftToProcess != 0)
 		{
-			Recipe recipe = RecipeHandler.getRecipe(getClass(), stackInput);
+			Recipe recipe = RecipeRegistry.getRecipe(getClass(), stackInput);
 			return (float) (recipe.getProcessTime() - timeLeftToProcess) / recipe.getProcessTime();
 		}
 		return 0f;

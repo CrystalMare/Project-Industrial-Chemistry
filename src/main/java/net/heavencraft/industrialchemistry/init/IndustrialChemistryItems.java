@@ -1,6 +1,7 @@
 package net.heavencraft.industrialchemistry.init;
 
 import net.heavencraft.industrialchemistry.item.BaseItem;
+import net.heavencraft.industrialchemistry.item.FireExtinguisher;
 import net.heavencraft.industrialchemistry.item.ItemAsh;
 import net.heavencraft.industrialchemistry.item.ItemChemical;
 import net.heavencraft.industrialchemistry.reference.Names;
@@ -22,8 +23,10 @@ public class IndustrialChemistryItems
 	public static final BaseItem chemicalSaltpeter = ItemChemical.ChemicalType.SALTPETER.createNewInstance();
 	public static final BaseItem chemicalCopperOxide = ItemChemical.ChemicalType.COPPER_OXIDE.createNewInstance();
 	
+	public static final BaseItem toolFireExtinguisher = new FireExtinguisher();
 	
-	public static final BaseItem ash = new ItemAsh();
+	
+	public static final BaseItem itemAsh = new ItemAsh();
 	
 	public static void init()
 	{
@@ -38,6 +41,7 @@ public class IndustrialChemistryItems
 		GameRegistry.registerItem(chemicalSulfur, Names.Item.ChemicalSulfur);
 		GameRegistry.registerItem(chemicalSaltpeter, Names.Item.ChemicalSaltpeter);
 		GameRegistry.registerItem(chemicalCopperOxide, Names.Item.ChemicalCopperOxide);
-		GameRegistry.registerItem(ash, Names.Item.Ash);
+		GameRegistry.registerItem(itemAsh, Names.Item.Ash);
+		GameRegistry.registerItem(toolFireExtinguisher, Names.Item.FireExtinquisher);
 	}
 }
