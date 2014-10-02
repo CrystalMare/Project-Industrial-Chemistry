@@ -50,23 +50,14 @@ public class NewRecipeHandler
 	{
 		List<RecipeComponent> inputList = null;
 		List<RecipeComponent> outputList = null;
-		if(item1 instanceof Item)
-		{
-			inputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Item) item1, q1) , 0, 1.0f) });
-		}
+		if (item1 instanceof Item) inputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Item) item1, q1), 0, 1.0f) });
 		else
-		{
 			inputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Block) item1, q1), 0, 1.0f) });
-		}
 		
-		if(item2 instanceof Item)
-		{
-			outputList = CollectionUtils.getList(new RecipeComponent[] {new RecipeComponent( new ItemStack((Item) item2, q2), 0, 1.0f) });
-		}
+		if (item2 instanceof Item) outputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Item) item2, q2), 0, 1.0f) });
+		
 		else
-		{
-			outputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Block) item2, q2) , 0, 1.0f)});
-		}
+			outputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Block) item2, q2), 0, 1.0f) });
 		
 		Recipe recipe = new Recipe(TEMachineChemicalFurnace.class, inputList, outputList, processTime, null);
 		recipeList.add(recipe);
