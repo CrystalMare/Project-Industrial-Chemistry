@@ -142,7 +142,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 			if (recipe.hasOptionalSetting("maxtemp"))
 			{
 				int maxTemp = (Integer) recipe.getOptionalSetting("maxtemp");
-				if (internalTemp > maxTemp)
+				if (Math.floor(internalTemp) > maxTemp)
 				{
 					if (stackOutput == null)
 					{
@@ -165,7 +165,6 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 						toolItem.delayBeforeCanPickup = 40;
 						getWorldObj().spawnEntityInWorld(toolItem);
 					}
-					return;
 				}
 				else
 				{

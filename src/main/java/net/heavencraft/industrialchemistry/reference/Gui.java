@@ -6,7 +6,8 @@ public class Gui
 	{
 		TestingBlock,
 		MachineChemicalFurnace,
-		MachineGrinder;
+		MachineGrinder,
+		GreenHouseController;
 		
 		public int getID()
 		{

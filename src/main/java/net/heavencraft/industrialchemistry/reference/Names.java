@@ -36,6 +36,7 @@ public abstract class Names
 		{
 			public static String MachineChemicalFurnace = "machineChemicalFurnace";
 			public static String MachineGrinder = "machineGrinder";
+			public static String GreenHouseController = "greenHouseController";
 		}
 		
 		public static final String BLOCKTESTING = "blockTesting";
