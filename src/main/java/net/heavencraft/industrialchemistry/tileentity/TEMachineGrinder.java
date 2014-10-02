@@ -5,8 +5,6 @@ import java.util.List;
 import net.heavencraft.industrialchemistry.handlers.NewRecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.Recipe;
 import net.heavencraft.industrialchemistry.handlers.RecipeComponent;
-import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipe;
-import net.heavencraft.industrialchemistry.item.crafting.recipe.MachineRecipeSimple;
 import net.heavencraft.industrialchemistry.util.CollectionUtils;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;

@@ -2,7 +2,6 @@ package net.heavencraft.industrialchemistry.handlers;
 
 import java.util.Random;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
