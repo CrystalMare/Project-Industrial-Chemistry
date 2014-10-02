@@ -35,7 +35,6 @@ public abstract class BaseGuiContainer extends GuiContainer
 		int startX = (width - xSize) / 2;
 		int startY = (height - ySize) / 2;
 		this.drawTexturedModalRect(startX, startY, 0, 0, xSize, ySize);
-		
 	}
 	
 	public void drawTitle(String title)

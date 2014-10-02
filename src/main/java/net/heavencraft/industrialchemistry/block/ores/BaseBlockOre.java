@@ -4,8 +4,5 @@ import net.heavencraft.industrialchemistry.block.BaseBlock;
 
 public class BaseBlockOre extends BaseBlock
 {
-	public BaseBlockOre()
-	{
-		
-	}
+
 }

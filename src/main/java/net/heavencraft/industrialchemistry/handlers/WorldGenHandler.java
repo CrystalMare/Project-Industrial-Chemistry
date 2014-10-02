@@ -34,13 +34,11 @@ public class WorldGenHandler implements IWorldGenerator
 	private void generateNether(World world, Random random, int i, int j)
 	{
 		// TODO Auto-generated method stub
-		
 	}
 	
 	private void generateEnd(World world, Random random, int i, int j)
 	{
 		// TODO Auto-generated method stub
-		
 	}
 	
 	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY)

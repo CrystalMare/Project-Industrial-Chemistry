@@ -1,6 +1,6 @@
 package net.heavencraft.industrialchemistry.tileentity.machines;
 
-import net.heavencraft.industrialchemistry.handlers.NewRecipeHandler;
+import net.heavencraft.industrialchemistry.handlers.RecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.Recipe;
 import net.heavencraft.industrialchemistry.reference.Names;
 import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
@@ -39,7 +39,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		ItemStack inputStack = inventory[0];
 		ItemStack outputStack = inventory[1];
 		
-		Recipe recipe = NewRecipeHandler.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
+		Recipe recipe = RecipeHandler.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
 		if (recipe == null) return false;
 		if (outputStack == null) return true;
 		
@@ -83,7 +83,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 				ItemStack stackInput = inventory[0];
 				if (stackInput != null)
 				{
-					Recipe recipe = NewRecipeHandler.getRecipe(getClass(), stackInput);
+					Recipe recipe = RecipeHandler.getRecipe(getClass(), stackInput);
 					if (recipe != null)
 					{
 						if (isProcessing() && canProccess())
@@ -123,7 +123,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		{
 			ItemStack stackInput = inventory[0];
 			ItemStack stackOutput = inventory[1];
-			Recipe recipe = NewRecipeHandler.getRecipe(getClass(), stackInput);
+			Recipe recipe = RecipeHandler.getRecipe(getClass(), stackInput);
 			ItemStack resultStack = recipe.getSimpleOutput(getClass(), stackInput).get(0).getComponentAsItemStack();
 			if (stackOutput == null)
 			{
@@ -194,7 +194,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		ItemStack stackInput = inventory[0];
 		if (stackInput != null && timeLeftToProcess != 0)
 		{
-			Recipe recipe = NewRecipeHandler.getRecipe(getClass(), stackInput);
+			Recipe recipe = RecipeHandler.getRecipe(getClass(), stackInput);
 			return (float) (recipe.getProcessTime() - timeLeftToProcess) / recipe.getProcessTime();
 		}
 		return 0f;

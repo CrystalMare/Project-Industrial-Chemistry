@@ -18,7 +18,6 @@ public class GuiMachineChemicalFurnace extends BaseGuiContainer
 	{
 		super(new ContainerMachineChemicalFurnace(player, tile));
 		this.machineChemicalFurnaceTE = tile;
-		
 	}
 	
 	@Override
@@ -37,7 +36,6 @@ public class GuiMachineChemicalFurnace extends BaseGuiContainer
 		drawTitle(machineChemicalFurnaceTE.getName());
 		fontRendererObj.drawString("Temp: " + machineChemicalFurnaceTE.getTemp(),8 , 24, Color.darkGray.getRGB());
 		fontRendererObj.drawString("RF/t: " + machineChemicalFurnaceTE.getEnergyUsage(),8 , 40, Color.darkGray.getRGB());
-		
 	}
 	
 	@Override

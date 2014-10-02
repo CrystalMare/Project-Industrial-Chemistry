@@ -47,8 +47,8 @@ public abstract class Names
 	{
 		
 
-		public static final String CrushedMalachite = "crushedMalachite";
-		public static final String CrushedAzurite = "crushedAzurite";
+		public static final String ChemicalMalachite = "chemicalMalachite";
+		public static final String ChemicalAzurite = "chemicalAzurite";
 		
 		public static final String ChemicalPotassiumNitrate = "chemicalPotassiumNitrate";
 		public static final String ChemicalSulfurTrioxide = "chemicalSulfurTrioxide";

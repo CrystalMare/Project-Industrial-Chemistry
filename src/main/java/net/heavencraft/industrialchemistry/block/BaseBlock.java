@@ -110,12 +110,6 @@ public class BaseBlock extends Block
 		world.setBlockMetadataWithNotify(x, y, z, BlockHelper.setOrientation(meta, direction), 2);
 	}
 	
-	public void test()
-	{
-		
-	}
-	
-	
 	protected void dropInventory(World world, int x, int y, int z)
 	{
 		TileEntity tileEntity = world.getTileEntity(x, y, z);

@@ -134,6 +134,5 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 			return getTexture(ForgeDirection.DOWN, state);
 		
 		else return null;
-
 	}	
 }

@@ -113,7 +113,6 @@ public abstract class BaseContainer extends Container
 				slotIndex += ascending ? -1 : 1;
 			}
 		}
-		
 		return slotFound;
 	}
 }

@@ -13,7 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class NewRecipeHandler
+public class RecipeHandler
 {
 	
 	private final static Set<Recipe> recipeList;

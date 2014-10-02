@@ -65,7 +65,5 @@ public class ContainerMachineGrinder extends BaseContainer
 				}
 			}
 		}
-		
 	}
-	
 }
