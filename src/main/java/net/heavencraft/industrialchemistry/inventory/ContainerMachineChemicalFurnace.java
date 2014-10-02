@@ -38,6 +38,7 @@ public class ContainerMachineChemicalFurnace extends BaseContainer
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex)
 	{
+		//WILL CLEAN IT UP SOON!
 		ItemStack stackToTrans;
 		stackToTrans = getSlot(slotIndex).getStack();
 		ItemStack inputSlot = getSlot(0).getStack();
