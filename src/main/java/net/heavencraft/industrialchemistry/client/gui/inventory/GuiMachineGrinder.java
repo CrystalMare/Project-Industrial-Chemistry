@@ -5,7 +5,7 @@ import org.lwjgl.util.Rectangle;
 
 import net.heavencraft.industrialchemistry.inventory.ContainerMachineGrinder;
 import net.heavencraft.industrialchemistry.reference.Textures;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineGrinder;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineGrinder;
 import net.minecraft.entity.player.InventoryPlayer;
 
 public class GuiMachineGrinder extends BaseGuiContainer

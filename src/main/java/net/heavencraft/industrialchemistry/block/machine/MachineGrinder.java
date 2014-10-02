@@ -6,7 +6,7 @@ import net.heavencraft.industrialchemistry.reference.Gui;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.reference.Names.Block.Machine;
 import net.heavencraft.industrialchemistry.tileentity.MachineState;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineGrinder;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineGrinder;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

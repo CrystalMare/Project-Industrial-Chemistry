@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import net.heavencraft.industrialchemistry.inventory.ContainerMachineChemicalFurnace;
 import net.heavencraft.industrialchemistry.reference.Textures;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineChemicalFurnace;
 import net.minecraft.entity.player.InventoryPlayer;
 
 import org.lwjgl.opengl.GL11;

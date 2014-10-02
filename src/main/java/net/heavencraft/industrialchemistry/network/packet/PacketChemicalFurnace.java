@@ -2,7 +2,7 @@ package net.heavencraft.industrialchemistry.network.packet;
 
 import io.netty.buffer.ByteBuf;
 import net.heavencraft.industrialchemistry.tileentity.MachineState;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineChemicalFurnace;
 import net.minecraft.tileentity.TileEntity;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;

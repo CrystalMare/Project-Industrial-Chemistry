@@ -7,9 +7,9 @@ import net.heavencraft.industrialchemistry.inventory.ContainerMachineChemicalFur
 import net.heavencraft.industrialchemistry.inventory.ContainerMachineGrinder;
 import net.heavencraft.industrialchemistry.inventory.ContainerTesting;
 import net.heavencraft.industrialchemistry.reference.Gui;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineGrinder;
 import net.heavencraft.industrialchemistry.tileentity.TETestingBlock;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineChemicalFurnace;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineGrinder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;

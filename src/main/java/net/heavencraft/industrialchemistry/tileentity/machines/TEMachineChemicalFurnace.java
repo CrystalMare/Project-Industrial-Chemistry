@@ -1,8 +1,10 @@
-package net.heavencraft.industrialchemistry.tileentity;
+package net.heavencraft.industrialchemistry.tileentity.machines;
 
 import net.heavencraft.industrialchemistry.handlers.NewRecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.Recipe;
 import net.heavencraft.industrialchemistry.reference.Names;
+import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
+import net.heavencraft.industrialchemistry.tileentity.MachineState;
 import net.heavencraft.industrialchemistry.util.CollectionUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -30,26 +32,21 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		return this.timeLeftToProcess > 0;
 	}
 	
+	
 	private boolean canProccess()
 	{
-		if (inventory[0] == null)
-		{
-			return false;
-		}
-		else
-		{
-			ItemStack inputStack = inventory[0];
-			ItemStack outputStack = inventory[1];
-			
-			Recipe recipe = NewRecipeHandler.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
-			if (recipe == null) return false;
-			if (outputStack == null) return true;
-			
-			ItemStack resultStack = recipe.getSimpleOutput().get(0).getComponentAsItemStack();
-			if (!outputStack.isItemEqual(resultStack)) return false;
-			int result = outputStack.stackSize + resultStack.stackSize;
-			return result <= getInventoryStackLimit() && result <= outputStack.getMaxStackSize();
-		}
+		if (inventory[0] == null) return false;
+		ItemStack inputStack = inventory[0];
+		ItemStack outputStack = inventory[1];
+		
+		Recipe recipe = NewRecipeHandler.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
+		if (recipe == null) return false;
+		if (outputStack == null) return true;
+		
+		ItemStack resultStack = recipe.getSimpleOutput().get(0).getComponentAsItemStack();
+		if (!outputStack.isItemEqual(resultStack)) return false;
+		int result = outputStack.stackSize + resultStack.stackSize;
+		return result <= getInventoryStackLimit() && result <= outputStack.getMaxStackSize();
 	}
 	
 	@Override

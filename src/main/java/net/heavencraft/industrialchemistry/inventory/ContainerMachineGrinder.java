@@ -3,7 +3,7 @@ package net.heavencraft.industrialchemistry.inventory;
 import net.heavencraft.industrialchemistry.network.PacketHandler;
 import net.heavencraft.industrialchemistry.network.packet.PacketGrinder;
 import net.heavencraft.industrialchemistry.reference.Textures;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineGrinder;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineGrinder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;

@@ -2,8 +2,8 @@ package net.heavencraft.industrialchemistry.init;
 
 import net.heavencraft.industrialchemistry.handlers.NewRecipeHandler;
 import net.heavencraft.industrialchemistry.handlers.RecipeComponent;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineGrinder;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineChemicalFurnace;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineGrinder;
 import net.minecraft.item.ItemStack;
 
 public class Recipes

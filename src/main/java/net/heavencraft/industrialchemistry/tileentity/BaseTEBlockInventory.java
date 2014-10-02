@@ -100,7 +100,7 @@ public abstract class BaseTEBlockInventory extends BaseTEBlock implements IInven
 	}
 	
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer p_70300_1_)
+	public boolean isUseableByPlayer(EntityPlayer playerIn)
 	{
 		return true;
 	}

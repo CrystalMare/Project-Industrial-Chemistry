@@ -1,9 +1,9 @@
 package net.heavencraft.industrialchemistry.proxy;
 
 import net.heavencraft.industrialchemistry.reference.Names;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineGrinder;
 import net.heavencraft.industrialchemistry.tileentity.TETestingBlock;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineChemicalFurnace;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineGrinder;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public abstract class CommonProxy implements IProxy
