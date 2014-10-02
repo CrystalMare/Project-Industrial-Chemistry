@@ -5,7 +5,7 @@ import net.heavencraft.industrialchemistry.handlers.Recipe;
 import net.heavencraft.industrialchemistry.network.PacketHandler;
 import net.heavencraft.industrialchemistry.network.packet.PacketChemicalFurnace;
 import net.heavencraft.industrialchemistry.reference.Textures;
-import net.heavencraft.industrialchemistry.tileentity.TEMachineChemicalFurnace;
+import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineChemicalFurnace;
 import net.heavencraft.industrialchemistry.util.CollectionUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -38,9 +38,7 @@ public class ContainerMachineChemicalFurnace extends BaseContainer
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex)
 	{
-		//WILL CLEAN IT UP SOON!
-		ItemStack stackToTrans;
-		stackToTrans = getSlot(slotIndex).getStack();
+		ItemStack stackToTrans = getSlot(slotIndex).getStack();
 		ItemStack inputSlot = getSlot(0).getStack();
 		Recipe recipe = NewRecipeHandler.getRecipe(TEMachineChemicalFurnace.class, CollectionUtils.getList(new Object[] { stackToTrans }));
 		if (slotIndex == 1)
@@ -51,19 +49,18 @@ public class ContainerMachineChemicalFurnace extends BaseContainer
 				inputSlot = getSlot(0).getStack();
 				if (player.inventory.getStackInSlot(i) != null && player.inventory.getStackInSlot(i).isItemEqual(stackToTrans))
 				{
-					int maxsize = stackToTrans.getMaxStackSize();
-					int stacksizeone = player.inventory.getStackInSlot(i).stackSize;
-					int stacksizetwo = stackToTrans.stackSize;
 					if (stackToTrans.getMaxStackSize() < player.inventory.getStackInSlot(i).stackSize + stackToTrans.stackSize)
 					{
 						int stackSizeBefore = player.inventory.getStackInSlot(i).stackSize;
-						player.inventory.setInventorySlotContents(i, new ItemStack(player.inventory.getStackInSlot(i).getItem(), player.inventory.getStackInSlot(i).getMaxStackSize()));
-						getSlot(1).putStack(new ItemStack(player.inventory.getStackInSlot(i).getItem(), stackSizeBefore));
+						ItemStack stackForInv = new ItemStack(player.inventory.getStackInSlot(i).getItem(), player.inventory.getStackInSlot(i).getMaxStackSize());
+						player.inventory.setInventorySlotContents(i, stackForInv);
+						ItemStack stackForMachine = new ItemStack(player.inventory.getStackInSlot(i).getItem(), stackSizeBefore);
+						getSlot(1).putStack(stackForMachine);
 					}
 					else
 					{
-						player.inventory
-						        .setInventorySlotContents(i, new ItemStack(player.inventory.getStackInSlot(i).getItem(), player.inventory.getStackInSlot(i).stackSize + stackToTrans.stackSize));
+						ItemStack newItemStack = new ItemStack(player.inventory.getStackInSlot(i).getItem(), player.inventory.getStackInSlot(i).stackSize + stackToTrans.stackSize);
+						player.inventory.setInventorySlotContents(i, newItemStack);
 						getSlot(1).putStack(null);
 						return null;
 					}
@@ -78,7 +75,6 @@ public class ContainerMachineChemicalFurnace extends BaseContainer
 					return null;
 				}
 			}
-			
 			return null;
 		}
 		
@@ -116,11 +112,11 @@ public class ContainerMachineChemicalFurnace extends BaseContainer
 	@Override
 	public ItemStack slotClick(int slotID, int p_75144_2_, int mode, EntityPlayer player)
 	{
-		if(player.inventory.getItemStack() != null && slotID == 1)
+		if (player.inventory.getItemStack() != null && slotID == 1)
 		{
 			return null;
 		}
-	    return super.slotClick(slotID, p_75144_2_, mode, player);
+		return super.slotClick(slotID, p_75144_2_, mode, player);
 	}
 	
 	@Override

@@ -106,4 +106,10 @@ public class Recipe
 	{
 		return output.toArray(new RecipeComponent[0]);
 	}
+	
+	public Recipe addOptionalKey(String key, Object val)
+	{
+		optionalSettings.put(key, val);
+		return this;
+	}
 }

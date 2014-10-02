@@ -1,8 +1,8 @@
 package net.heavencraft.industrialchemistry.handlers;
 
 import net.heavencraft.industrialchemistry.client.gui.inventory.GuiMachineChemicalFurnace;
-import net.heavencraft.industrialchemistry.client.gui.inventory.GuiTesting;
 import net.heavencraft.industrialchemistry.client.gui.inventory.GuiMachineGrinder;
+import net.heavencraft.industrialchemistry.client.gui.inventory.GuiTesting;
 import net.heavencraft.industrialchemistry.inventory.ContainerMachineChemicalFurnace;
 import net.heavencraft.industrialchemistry.inventory.ContainerMachineGrinder;
 import net.heavencraft.industrialchemistry.inventory.ContainerTesting;
