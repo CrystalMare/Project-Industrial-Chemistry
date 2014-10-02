@@ -1,8 +1,8 @@
 package net.heavencraft.industrialchemistry.init;
 
 import net.heavencraft.industrialchemistry.item.BaseItem;
+import net.heavencraft.industrialchemistry.item.ItemAsh;
 import net.heavencraft.industrialchemistry.item.ItemChemical;
-import net.heavencraft.industrialchemistry.item.ItemChemical.ChemicalType;
 import net.heavencraft.industrialchemistry.reference.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -22,6 +22,9 @@ public class IndustrialChemistryItems
 	public static final BaseItem chemicalSaltpeter = ItemChemical.ChemicalType.SALTPETER.createNewInstance();
 	public static final BaseItem chemicalCopperOxide = ItemChemical.ChemicalType.COPPER_OXIDE.createNewInstance();
 	
+	
+	public static final BaseItem ash = new ItemAsh();
+	
 	public static void init()
 	{
 		GameRegistry.registerItem(chemicalMalachite, Names.Item.ChemicalMalachite);
@@ -35,5 +38,6 @@ public class IndustrialChemistryItems
 		GameRegistry.registerItem(chemicalSulfur, Names.Item.ChemicalSulfur);
 		GameRegistry.registerItem(chemicalSaltpeter, Names.Item.ChemicalSaltpeter);
 		GameRegistry.registerItem(chemicalCopperOxide, Names.Item.ChemicalCopperOxide);
+		GameRegistry.registerItem(ash, Names.Item.Ash);
 	}
 }

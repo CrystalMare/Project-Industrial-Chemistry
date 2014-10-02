@@ -1,6 +1,7 @@
 package net.heavencraft.industrialchemistry.handlers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class Recipe
 {
-	private final Map<String, Object> optionalSettings;
+	private Map<String, Object> optionalSettings;
 	private final Class<? extends BaseTEBlockPower> machine;
 	private final List<RecipeComponent> input;
 	private final List<RecipeComponent> output;
@@ -109,6 +110,7 @@ public class Recipe
 	
 	public Recipe addOptionalKey(String key, Object val)
 	{
+		if(optionalSettings == null) optionalSettings = new HashMap<String, Object>();
 		optionalSettings.put(key, val);
 		return this;
 	}

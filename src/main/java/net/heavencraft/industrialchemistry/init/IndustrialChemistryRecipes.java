@@ -9,8 +9,8 @@ public class IndustrialChemistryRecipes
 {
 	public static void init()
 	{
-		RecipeHandler.addChemicalFurnaceRecipe(IndustrialChemistryItems.chemicalMalachite, 1, IndustrialChemistryItems.chemicalCopperOxide, 2, 100);
-		RecipeHandler.addChemicalFurnaceRecipe(IndustrialChemistryItems.chemicalAzurite, 1, IndustrialChemistryItems.chemicalCopperOxide, 3, 100);
+		RecipeHandler.addChemicalFurnaceRecipe(IndustrialChemistryItems.chemicalMalachite, 1, IndustrialChemistryItems.chemicalCopperOxide, 2, 100).addOptionalKey("maxtemp", 350).addOptionalKey("mintemp", 250);
+		RecipeHandler.addChemicalFurnaceRecipe(IndustrialChemistryItems.chemicalAzurite, 1, IndustrialChemistryItems.chemicalCopperOxide, 3, 100).addOptionalKey("maxtemp", 350).addOptionalKey("mintemp", 300);
 		
 		RecipeHandler.registerRecipe(TEMachineGrinder.class, 
 				new RecipeComponent[] {
