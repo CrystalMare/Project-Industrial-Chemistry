@@ -8,4 +8,5 @@ public class FireExtinguisher extends BaseItem
 	{
 		setItemName(Names.Item.FireExtinquisher);
 	}
+	
 }
