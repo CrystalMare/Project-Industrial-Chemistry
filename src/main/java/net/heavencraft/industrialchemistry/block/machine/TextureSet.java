@@ -1,6 +1,7 @@
 package net.heavencraft.industrialchemistry.block.machine;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import net.heavencraft.industrialchemistry.tileentity.MachineState;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -13,6 +14,7 @@ import net.minecraftforge.common.util.ForgeDirection;
  */
 public class TextureSet extends HashMap<ForgeDirection, IIcon>
 {
+	private final Map textures = new HashMap<ForgeDirection, IIcon>();
 	private final MachineState state;
 	private final TextureSet parent;
 	private HashMap<MachineState, TextureSet> children;
