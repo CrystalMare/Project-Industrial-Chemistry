@@ -19,7 +19,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 	public TEMachineGrinder()
 	{
 		createInventory(4);
-		this.rfPerTick = 10;
+		this.rfPerTick = 60;
 		recieveAllSides();
 	}
 	
@@ -34,13 +34,13 @@ public class TEMachineGrinder extends BaseTEBlockPower
 		ItemStack[] outputs = new ItemStack[] { inventory[1], inventory[2] };
 		
 		if (input == null) return false;
-				
+		
 		Recipe recipe = RecipeRegistry.getRecipe(getClass(), CollectionUtils.getList(new Object[] { input }));
 		
 		if (recipe == null) return false;
 		if (CollectionUtils.allNull(outputs)) return true;
 		
-		for(int i = 0; i < outputs.length; i++)
+		for (int i = 0; i < outputs.length; i++)
 		{
 			ItemStack recipeOut = recipe.getOutputComponents()[i].getComponentAsItemStack();
 			if (outputs[i] != null)
@@ -77,9 +77,14 @@ public class TEMachineGrinder extends BaseTEBlockPower
 				state = MachineState.OFF;
 			}
 			
+			if (getInternalEnergy() <= storage.getMaxEnergyStored())
+			{
+				takeEnergyFromSlot(3);
+			}
+			
 			if (state == MachineState.ON)
 			{
-
+				
 				ItemStack stackInput = inventory[0];
 				if (stackInput != null)
 				{
@@ -119,8 +124,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 	
 	public void grindItem()
 	{
-		if (!canProcess())
-			return;
+		if (!canProcess()) return;
 		
 		ItemStack input = inventory[0];
 		ItemStack output = inventory[1];
@@ -130,28 +134,25 @@ public class TEMachineGrinder extends BaseTEBlockPower
 		
 		List<RecipeComponent> resultList = recipe.getSimpleOutput(getClass(), input);
 		
-		//Output Slot 1
-		if (resultList.get(0).getDrop()) {
-			if (output == null)				
-				setInventorySlotContents(1, resultList.get(0).getComponentAsItemStack().copy());
+		// Output Slot 1
+		if (resultList.get(0).getDrop())
+		{
+			if (output == null) setInventorySlotContents(1, resultList.get(0).getComponentAsItemStack().copy());
 			else
 				output.stackSize += resultList.get(0).getComponentAsItemStack().stackSize;
 		}
-		//Output Slot 2
+		// Output Slot 2
 		if (resultList.get(1).getDrop())
 		{
-			if (output2 == null)
-				setInventorySlotContents(2, resultList.get(1).getComponentAsItemStack().copy());
+			if (output2 == null) setInventorySlotContents(2, resultList.get(1).getComponentAsItemStack().copy());
 			else
 				output.stackSize += resultList.get(1).getComponentAsItemStack().stackSize;
 		}
 		
 		--input.stackSize;
 		
-		if (input.stackSize <= 0)
-			setInventorySlotContents(0, null);
+		if (input.stackSize <= 0) setInventorySlotContents(0, null);
 	}
-
 	
 	public int getTimeLeftToProcess()
 	{

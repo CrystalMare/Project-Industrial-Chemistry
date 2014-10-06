@@ -39,7 +39,10 @@ public abstract class BaseGuiContainer extends GuiContainer
 	
 	public void drawTitle(String title)
 	{
-		fontRendererObj.drawString(StatCollector.translateToLocal(title), 8, 8, Color.darkGray.getRGB());
+		int fontwitdh = fontRendererObj.getStringWidth(title);
+		int startX = (xSize - fontwitdh) / 2;
+		int startY = 8;
+		fontRendererObj.drawString(StatCollector.translateToLocal(title), startX, startY, Color.darkGray.getRGB());
 	}
 	
 	public void drawLiquidBar(TileEntity tank, int xOffset, int yOffset)

@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.heavencraft.industrialchemistry.reference.Names;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.ForgeDirection;
 import cofh.api.energy.EnergyStorage;
+import cofh.api.energy.IEnergyContainerItem;
 import cofh.api.energy.IEnergyHandler;
 
 public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements IEnergyHandler
@@ -16,6 +18,7 @@ public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements I
 	protected EnergyStorage storage = new EnergyStorage(1000);
 	protected MachineState state = MachineState.OFF;
 	protected int rfPerTick = 10;
+	protected int energyUsage = 0;
 	
 	public BaseTEBlockPower()
 	{
@@ -29,7 +32,7 @@ public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements I
 	
 	public void recieveAllSides()
 	{
-		for(ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
+		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
 		{
 			recieveSides.add(dir);
 		}
@@ -123,7 +126,6 @@ public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements I
 		storage.setEnergyStored(value);
 	}
 	
-	
 	@Override
 	public int getEnergyStored(ForgeDirection from)
 	{
@@ -163,4 +165,24 @@ public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements I
 		if (this.state != null) nbt.setInteger(Names.NBT.TileEntity.State, this.state.getID());
 	}
 	
+	protected void takeEnergyFromSlot(int SlotID)
+	{
+		ItemStack item = getStackInSlot(SlotID);
+		if (item != null && item.getItem() instanceof IEnergyContainerItem)
+		{
+			IEnergyContainerItem capacitor = (IEnergyContainerItem) item.getItem();
+			int rft = capacitor.extractEnergy(item, Integer.MAX_VALUE, true);
+			capacitor.receiveEnergy(item, rft - storage.receiveEnergy(capacitor.extractEnergy(item, rft, false), false), false);
+		}
+	}
+	
+	public int getEnergyUsage()
+	{
+		return energyUsage;
+	}
+	
+	public void setEnergyUsage(int value)
+	{
+		energyUsage = value;
+	}
 }

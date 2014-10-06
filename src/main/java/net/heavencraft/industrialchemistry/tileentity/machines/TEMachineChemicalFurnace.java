@@ -20,7 +20,6 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 	private static final float keepCoeff = (float) 0.01;
 	
 	private int timeLeftToProcess = 0;
-	private int energyUsage = 0;
 	private float internalTemp = 0;
 	private float limitTemp = 1000;
 	
@@ -28,6 +27,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 	{
 		createInventory(2);
 		recieveAllSides();
+		storage.setCapacity(16000);
 	}
 	
 	public boolean isProcessing()
@@ -45,7 +45,6 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		if (recipe == null) return false;
 		if (outputStack == null) return true;
 		if (outputStack.getItem() instanceof ItemAsh) return true;
-
 		
 		ItemStack resultStack = recipe.getSimpleOutput().get(0).getComponentAsItemStack();
 		if (!outputStack.isItemEqual(resultStack)) return false;
@@ -263,16 +262,6 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 			return (float) (recipe.getProcessTime() - timeLeftToProcess) / recipe.getProcessTime();
 		}
 		return 0f;
-	}
-	
-	public int getEnergyUsage()
-	{
-		return energyUsage;
-	}
-	
-	public void setEnergyUsage(int value)
-	{
-		energyUsage = value;
 	}
 	
 	public int getTemp()

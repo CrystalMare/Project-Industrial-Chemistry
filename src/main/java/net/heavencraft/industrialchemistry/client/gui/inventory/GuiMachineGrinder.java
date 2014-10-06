@@ -13,10 +13,10 @@ public class GuiMachineGrinder extends BaseGuiContainer
 	private TEMachineGrinder machineGrinder;
 	
 	public GuiMachineGrinder(InventoryPlayer player, TEMachineGrinder tile)
-    {
-	    super(new ContainerMachineGrinder(player, tile));
+	{
+		super(new ContainerMachineGrinder(player, tile));
 		this.machineGrinder = tile;
-    }
+	}
 	
 	@Override
 	public void initGui()
@@ -31,7 +31,7 @@ public class GuiMachineGrinder extends BaseGuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		drawTitle(String.valueOf(machineGrinder.getProgress()));
+		drawTitle(String.valueOf(machineGrinder.getEnergyUsage()));
 	}
 	
 	@Override
