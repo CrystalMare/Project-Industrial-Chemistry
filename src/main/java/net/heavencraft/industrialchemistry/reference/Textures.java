@@ -45,8 +45,8 @@ public class Textures
 			public static final Rectangle ProgressArrow = new Rectangle(176, 0, 23, 15);
 			public static final Point PowerSlot = new Point(8, 62);
 			public static final Point InputSlot = new Point(50, 24);
-			public static final Point OutputSlot = new Point(110, 24);
-			public static final Point OutputSlot2 = new Point(110, 51);
+			public static final Point OutputSlot = new Point(110, 25);
+			public static final Point OutputSlot2 = new Point(110, 50);
 		}
 		
 	}
