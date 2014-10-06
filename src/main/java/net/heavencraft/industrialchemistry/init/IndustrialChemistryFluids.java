@@ -1,8 +1,8 @@
 package net.heavencraft.industrialchemistry.init;
 
+import net.heavencraft.industrialchemistry.handlers.FluidHandler;
 import net.heavencraft.industrialchemistry.reference.Names;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
 
 public class IndustrialChemistryFluids
 {
@@ -11,7 +11,7 @@ public class IndustrialChemistryFluids
 	
 	public static void init()
 	{
-		FluidRegistry.registerFluid(Oxygen);
-		FluidRegistry.registerFluid(CarbonDioxide);
+		FluidHandler.RegisterFluid(Oxygen, Names.Fluids.Oxygen);
+		FluidHandler.RegisterFluid(CarbonDioxide, Names.Fluids.CarbonDioxide);
 	}
 }

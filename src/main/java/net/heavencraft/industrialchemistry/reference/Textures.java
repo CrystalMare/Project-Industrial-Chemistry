@@ -70,11 +70,20 @@ public class Textures
 		
 		public static final class Fluids
 		{
-			public static final String OxygenStill = "oxygenStill";
-			public static final String OxygenFlowing = "oxygenFlowing";
+			public static String getStillIconLocation(String name)
+			{
+				return name.toLowerCase() + "Still";
+			}
 			
-			public static final String CarbonDioxideStill = "co2Still";
-			public static final String CarbonDioxideFlowing = "co2flowing";
+			public static String getFlowingIconLocation(String name)
+			{
+				return name.toLowerCase() + "Flowing";
+			}
+			
+			public static String getBucketIconLocation(String name)
+			{
+				return name.toLowerCase() + "_Bucket";
+			}
 		}
 		
 		public static final String MalachiteOre = ResourceLocationHelper.getBlockLocation("malachiteOre");

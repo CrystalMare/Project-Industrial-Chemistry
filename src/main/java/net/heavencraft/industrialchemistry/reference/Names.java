@@ -47,7 +47,6 @@ public abstract class Names
 	public static final class Item
 	{
 		
-
 		public static final String ChemicalMalachite = "chemicalMalachite";
 		public static final String ChemicalAzurite = "chemicalAzurite";
 		
@@ -69,5 +68,10 @@ public abstract class Names
 	{
 		public static final String Oxygen = "oxygen";
 		public static final String CarbonDioxide = "carbondioxide";
+		
+		public static String getBucketName(String name)
+		{
+			return name + "_Bucket";
+		}
 	}
 }
