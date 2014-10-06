@@ -12,9 +12,9 @@ import net.minecraftforge.common.util.ForgeDirection;
  * @author Sven
  *
  */
-public class TextureSet extends HashMap<ForgeDirection, IIcon>
+public class TextureSet
 {
-	private final Map textures = new HashMap<ForgeDirection, IIcon>();
+	private final Map<ForgeDirection, IIcon> textures = new HashMap<ForgeDirection, IIcon>();
 	private final MachineState state;
 	private final TextureSet parent;
 	private HashMap<MachineState, TextureSet> children;
@@ -42,17 +42,17 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 		children = new HashMap<MachineState, TextureSet>();
 		
 		if (front != null)
-			put(ForgeDirection.SOUTH, iconRegister.registerIcon(front));
+			textures.put(ForgeDirection.SOUTH, iconRegister.registerIcon(front));
 		if (back != null)
-			put(ForgeDirection.NORTH, iconRegister.registerIcon(back));
+			textures.put(ForgeDirection.NORTH, iconRegister.registerIcon(back));
 		if (top != null)
-			put(ForgeDirection.UP, iconRegister.registerIcon(top));
+			textures.put(ForgeDirection.UP, iconRegister.registerIcon(top));
 		if (bottom != null)
-			put(ForgeDirection.DOWN, iconRegister.registerIcon(bottom));
+			textures.put(ForgeDirection.DOWN, iconRegister.registerIcon(bottom));
 		if (left != null)
-			put(ForgeDirection.WEST, iconRegister.registerIcon(left));
+			textures.put(ForgeDirection.WEST, iconRegister.registerIcon(left));
 		if (right != null)
-			put(ForgeDirection.EAST, iconRegister.registerIcon(right));
+			textures.put(ForgeDirection.EAST, iconRegister.registerIcon(right));
 		
 		if (parent != null) parent.setChild(this);
 	}
@@ -84,7 +84,7 @@ public class TextureSet extends HashMap<ForgeDirection, IIcon>
 	 */
 	private IIcon getTexture(ForgeDirection side)
 	{
-		return get(side);
+		return textures.get(side);
 	}
 	
 	/**

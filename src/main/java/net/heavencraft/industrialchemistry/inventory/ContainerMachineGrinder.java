@@ -15,9 +15,11 @@ public class ContainerMachineGrinder extends BaseContainer
 {
 	private TEMachineGrinder machineGrinder;
 	
-	private static Point offset = Textures.GUI.ChemicalFurnace.InventoryOffset;
-	private static Point inputSlot = Textures.GUI.ChemicalFurnace.InputSlot;
-	private static Point outputSlot = Textures.GUI.ChemicalFurnace.OutputSlot;
+	private static Point offset = Textures.GUI.Grinder.InventoryOffset;
+	private static Point inputSlot = Textures.GUI.Grinder.InputSlot;
+	private static Point outputSlot = Textures.GUI.Grinder.OutputSlot;
+	private static Point outputSlot2 = Textures.GUI.Grinder.OutputSlot2;
+	private static Point powerSlot = Textures.GUI.Grinder.PowerSlot;
 	
 	private int lastInteralEnergy = 0;
 	private int lastTimeLeftToProgress = 0;
@@ -25,9 +27,11 @@ public class ContainerMachineGrinder extends BaseContainer
 	public ContainerMachineGrinder(InventoryPlayer player, TEMachineGrinder tile)
 	{
 		this.machineGrinder = tile;
-		this.drawInv(player, 0, 78);
+		this.drawInv(player, offset.getX(), offset.getY());
 		addSlot(tile, 0, inputSlot.getX(), inputSlot.getY());
 		addSlot(tile, 1, outputSlot.getX(), outputSlot.getY());
+		addSlot(tile, 2, outputSlot2.getX(), outputSlot2.getY());
+		addSlot(tile, 3, powerSlot.getX(), powerSlot.getY());
 	}
 
 	@Override
@@ -55,15 +59,13 @@ public class ContainerMachineGrinder extends BaseContainer
 			}
 		}
 		
-		if(send)
+		if(!send)
+			return;
+		
+		for(Object obj : crafters)
 		{
-			for (int i = 0; i < this.crafters.size(); ++i)
-			{				
-				if (this.crafters.get(i) instanceof EntityPlayerMP)
-				{
-					PacketHandler.INSTANCE.sendTo(new PacketGrinder(machineGrinder), (EntityPlayerMP) this.crafters.get(i));
-				}
-			}
+			if (obj instanceof EntityPlayerMP)
+				PacketHandler.INSTANCE.sendTo(new PacketGrinder(machineGrinder),  (EntityPlayerMP) obj);
 		}
 	}
 }

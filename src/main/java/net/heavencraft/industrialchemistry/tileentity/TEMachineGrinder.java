@@ -28,24 +28,26 @@ public class TEMachineGrinder extends BaseTEBlockPower
 	
 	private boolean canProcess()
 	{
-		if (inventory[0] == null)
+		ItemStack input = inventory[0];
+		ItemStack[] outputs = new ItemStack[] { inventory[1], inventory[2] };
+		
+		if (input == null) return false;
+				
+		Recipe recipe = RecipeRegistry.getRecipe(getClass(), CollectionUtils.getList(new Object[] { input }));
+		
+		if (recipe == null) return false;
+		if (CollectionUtils.allNull(outputs)) return true;
+		
+		for(int i = 0; i < outputs.length; i++)
 		{
-			return false;
+			ItemStack recipeOut = recipe.getOutputComponents()[i].getComponentAsItemStack();
+			if (outputs[i] != null)
+			{
+				if (!outputs[i].isItemEqual(recipeOut)) return false;
+				if (outputs[i].stackSize + recipeOut.stackSize > outputs[i].getMaxStackSize()) return false;
+			}
 		}
-		else
-		{
-			ItemStack inputStack = inventory[0];
-			ItemStack outputStack = inventory[1];
-			
-			Recipe recipe = RecipeRegistry.getRecipe(getClass(), CollectionUtils.getList(new Object[] { inventory[0] }));
-			if (recipe == null) return false;
-			if (outputStack == null) return true;
-			
-			ItemStack resultStack = recipe.getSimpleOutput().get(0).getComponentAsItemStack();
-			if (!outputStack.isItemEqual(resultStack)) return false;
-			int result = outputStack.stackSize + resultStack.stackSize;
-			return result <= getInventoryStackLimit() && result <= outputStack.getMaxStackSize();
-		}
+		return true;
 	}
 	
 	@Override
@@ -115,30 +117,37 @@ public class TEMachineGrinder extends BaseTEBlockPower
 	
 	public void grindItem()
 	{
-		if (this.canProcess())
-		{
-			ItemStack stackInput = inventory[0];
-			ItemStack stackOutput = inventory[1];
-			Recipe recipe = RecipeRegistry.getRecipe(getClass(), stackInput);
-			List<RecipeComponent> resultList = recipe.getSimpleOutput(getClass(), stackInput);
-			ItemStack resultStack = resultList.get(0).getComponentAsItemStack();
-			System.out.println("Gotten Azurite Drop?:" + resultList.get(1).getDrop());
-			if (stackOutput == null)
-			{
-				setInventorySlotContents(1, resultStack.copy());
-			}
-			else if (stackOutput.getItem() == resultStack.getItem())
-			{
-				setInventorySlotContents(1, new ItemStack(resultStack.getItem(), resultStack.stackSize + stackOutput.stackSize));
-			}
-			
-			--stackInput.stackSize;
-			
-			if (stackInput.stackSize <= 0)
-			{
-				setInventorySlotContents(0, null);
-			}
+		if (!canProcess())
+			return;
+		
+		ItemStack input = inventory[0];
+		ItemStack output = inventory[1];
+		ItemStack output2 = inventory[2];
+		
+		Recipe recipe = RecipeRegistry.getRecipe(getClass(), input);
+		
+		List<RecipeComponent> resultList = recipe.getSimpleOutput(getClass(), input);
+		
+		//Output Slot 1
+		if (resultList.get(0).getDrop()) {
+			if (output == null)				
+				setInventorySlotContents(1, resultList.get(0).getComponentAsItemStack().copy());
+			else
+				output.stackSize += resultList.get(0).getComponentAsItemStack().stackSize;
 		}
+		//Output Slot 2
+		if (resultList.get(1).getDrop())
+		{
+			if (output2 == null)
+				setInventorySlotContents(2, resultList.get(1).getComponentAsItemStack().copy());
+			else
+				output.stackSize += resultList.get(1).getComponentAsItemStack().stackSize;
+		}
+		
+		--input.stackSize;
+		
+		if (input.stackSize <= 0)
+			setInventorySlotContents(0, null);
 	}
 
 	

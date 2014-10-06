@@ -24,4 +24,18 @@ public class CollectionUtils
 		}
 		return set;
 	}
+	
+	
+	/**
+	 * Returns true if all elements in array are null;
+	 * @param array
+	 * @return
+	 */
+	public static <T> boolean allNull(T[] array)
+	{
+		for(T is : array)
+			if (is != null)
+				return false;
+		return true;
+	}
 }

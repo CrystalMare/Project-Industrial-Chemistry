@@ -18,7 +18,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 	
 	public TEMachineGrinder()
 	{
-		createInventory(2);
+		createInventory(4);
 		this.rfPerTick = 10;
 		recieveAllSides();
 	}

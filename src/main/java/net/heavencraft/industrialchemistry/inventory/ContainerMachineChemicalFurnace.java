@@ -32,7 +32,7 @@ public class ContainerMachineChemicalFurnace extends BaseContainer
 		this.machineChemicalFurnaceTE = tile;
 		addSlot(tile, 0, inputSlot.getX(), inputSlot.getY());
 		addSlot(tile, 1, outputSlot.getX(), outputSlot.getY());
-		this.drawInv(player, 0, 78);
+		this.drawInv(player, offset.getX(), offset.getY());
 	}
 	
 	@Override
