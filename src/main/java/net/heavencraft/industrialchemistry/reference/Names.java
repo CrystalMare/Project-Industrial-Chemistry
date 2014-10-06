@@ -68,5 +68,6 @@ public abstract class Names
 	public static final class Fluids
 	{
 		public static final String Oxygen = "oxygen";
+		public static final String CarbonDioxide = "carbondioxide";
 	}
 }

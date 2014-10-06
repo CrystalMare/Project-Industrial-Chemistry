@@ -41,17 +41,26 @@ public class Recipe
 			{
 				ItemStack inputItem = (ItemStack)obj;
 				
-				for(RecipeComponent component : this.input) {
+				for(RecipeComponent component : this.input) 
+				{
 					if (!component.isItemStack()) continue;
 					
-					ItemStack componentItemStack = (ItemStack)component.getComponent();
+					ItemStack componentItemStack = component.getComponentAsItemStack();
 					if (inputItem.isItemEqual(componentItemStack) && inputItem.stackSize >= componentItemStack.stackSize)
 						currentValidInputs++;
 				}
 			}
 			else if (obj instanceof FluidStack)
 			{
-				
+				FluidStack inputFluid = (FluidStack)obj;
+				for(RecipeComponent component : this.input)
+				{
+					if (!component.isFluidStack()) continue;
+					
+					FluidStack componentFluidStack = component.getComponentAsFluidStack();
+					if (inputFluid.isFluidEqual(componentFluidStack) && inputFluid.amount >= componentFluidStack.amount)
+						currentValidInputs++;
+				}
 			}
 			else return null;
 		}

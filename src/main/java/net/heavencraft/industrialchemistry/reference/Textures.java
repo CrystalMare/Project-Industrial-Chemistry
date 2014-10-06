@@ -72,6 +72,9 @@ public class Textures
 		{
 			public static final String OxygenStill = "oxygenStill";
 			public static final String OxygenFlowing = "oxygenFlowing";
+			
+			public static final String CarbonDioxideStill = "co2Still";
+			public static final String CarbonDioxideFlowing = "co2flowing";
 		}
 		
 		public static final String MalachiteOre = ResourceLocationHelper.getBlockLocation("malachiteOre");

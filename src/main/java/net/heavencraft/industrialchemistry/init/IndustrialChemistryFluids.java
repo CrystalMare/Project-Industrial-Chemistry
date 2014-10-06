@@ -6,10 +6,12 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class IndustrialChemistryFluids
 {
-	public static Fluid Oxygen = new Fluid(Names.Fluids.Oxygen);
+	public static final Fluid Oxygen = new Fluid(Names.Fluids.Oxygen);
+	public static final Fluid CarbonDioxide = new Fluid(Names.Fluids.CarbonDioxide);
 	
 	public static void init()
 	{
 		FluidRegistry.registerFluid(Oxygen);
+		FluidRegistry.registerFluid(CarbonDioxide);
 	}
 }

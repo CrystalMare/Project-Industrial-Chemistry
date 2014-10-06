@@ -12,10 +12,9 @@ import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class FluidOxygenBlock extends BlockFluidClassic
+public class FluidCarbonDioxide extends BlockFluidClassic
 {	
-	public FluidOxygenBlock(Fluid fluid, Material material)
-	{
+	public FluidCarbonDioxide(Fluid fluid, Material material) {
 		super(fluid, material);
 		setCreativeTab(CreativeTabs.tabMisc);
 	}
@@ -35,8 +34,8 @@ public class FluidOxygenBlock extends BlockFluidClassic
 	@Override
 	public void registerBlockIcons(IIconRegister register)
 	{
-		stillIcon = register.registerIcon(Textures.Block.Fluids.OxygenStill);
-		flowingIcon = register.registerIcon(Textures.Block.Fluids.OxygenFlowing);
+		stillIcon = register.registerIcon(Textures.Block.Fluids.CarbonDioxideStill);
+		flowingIcon = register.registerIcon(Textures.Block.Fluids.CarbonDioxideFlowing);
 	}
 	
 	@Override
