@@ -17,7 +17,7 @@ public class IndustrialChemistryRecipes
 					new RecipeComponent(new ItemStack(IndustrialChemistryBlocks.oreMalachite, 1), 0, 1.0f) },
 				new RecipeComponent[] {
 					new RecipeComponent(new ItemStack(IndustrialChemistryItems.chemicalMalachite, 1), 0, 1.0f),
-					new RecipeComponent(new ItemStack(IndustrialChemistryItems.chemicalAzurite, 1), 0, 0.05f) },
+					new RecipeComponent(new ItemStack(IndustrialChemistryItems.chemicalAzurite, 1), 0, 0.20f) },
 				100, null);
 	}
 }

@@ -27,13 +27,13 @@ public class Textures
 		// Chemical Furnace
 		public static final class ChemicalFurnace
 		{
-			public static final ResourceLocation GuiResource = ResourceLocationHelper.getGuiLocation("ChemicalFurnaceGUI.png");
-			public static final Rectangle Gui = new Rectangle(0, 0, 176, 244);
-			public static final Point InventoryOffset = new Point(0, 78);
-			public static final Rectangle ProgressArrow = new Rectangle(192, 0, 14, 48);
-			public static final Rectangle Gauge = new Rectangle(176, 0, 16, 49);
-			public static final Point InputSlot = new Point(26, 88);
-			public static final Point OutputSlot = new Point(134, 137);
+			public static final ResourceLocation GuiResource = ResourceLocationHelper.getGuiLocation("chemicalfurnace.png");
+			public static final Rectangle Gui = new Rectangle(0, 0, 176, 166);
+			public static final Point InventoryOffset = new Point(0, 0);
+			public static final Rectangle ProgressIndicator = new Rectangle(176, 0, 50, 21);
+			public static final Rectangle Gauge = new Rectangle(176, 21, 16, 49);
+			public static final Point InputSlot = new Point(36, 33);
+			public static final Point OutputSlot = new Point(120, 33);
 			
 		}
 		

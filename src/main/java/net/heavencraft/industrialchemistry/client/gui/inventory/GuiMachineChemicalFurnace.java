@@ -54,7 +54,7 @@ public class GuiMachineChemicalFurnace extends BaseGuiContainer
 	{
 		double progress = machineChemicalFurnaceTE.getProgress();
 		mc.getTextureManager().bindTexture(Textures.GUI.ChemicalFurnace.GuiResource);
-		Rectangle arrow = Textures.GUI.ChemicalFurnace.ProgressArrow;
+		Rectangle arrow = Textures.GUI.ChemicalFurnace.ProgressIndicator;
 		Rectangle gui = Textures.GUI.ChemicalFurnace.Gui;
 		int offset = (int) (progress * arrow.getHeight());
 		int startX = guiLeft + 81;

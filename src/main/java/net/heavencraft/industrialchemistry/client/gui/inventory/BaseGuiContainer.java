@@ -17,9 +17,10 @@ import net.minecraftforge.fluids.IFluidHandler;
 
 import org.lwjgl.opengl.GL11;
 
+import cofh.lib.gui.GuiBase;
 import cpw.mods.fml.client.FMLClientHandler;
 
-public abstract class BaseGuiContainer extends GuiContainer
+public abstract class BaseGuiContainer extends GuiBase
 {
 	
 	public BaseGuiContainer(Container container)
