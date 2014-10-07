@@ -18,6 +18,13 @@ public class Textures
 			public static final Rectangle Gui = new Rectangle(0, 0, 176, 166);
 		}
 		
+		public static final class SpriteSheet
+		{
+			public static final ResourceLocation BaseResource = ResourceLocationHelper.getGuiLocation("spritesheet.png");
+			public static final Rectangle InventorySlot = new Rectangle(0, 0, 18, 18);
+			public static final Rectangle InventorySlotBig = new Rectangle(18, 0, 26, 26);
+		}
+		
 		public static final ResourceLocation Sprites = ResourceLocationHelper.getGuiLocation("sprites.png");
 		
 		public static final ResourceLocation LiquidBar = ResourceLocationHelper.getGuiLocation("LiquidBar.png");
@@ -43,10 +50,10 @@ public class Textures
 			public static final Rectangle Gui = new Rectangle(0, 0, 176, 166);
 			public static final Point InventoryOffset = new Point(0, 0);
 			public static final Rectangle ProgressArrow = new Rectangle(176, 0, 23, 15);
-			public static final Point PowerSlot = new Point(8, 62);
-			public static final Point InputSlot = new Point(50, 24);
-			public static final Point OutputSlot = new Point(110, 25);
-			public static final Point OutputSlot2 = new Point(110, 50);
+			public static final Point PowerSlot = new Point(7, 53);
+			public static final Point InputSlot = new Point(50, 19);
+			public static final Point OutputSlot = new Point(105, 20);
+			public static final Point OutputSlot2 = new Point(109, 49);
 		}
 		
 	}

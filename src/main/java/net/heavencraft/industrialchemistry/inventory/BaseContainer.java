@@ -41,7 +41,12 @@ public abstract class BaseContainer extends Container
 	
 	public void addSlot(IInventory stack, int slotIndex, int x, int y)
 	{
-		addSlotToContainer(new Slot(stack, slotIndex, x, y));
+		addSlotToContainer(new Slot(stack, slotIndex, x + 1, y + 1));
+	}
+	
+	public void addBigSlot(IInventory stack, int slotIndex, int x, int y)
+	{
+		addSlotToContainer(new Slot(stack, slotIndex, x + 5, y + 5));
 	}
 	
 	@Override

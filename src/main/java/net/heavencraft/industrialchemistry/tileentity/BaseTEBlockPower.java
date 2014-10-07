@@ -10,6 +10,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyContainerItem;
 import cofh.api.energy.IEnergyHandler;
+import cofh.api.energy.IEnergyStorage;
 
 public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements IEnergyHandler
 {
@@ -184,5 +185,10 @@ public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements I
 	public void setEnergyUsage(int value)
 	{
 		energyUsage = value;
+	}
+	
+	public IEnergyStorage getEnergyStorage()
+	{
+		return storage;
 	}
 }
