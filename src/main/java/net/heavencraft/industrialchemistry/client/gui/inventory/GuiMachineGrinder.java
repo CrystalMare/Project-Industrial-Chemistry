@@ -1,21 +1,17 @@
 package net.heavencraft.industrialchemistry.client.gui.inventory;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.Rectangle;
-
-import cofh.lib.gui.GuiBase;
-import cofh.lib.gui.element.ElementBase;
-import cofh.lib.gui.element.ElementEnergyStored;
-import cofh.lib.gui.element.ElementSimple;
-import cofh.lib.gui.element.TabBase;
 import net.heavencraft.industrialchemistry.client.gui.inventory.elements.ElementInventorySlot;
 import net.heavencraft.industrialchemistry.client.gui.inventory.elements.ElementInventorySlotBig;
 import net.heavencraft.industrialchemistry.inventory.ContainerMachineGrinder;
 import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineGrinder;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.util.ResourceLocation;
+
+import org.lwjgl.util.Rectangle;
+
+import cofh.lib.gui.GuiBase;
+import cofh.lib.gui.element.ElementBase;
+import cofh.lib.gui.element.ElementEnergyStored;
 
 public class GuiMachineGrinder extends GuiBase
 {
