@@ -4,7 +4,6 @@ import java.awt.Color;
 
 import net.heavencraft.industrialchemistry.helpers.BlockHelper;
 import net.heavencraft.industrialchemistry.reference.Textures;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
