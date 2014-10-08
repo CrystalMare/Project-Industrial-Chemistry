@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import net.heavencraft.industrialchemistry.helpers.BlockHelper;
 import net.heavencraft.industrialchemistry.reference.Textures;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -16,7 +17,6 @@ import net.minecraftforge.fluids.IFluidHandler;
 
 import org.lwjgl.opengl.GL11;
 
-import cofh.lib.gui.GuiBase;
 import cpw.mods.fml.client.FMLClientHandler;
 
 public abstract class BaseGuiContainer extends GuiContainer

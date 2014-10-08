@@ -50,10 +50,12 @@ public class Textures
 			public static final Rectangle Gui = new Rectangle(0, 0, 176, 166);
 			public static final Point InventoryOffset = new Point(0, 0);
 			public static final Rectangle ProgressArrow = new Rectangle(176, 0, 23, 15);
+			public static final Rectangle PogresssArrowBG = new Rectangle(176, 15, 23, 15);
 			public static final Point PowerSlot = new Point(7, 53);
 			public static final Point InputSlot = new Point(50, 19);
 			public static final Point OutputSlot = new Point(105, 20);
 			public static final Point OutputSlot2 = new Point(109, 49);
+			
 		}
 		
 	}

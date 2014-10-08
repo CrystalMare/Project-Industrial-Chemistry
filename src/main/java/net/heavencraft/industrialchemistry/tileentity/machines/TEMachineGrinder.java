@@ -21,6 +21,7 @@ public class TEMachineGrinder extends BaseTEBlockPower
 		createInventory(4);
 		this.rfPerTick = 60;
 		recieveAllSides();
+		setPowerCapacity(16000);
 	}
 	
 	public boolean isProcessing()

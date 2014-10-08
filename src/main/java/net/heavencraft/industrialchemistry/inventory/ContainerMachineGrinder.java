@@ -26,6 +26,7 @@ public class ContainerMachineGrinder extends BaseContainer
 		
 	public ContainerMachineGrinder(InventoryPlayer player, TEMachineGrinder tile)
 	{
+		machineGrinder = tile;
 		drawInv(player, offset.getX(), offset.getY());
 		addSlot(machineGrinder, 0, inputSlot.getX(), inputSlot.getY());
 		addBigSlot(machineGrinder, 1, outputSlot.getX(), outputSlot.getY());

@@ -101,7 +101,7 @@ public abstract class BaseTEBlockPower extends BaseTEBlockInventory implements I
 	
 	public int useEnergy()
 	{
-		return storage.extractEnergy(rfPerTick, true);
+		return storage.extractEnergy(rfPerTick, false);
 	}
 	
 	@Override
