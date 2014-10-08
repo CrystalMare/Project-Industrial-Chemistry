@@ -10,8 +10,8 @@ import net.minecraft.nbt.NBTTagList;
 public abstract class BaseTEBlockInventory extends BaseTEBlock implements IInventory
 {
 	
-	protected ItemStack[] inventory;
-	protected int numUsingPlayers;
+	protected ItemStack[] inventory = new ItemStack[0];
+	protected int numUsingPlayers = 0;
 	
 	public void createInventory(int size)
 	{

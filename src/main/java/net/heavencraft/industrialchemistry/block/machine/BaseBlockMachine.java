@@ -6,6 +6,7 @@ import net.heavencraft.industrialchemistry.tileentity.BaseTEBlockPower;
 import net.heavencraft.industrialchemistry.tileentity.MachineState;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -21,22 +22,29 @@ public abstract class BaseBlockMachine extends BaseBlock implements ITileEntityP
 	}
 	
 	public BaseBlockMachine(Material material)
-    {
+	{
 		super(material);
 		this.setHardness(0.5F);
-    }
-
+	}
+	
 	protected TextureSet textures;
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconRegister)
+	{
+		textures = new TextureSet(iconRegister, MachineState.OFF, null, null, null, null, null, null, null);
+	}
 	
 	@Override
 	public IIcon getIcon(IBlockAccess blockAccess, int x, int y, int z, int side)
 	{
 		TileEntity tileEntity = blockAccess.getTileEntity(x, y, z);
 		int meta = blockAccess.getBlockMetadata(x, y, z);
-	
+		
 		if (!(tileEntity instanceof BaseTEBlockPower)) return null;
-				
-		MachineState state = ((BaseTEBlockPower)tileEntity).getMachineState();
+		
+		MachineState state = ((BaseTEBlockPower) tileEntity).getMachineState();
 		ForgeDirection frontFace = BlockHelper.getOrientation(meta);
 		ForgeDirection face = ForgeDirection.getOrientation(side);
 		return textures.getTextureForFacing(frontFace, face, state);

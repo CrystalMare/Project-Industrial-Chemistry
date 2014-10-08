@@ -34,8 +34,8 @@ public class GuiMachineChemicalFurnace extends BaseGuiContainer
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
 		drawTitle(machineChemicalFurnaceTE.getName());
-		fontRendererObj.drawString("Temp: " + machineChemicalFurnaceTE.getTemp(),8 , 24, Color.darkGray.getRGB());
-		fontRendererObj.drawString("RF/t: " + machineChemicalFurnaceTE.getEnergyUsage(),8 , 40, Color.darkGray.getRGB());
+		fontRendererObj.drawString("Temp: " + machineChemicalFurnaceTE.getTemp(), 8, 24, Color.darkGray.getRGB());
+		fontRendererObj.drawString("RF/t: " + machineChemicalFurnaceTE.getEnergyUsage(), 8, 40, Color.darkGray.getRGB());
 	}
 	
 	@Override
