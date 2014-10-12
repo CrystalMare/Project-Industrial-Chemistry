@@ -19,6 +19,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 	int state;
 	int energyUsage;
 	int temp;
+	int tank;
 	
 	public PacketChemicalFurnace()
 	{
@@ -34,6 +35,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		state = tile.getMachineState().getID();
 		energyUsage = tile.getEnergyUsage();
 		temp = tile.getTemp();
+		tank = tile.getTank().getFluidAmount();
 	}
 	
 	@Override
@@ -47,6 +49,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		state = buf.readInt();
 		energyUsage = buf.readInt();
 		temp = buf.readInt();
+		tank = buf.readInt();
 	}
 	
 	@Override
@@ -60,6 +63,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		buf.writeInt(state);
 		buf.writeInt(energyUsage);
 		buf.writeInt(temp);
+		buf.writeInt(tank);
 	}
 	
 	@Override
@@ -76,6 +80,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 				chemFurnace.setMachineState(MachineState.values()[message.state]);
 				chemFurnace.setEnergyUsage(message.energyUsage);
 				chemFurnace.setTemp(message.temp);
+				chemFurnace.setTankAmmount(message.tank);
 			}
 		}
 		return null;

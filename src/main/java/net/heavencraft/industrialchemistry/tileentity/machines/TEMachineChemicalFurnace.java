@@ -191,6 +191,30 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 					{
 						setInventorySlotContents(1, new ItemStack(resultStack.getItem(), resultStack.stackSize + stackOutput.stackSize));
 					}
+					
+					//START FLUID
+					if (recipe.getOutputComponents().length > 1 && recipe.getOutputComponents()[1].isFluidStack())
+					{
+						System.out.println("Fluid was added");
+						FluidStack output = recipe.getOutputComponents()[1].getComponentAsFluidStack();
+						if (tank.getFluid() == null)
+						{
+							tank.setFluid(output.copy());
+						}
+						else if (tank.getFluid().isFluidEqual(output))
+						{
+							if (tank.getFluidAmount() + output.amount > tank.getCapacity())
+							{
+								tank.setFluid(new FluidStack(output.getFluid(), tank.getCapacity()));
+							}
+							else
+							{
+								tank.setFluid(new FluidStack(output.getFluid(), tank.getFluidAmount() + output.amount));
+							}
+						}
+						System.out.println(tank.getFluidAmount());
+					}
+					//END FLUID
 				}
 			}
 			else
@@ -203,9 +227,10 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 				{
 					setInventorySlotContents(1, new ItemStack(resultStack.getItem(), resultStack.stackSize + stackOutput.stackSize));
 				}
-				//Fluid
+				
 				if (recipe.getOutputComponents().length > 1 && recipe.getOutputComponents()[1].isFluidStack())
 				{
+					System.out.println("Fluid was added");
 					FluidStack output = recipe.getOutputComponents()[1].getComponentAsFluidStack();
 					if (tank.getFluid() == null)
 					{
@@ -222,7 +247,9 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 							tank.setFluid(new FluidStack(output.getFluid(), tank.getFluidAmount() + output.amount));
 						}
 					}
+					System.out.println(tank.getFluidAmount());
 				}
+
 			}
 			
 			--stackInput.stackSize;
@@ -308,6 +335,11 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 	public void setTemp(int value)
 	{
 		internalTemp = value;
+	}
+	
+	public void setTankAmmount(int value)
+	{
+		//tank.getFluid().amount = value;
 	}
 	
 	@Override

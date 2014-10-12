@@ -12,6 +12,8 @@ import net.heavencraft.industrialchemistry.util.CollectionUtils;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
 
 public class RecipeRegistry
 {
@@ -46,18 +48,24 @@ public class RecipeRegistry
 		return null;
 	}
 	
-	public static Recipe addChemicalFurnaceRecipe(Object item1, int q1, Object item2, int q2, int processTime)
+	public static Recipe addChemicalFurnaceRecipe(Object input, int q1, float chance1, Object output, int q2, float chance2, Fluid outputFluid, int q3, int processTime)
 	{
 		List<RecipeComponent> inputList = null;
 		List<RecipeComponent> outputList = null;
-		if (item1 instanceof Item) inputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Item) item1, q1), 0, 1.0f) });
+		// Input
+		if (input instanceof Item) 
+			inputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Item) input, q1), 0, chance1) });
 		else
-			inputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Block) item1, q1), 0, 1.0f) });
+			inputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Block) input, q1), 0, chance1) });
 		
-		if (item2 instanceof Item) outputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Item) item2, q2), 0, 1.0f) });
-		
+		// Output
+		if (output instanceof Item) 
+			outputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Item) output, q2), 1, chance2) });
 		else
-			outputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Block) item2, q2), 0, 1.0f) });
+			outputList = CollectionUtils.getList(new RecipeComponent[] { new RecipeComponent(new ItemStack((Block) output, q2), 1, chance2) });
+		
+		// Fluid Output
+		outputList.add(new RecipeComponent(new FluidStack(outputFluid, q3), 2, 1.0f));
 		
 		Recipe recipe = new Recipe(TEMachineChemicalFurnace.class, inputList, outputList, processTime, null);
 		recipeList.add(recipe);

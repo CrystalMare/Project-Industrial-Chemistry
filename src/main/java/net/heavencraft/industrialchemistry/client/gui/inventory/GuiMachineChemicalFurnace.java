@@ -12,32 +12,37 @@ import org.lwjgl.util.Rectangle;
 
 import cofh.lib.gui.GuiBase;
 import cofh.lib.gui.element.ElementBase;
+import cofh.lib.gui.element.ElementEnergyStored;
+import cofh.lib.gui.element.ElementFluid;
 import cofh.lib.gui.element.ElementFluidTank;
 
 public class GuiMachineChemicalFurnace extends GuiBase
 {
-	TEMachineChemicalFurnace machineChemicalFurnaceTE;
+	TEMachineChemicalFurnace tile;
 	
 	private ElementBase elementTank;
+	private ElementBase elementPower;
 	
 	public GuiMachineChemicalFurnace(InventoryPlayer player, TEMachineChemicalFurnace tile)
 	{
 		super(new ContainerMachineChemicalFurnace(player, tile), Textures.GUI.ChemicalFurnace.GuiResource);
-		this.machineChemicalFurnaceTE = tile;
+		this.tile = tile;
 	}
 	
 	@Override
 	public void initGui()
 	{
 		super.initGui();
-		elementTank = addElement(new ElementFluidTank(this, 40, 40, machineChemicalFurnaceTE.getTank()));
+		elementPower = addElement(new ElementEnergyStored(this, 8, 8, tile.getEnergyStorage()));
+		elementTank = addElement(new ElementFluidTank(this, 40, 40, tile.getTank()));
 	}
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		fontRendererObj.drawString("Temp: " + machineChemicalFurnaceTE.getTemp(), 8, 24, Color.darkGray.getRGB());
-		fontRendererObj.drawString("RF/t: " + machineChemicalFurnaceTE.getEnergyUsage(), 8, 40, Color.darkGray.getRGB());
+		super.drawGuiContainerForegroundLayer(mouseX, mouseY);
+		fontRendererObj.drawString("Temp: " + tile.getTemp(), 8, 24, Color.darkGray.getRGB());
+		fontRendererObj.drawString("RF/t: " + tile.getEnergyUsage(), 8, 40, Color.darkGray.getRGB());
 	}
 	
 	@Override
@@ -49,7 +54,7 @@ public class GuiMachineChemicalFurnace extends GuiBase
 	
 	public void drawArrow()
 	{
-		double progress = machineChemicalFurnaceTE.getProgress();
+		double progress = tile.getProgress();
 		mc.getTextureManager().bindTexture(Textures.GUI.ChemicalFurnace.GuiResource);
 		Rectangle arrow = Textures.GUI.ChemicalFurnace.ProgressIndicator;
 		Rectangle gui = Textures.GUI.ChemicalFurnace.Gui;
