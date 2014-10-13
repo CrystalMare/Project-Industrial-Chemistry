@@ -4,6 +4,7 @@ import io.netty.buffer.ByteBuf;
 import net.heavencraft.industrialchemistry.tileentity.MachineState;
 import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineChemicalFurnace;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.fluids.FluidStack;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -19,7 +20,8 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 	int state;
 	int energyUsage;
 	int temp;
-	int tank;
+	int fluidamount;
+	int fluidid;
 	
 	public PacketChemicalFurnace()
 	{
@@ -35,7 +37,8 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		state = tile.getMachineState().getID();
 		energyUsage = tile.getEnergyUsage();
 		temp = tile.getTemp();
-		tank = tile.getTank().getFluidAmount();
+		fluidamount = tile.getTank().getFluidAmount();
+		fluidid = tile.getTank().getFluid().fluidID;
 	}
 	
 	@Override
@@ -49,7 +52,8 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		state = buf.readInt();
 		energyUsage = buf.readInt();
 		temp = buf.readInt();
-		tank = buf.readInt();
+		fluidamount = buf.readInt();
+		fluidid = buf.readInt();
 	}
 	
 	@Override
@@ -63,7 +67,8 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 		buf.writeInt(state);
 		buf.writeInt(energyUsage);
 		buf.writeInt(temp);
-		buf.writeInt(tank);
+		buf.writeInt(fluidamount);
+		buf.writeInt(fluidid);
 	}
 	
 	@Override
@@ -80,7 +85,7 @@ public class PacketChemicalFurnace implements IMessage, IMessageHandler<PacketCh
 				chemFurnace.setMachineState(MachineState.values()[message.state]);
 				chemFurnace.setEnergyUsage(message.energyUsage);
 				chemFurnace.setTemp(message.temp);
-				chemFurnace.setTankAmmount(message.tank);
+				chemFurnace.setTankFluid(new FluidStack(fluidid, fluidamount));
 			}
 		}
 		return null;
