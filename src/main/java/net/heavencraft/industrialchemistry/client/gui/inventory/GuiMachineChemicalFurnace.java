@@ -7,13 +7,11 @@ import net.heavencraft.industrialchemistry.reference.Textures;
 import net.heavencraft.industrialchemistry.tileentity.machines.TEMachineChemicalFurnace;
 import net.minecraft.entity.player.InventoryPlayer;
 
-import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.Rectangle;
 
 import cofh.lib.gui.GuiBase;
 import cofh.lib.gui.element.ElementBase;
 import cofh.lib.gui.element.ElementEnergyStored;
-import cofh.lib.gui.element.ElementFluid;
 import cofh.lib.gui.element.ElementFluidTank;
 
 public class GuiMachineChemicalFurnace extends GuiBase

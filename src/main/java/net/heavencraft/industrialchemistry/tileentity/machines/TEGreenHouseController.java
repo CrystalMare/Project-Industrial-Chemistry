@@ -16,8 +16,32 @@ public class TEGreenHouseController extends BaseTEBlockPower
 	
 	private Block[][][] multiBlock;
 	
+	private int height = 0;
+	private int length = 0;
+	private int width = 0;
+	
 	public TEGreenHouseController()
 	{
+	}
+	
+	public Block[][][] getMultiBlock()
+	{
+		return multiBlock;
+	}
+	
+	public int getHeight()
+	{
+		return height;
+	}
+	
+	public int getWidth()
+	{
+		return width;
+	}
+	
+	public int getLength()
+	{
+		return length;
 	}
 	
 	@Override
@@ -73,7 +97,7 @@ public class TEGreenHouseController extends BaseTEBlockPower
 					nextGlassY = y + n;
 				}
 				
-				int height = n + 1;
+				height = n + 1;
 				System.out.println("height: " + height);
 				
 				n = 1;
@@ -87,7 +111,7 @@ public class TEGreenHouseController extends BaseTEBlockPower
 					nextGlassZ = z + (doorDir.offsetZ * n);
 				}
 				if (n != height - 2) return false;
-				int length = (n * 2) - 1;
+				length = (n * 2) - 1;
 				
 				n = 1;
 				x = nextGlassX - (doorDir.offsetX);
@@ -102,7 +126,7 @@ public class TEGreenHouseController extends BaseTEBlockPower
 					nextGlassZ = z + (widthDirection.offsetZ * n);
 				}
 				
-				int width = n;
+				width = n;
 				System.out.println("Width: " + width);
 				System.out.println("Length: " + length);
 				if (width % 2 != 1) return false;
@@ -114,6 +138,37 @@ public class TEGreenHouseController extends BaseTEBlockPower
 				System.out.println("startX: " + startX);
 				System.out.println("startZ: " + startZ);
 				
+				multiBlock = new Block[height][length][width];
+				
+				if (width < 7) return false;
+				
+				for (int h = 0; h < height; h++)
+				{
+					for (int l = 0; l < length; l++)
+					{
+						for (int w = 0; w < width; w++)
+						{
+							multiBlock[h][l][w] = worldObj.getBlock(startX + (l * otherDir.offsetX), startY + h, startZ + (w * otherDir.offsetZ));
+						}
+					}
+				}
+				
+				for (int h = 0; h < height; h++)
+				{
+					for (int l = 0; l < length; l++)
+					{
+						for (int w = 0; w < width; w++)
+						{
+							if (h < 3 && l == 0)
+							{
+								if (!(multiBlock[h][l][w] instanceof BlockGlass))
+								{
+									System.out.println("length: " + l + " width: " + w + " height: " + h + " : FAILED MULTIBLOCK!");
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 		return false;

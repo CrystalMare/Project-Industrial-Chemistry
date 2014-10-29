@@ -11,12 +11,9 @@ import net.heavencraft.industrialchemistry.util.CollectionUtils;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
-import net.minecraftforge.fluids.FluidTankInfo;
-import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -24,7 +21,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class TEMachineChemicalFurnace extends BaseTEBlockPower
 {
 	private static final float heatingCoeff = 0.1f;
-	private static final float keepCoeff =  0.01f;
+	private static final float keepCoeff = 0.01f;
 	
 	private int timeLeftToProcess = 0;
 	private float internalTemp = 0;
@@ -192,7 +189,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 						setInventorySlotContents(1, new ItemStack(resultStack.getItem(), resultStack.stackSize + stackOutput.stackSize));
 					}
 					
-					//START FLUID
+					// START FLUID
 					if (recipe.getOutputComponents().length > 1 && recipe.getOutputComponents()[1].isFluidStack())
 					{
 						System.out.println("Fluid was added");
@@ -214,7 +211,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 						}
 						System.out.println(tank.getFluidAmount());
 					}
-					//END FLUID
+					// END FLUID
 				}
 			}
 			else
@@ -249,7 +246,7 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 					}
 					System.out.println(tank.getFluidAmount());
 				}
-
+				
 			}
 			
 			--stackInput.stackSize;
@@ -337,9 +334,9 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		internalTemp = value;
 	}
 	
-	public void setTankAmmount(int value)
+	public void setTankFluid(FluidStack value)
 	{
-		//tank.getFluid().amount = value;
+		tank.setFluid(value);
 	}
 	
 	@Override
@@ -360,8 +357,9 @@ public class TEMachineChemicalFurnace extends BaseTEBlockPower
 		storage.writeToNBT(nbt);
 		if (this.internalTemp != 0) nbt.setFloat(Names.NBT.TileEntity.Temp, internalTemp);
 	}
-
-	public IFluidTank getTank() {
+	
+	public IFluidTank getTank()
+	{
 		return tank;
-	}	
+	}
 }

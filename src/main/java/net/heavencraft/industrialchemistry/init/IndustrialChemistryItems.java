@@ -4,9 +4,9 @@ import net.heavencraft.industrialchemistry.item.BaseItem;
 import net.heavencraft.industrialchemistry.item.FireExtinguisher;
 import net.heavencraft.industrialchemistry.item.ItemAsh;
 import net.heavencraft.industrialchemistry.item.ItemChemical;
+import net.heavencraft.industrialchemistry.item.TestItem;
 import net.heavencraft.industrialchemistry.reference.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
-
 
 public class IndustrialChemistryItems
 {
@@ -25,6 +25,7 @@ public class IndustrialChemistryItems
 	
 	public static final BaseItem toolFireExtinguisher = new FireExtinguisher();
 	
+	public static final BaseItem testitem = new TestItem();
 	
 	public static final BaseItem itemAsh = new ItemAsh();
 	
@@ -43,5 +44,6 @@ public class IndustrialChemistryItems
 		GameRegistry.registerItem(chemicalCopperOxide, Names.Item.ChemicalCopperOxide);
 		GameRegistry.registerItem(itemAsh, Names.Item.Ash);
 		GameRegistry.registerItem(toolFireExtinguisher, Names.Item.FireExtinquisher);
+		GameRegistry.registerItem(testitem, "testitemPIC");
 	}
 }
